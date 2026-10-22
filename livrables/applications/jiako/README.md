@@ -64,7 +64,7 @@ Un étudiant ou petit entrepreneur crée une étude guidée à partir d'un modè
 
 **Stack :** React, TypeScript, Vite, Tailwind, Supabase (auth, PostgreSQL, RLS), Recharts, shadcn/ui. Rien de nouveau à apprendre, pas de serveur Node séparé à sécuriser. Next.js n'est pas nécessaire, le SEO ne sert à rien derrière un compte.
 
-**Hébergement :** Cloudflare Pages plutôt que Vercel. Vérifié le 22 octobre : le plan Hobby de Vercel interdit explicitement l'usage commercial (« advertising the sale of a product or service »), et peut mettre un déploiement en pause sans préavis. Cloudflare Pages n'interdit pas le commercial et offre une bande passante illimitée. Voir `livrables/documents/jiako/etape-2-stack.md`.
+**Hébergement :** **Vercel gratuit pendant le développement** (outil connu, 0 $/mois), avec une règle écrite : **migration obligatoire vers Cloudflare Pages** avant la mise en ligne de la page qui annonce les prix, ou avant le premier client payant. Vérifié le 22 octobre : le plan Hobby de Vercel interdit explicitement l'usage commercial et peut mettre un déploiement en pause sans préavis. Cloudflare Pages n'interdit pas le commercial et offre une bande passante illimitée. Détail dans `livrables/documents/jiako/etape-2-stack.md`.
 
 ## Modèle de données du MVP
 

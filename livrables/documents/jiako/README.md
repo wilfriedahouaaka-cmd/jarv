@@ -24,7 +24,7 @@
 | Modèle | Freemium 4 offres, mais le MVP n'a aucun paiement |
 | Nom | **JiaKo** confirmé |
 | Stack | React + TypeScript + Vite + Tailwind + Supabase + Recharts + shadcn/ui, sans changement |
-| Hébergement | **Cloudflare Pages** (gratuit, autorise le commercial) + Supabase Free pendant le dev, Supabase Pro à 25 $/mois au premier client |
+| Hébergement | **Vercel gratuit pendant le développement** (0 $/mois). Migration obligatoire vers Cloudflare Pages avant la page de vente ou le premier client payant |
 | Direction artistique | Proposée, **en attente de l'accord de Wilfried** |
 
 ## Versions texte

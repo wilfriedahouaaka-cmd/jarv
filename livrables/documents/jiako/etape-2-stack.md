@@ -48,11 +48,9 @@ Et la définition de l'usage commercial inclut explicitement :
 
 **Conséquence directe, et elle te concerne** : la page d'attente de JiaKo annonce un produit payant. C'est de la publicité pour une vente. Sur le plan Hobby, Vercel **peut mettre le déploiement en pause**, et les visiteurs voient une erreur 503. Ce n'est pas une menace théorique, c'est une fonctionnalité du service.
 
-### ⚠️ Alerte sur Kofira
+### Point de vigilance reporté
 
-Kofira tourne sur `kofira.vercel.app`, et Kofira vend des sites-cadeaux à 6 000, 12 000 et 35 000 FCFA. **C'est déjà de l'usage commercial sur un plan Hobby.** Ton site peut être mis en pause à tout moment, sans préavis.
-
-Ce n'est pas urgent au sens où tu ne perds pas de données. Mais si un client te contacte et que le lien ne marche pas, tu perds la vente. À surveiller, et à corriger avant que Kofira ne prenne de la traction.
+Un autre projet de Wilfried est hébergé sur le plan gratuit de Vercel et vend déjà. Ce n'est pas traité ici, c'est noté pour plus tard. Voir `livrables/applications/kofira/` si besoin.
 
 ### Les hébergeurs gratuits qui autorisent le commercial
 
@@ -77,44 +75,35 @@ Un domaine s'achète une fois pour ~12 $/an, et Cloudflare en vend sans marge (p
 
 ## 3. Ma recommandation
 
-### Pendant le développement et la bêta (maintenant)
+### Décision actée le 22 octobre : Vercel pendant le développement
 
-**Cloudflare Pages (0 $) + Supabase Free (0 $) = 0 $/mois.**
+Le développement se fait sur **Vercel**, outil connu de Wilfried et gratuit. C'est défendable : la familiarité de l'outil a de la valeur quand on débute, et le risque d'application des conditions sur un projet privé en développement est faible en pratique.
 
-Pourquoi ça tient :
+**La règle qui va avec, non négociable** : migration obligatoire vers **Cloudflare Pages** (gratuit lui aussi, autorise le commercial, bande passante illimitée) **avant** la mise en ligne d'une page qui annonce les prix, ou **avant le premier client payant**. Je la pose ici pour qu'elle ne soit pas oubliée au pire moment.
 
-- **Pas de violation de conditions.** Cloudflare n'interdit pas le commercial, contrairement à Vercel.
-- **La pause Supabase après 1 semaine d'inactivité ne te concerne pas encore.** Tant que tu développes et testes, tu touches à la base tous les jours. Le projet reste actif. Le risque n'existe que quand la base est silencieuse pendant 7 jours, c'est-à-dire quand tu n'as plus d'utilisateurs.
-- **Pas de serveur Node à maintenir.** Cloudflare Pages sert des fichiers statiques, et Supabase fait tout le reste (auth, base, RPC). Le fichier `_redirects` avec `/* /index.html 200` gère le routage React. C'est une ligne.
+**Honnêteté sur le risque** : la définition de l'usage commercial de Vercel est large (« any Deployment used for the purpose of financial gain of anyone involved in any part of the production of the project »), donc elle couvre théoriquement le développement d'un produit commercial, même privé. Le risque est faible en pratique, il n'est pas nul. C'est pour ça que la migration est écrite comme obligatoire et pas comme optionnelle.
 
-**Ce que ça te coûte en temps** : la connexion du dépôt Git à Cloudflare prend 10 minutes. Tu connais déjà le principe avec Vercel, c'est le même geste.
-
-### Dès que tu as un vrai utilisateur (premier client payant)
-
-**Supabase Pro (25 $/mois), Cloudflare Pages reste gratuit.**
-
-Le moment exact : quand quelqu'un d'autre que toi dépend de la disponibilité du service. Tant que c'est une bêta entre connaissances, la pause manuelle après inactivité te convient (2 clics pour reprendre). Dès qu'un client a partagé un lien à ses propres clients, un downtime te coûte de la crédibilité que tu ne peux pas racheter.
-
-**Total : 25 $/mois, pas 45 $.** Tu économises le prix d'un déjeuner par semaine pendant des mois.
+**Coût** : 0 $/mois. Vercel et Cloudflare sont tous deux gratuits. Le choix ne change rien au budget, seulement au moment de la migration.
 
 ### Ce que je ne recommande pas
 
-**Vercel Hobby**, même gratuitement. Ce n'est pas une question de générosité de leur part, c'est un risque opérationnel : une mise en pause arrive sans préavis, au pire moment, et tu ne peux pas la débloquer toi-même sans payer.
+**Netlify Free** : les crédits partagent un même pot entre déploiements et trafic. Un mois où tu déploies beaucoup mange ta bande passante. Cloudflare n'a pas ce problème.
 
-**Netlify Free** pour la même raison structurelle : les crédits partagent un même pot entre déploiements et trafic. Un mois où tu déploies beaucoup mange ta bande passante. Cloudflare n'a pas ce problème.
+**Vercel Hobby une fois que JiaKo vend quelque chose.** Le risque n'est pas théorique : Vercel peut mettre le déploiement en pause sans préavis, et tu ne peux pas le débloquer toi-même sans payer. La migration est écrite pour arriver avant ce moment-là, pas après.
 
 ---
 
 ## 4. Ce que ça change dans le plan
 
-| Avant (rapport du 20 oct.) | Après (ce document) |
+| Avant (rapport du 20 oct.) | Décision actuelle |
 |---|---|
-| Vercel Pro dès le départ (20 $/mois) | Cloudflare Pages gratuit |
-| Budget de 45 $/mois avant tout revenu | 0 $/mois pendant le développement |
-| Blocage « attendre les premiers clients payants » | Levé, tu peux construire tout de suite |
+| Vercel Pro dès le départ (20 $/mois) | **Vercel gratuit pendant le développement** |
+| Budget de 45 $/mois avant tout revenu | **0 $/mois pendant le développement** |
+| Blocage « attendre les premiers clients payants » | **Levé**, tu peux construire tout de suite |
 | Pas de vérification des conditions d'usage | Vérifié : Vercel interdit le commercial en gratuit |
+| — | Migration vers Cloudflare Pages obligatoire avant la page de vente ou le premier client payant |
 
-**L'effet le plus important** n'est pas l'économie de 20 $/mois. C'est que le rapport du 20 octobre en faisait un blocage : il fallait attendre de facturer pour héberger légalement. Avec Cloudflare Pages, **ce blocage n'existe plus**. Tu peux mettre JiaKo en ligne demain sans rien payer et sans violer aucune condition.
+**L'effet le plus important** n'est pas l'économie de 20 $/mois. C'est que le rapport du 20 octobre en faisait un blocage : il fallait attendre de facturer pour héberger. Avec le plan gratuit de Vercel pendant le développement, **ce blocage n'existe plus**. Tu peux construire dès maintenant sans rien payer.
 
 ---
 
@@ -122,8 +111,6 @@ Le moment exact : quand quelqu'un d'autre que toi dépend de la disponibilité d
 
 **Ce qui est tranché** : React + TypeScript + Vite + Tailwind + Supabase + Recharts + shadcn/ui, tel que prévu. Je ne change rien.
 
-**Ce que j'ajoute** : Cloudflare Pages comme hébergeur, à la place de Vercel Pro. Gratuit, autorise le commercial, bande passante illimitée. Supabase Free pendant le développement, Supabase Pro à 25 $/mois dès le premier vrai client.
+**Ce qui est acté** : hébergement Vercel gratuit pendant le développement, Supabase Free. **0 $/mois.** Migration vers Cloudflare Pages obligatoire avant la page qui annonce les prix, ou avant le premier client payant. Supabase Pro à 25 $/mois à ce même moment-là.
 
-**Ce que je signale** : Kofira est déjà sur Vercel Hobby en train de vendre, ce qui est hors conditions. À corriger avant qu'il ne prenne de la traction.
-
-**Ce qui reste à faire de ton côté** : acheter un nom de domaine .com (~12 $/an) quand tu seras prêt à mettre le lien en ligne. Je peux te guider, mais l'achat passe par toi.
+**Ce qui reste à faire de ton côté** : acheter un nom de domaine .com (~12 $/an) quand tu seras prêt à mettre le lien en ligne. L'achat passe par toi, je peux te guider.
