@@ -1,0 +1,194 @@
+# Rapport de projet : Sika
+
+> Source : `Présentation du Projet — SIKA.pdf` (original dans `context/import/`)
+
+---
+
+S
+SIKA
+Votre argent, simplifié.
+Présentation du projet
+Fondateur : Wilfried Ahoua Aka
+Pays : Côte d'Ivoire
+Date : Septembre 2026
+Version : 1.0
+SIKA — Présentation du Projet Page 1 de 14
+2. Le Problème Constat
+Aujourd'hui, les gens ne savent pas où part leur argent.
+Combien de fois avons-nous entendu :
+« Je ne sais pas où est passé mon salaire. »
+« Je gagne bien, mais je n'arrive pas à économiser. »
+« Je dépense trop, mais je ne sais pas quoi. »
+Pourquoi ?
+On ne note pas ses dépenses
+On n'a pas d'outil simple
+Les applications existantes sont en anglais, compliquées ou payantes
+Aucune solution n'est adaptée à notre réalité
+Résultat :
+Les gens perdent le contrôle de leur argent. Et cela crée du stress, des dettes, et des projets qui ne
+se réalisent jamais.
+SIKA — Présentation du Projet Page 2 de 14
+3. La Solution : Sika Vision
+Sika est un site web simple, gratuit et adaptatif qui aide chacun à mieux gérer son
+argent.
+Sika, c'est :
+Comptabilité claire
+Un endroit pour noter ses revenus et ses dépenses.
+Calculs automatiques
+Un calcul instantané de ce qu'il reste en poche.
+Visibilité totale
+Une vision claire de sa situation financière au jour le
+jour.
+Accessibilité
+Un outil universel accessible à tous, sans barrière.
+Pourquoi le nom « Sika » ?
+En langue Akan (parlée en Côte d'Ivoire et au Ghana), « Sika » signifie « or ».
+L'or est précieux. On le garde, on le surveille.
+Sika, c'est votre or : votre argent.
+SIKA — Présentation du Projet Page 3 de 14
+4. Ce qui existe déjà Analyse
+Les applications actuelles ont des problèmes :
+Application Problème
+Bankin' (France) Que pour les banques françaises, pas de FCFA
+YNAB (USA) En anglais, payant (~100 $/an)
+Mint (USA) En anglais, fermé depuis 2024
+Apps bancaires Limitées à une seule banque
+Et la majorité des gens ?
+Leur tête
+→ Ils oublient
+Un cahier
+→ Pas de calcul
+Rien du tout
+→ Chaos financier
+Personne ne propose un outil simple, gratuit, en français, adapté à notre réalité.
+SIKA — Présentation du Projet Page 4 de 14
+5. Notre Réponse Innovation
+Sika change la donne.
+Ce que Sika fait mieux que les autres :
+Les autres Sika
+Compliqué Simple
+En anglais Toutes les langues, automatiquement
+Payant Gratuit
+Une seule banque Toutes les banques
+Une seule monnaie Toutes les monnaies
+Pas adapté à l'Afrique S'adapte à chaque pays
+La grande idée de Sika :
+Le site détecte automatiquement où vous êtes et s'adapte :
+Votre pays
+Votre langue
+Votre monnaie
+Chaque visiteur se sent chez lui.
+SIKA — Présentation du Projet Page 5 de 14
+6. Comment ça marche Parcours
+Le parcours est simple en 5 étapes :
+1 Vous découvrez Sika
+Vous visitez le site librement. Pas besoin de compte pour regarder.
+2 Vous essayez la démonstration
+Vous testez sans engagement. Vous voyez comment ça fonctionne.
+3 Vous créez un compte
+Si ça vous plaît, vous vous inscrivez en 30 secondes.
+4 Vous utilisez Sika
+Vous ajoutez vos revenus et vos dépenses. Le site calcule tout pour vous.
+5 Vous voyez clair
+Votre solde, votre situation, votre progression. Tout est visible.
+SIKA — Présentation du Projet Page 6 de 14
+7. Notre Enquête Validation
+Nous avons posé 4 questions à 7 personnes :
+Question Résultat
+Ne savent pas précisément combien ils dépensent 5 sur 7
+N'utilisent aucun outil 4 sur 7
+Économisent régulièrement 2 sur 7
+Intéressés par Sika 7 sur 7
+Ce que ça veut dire :
+Le problème est réel
+Le terrain est vide
+L'intérêt est total
+100 % des personnes interrogées sont prêtes à utiliser Sika.
+SIKA — Présentation du Projet Page 7 de 14
+8. Pour qui ? Cibles
+Sika est fait pour tout le monde.
+L'étudiant
+Qui veut suivre ses petites dépenses au quotidien.
+La famille
+Qui veut organiser son budget commun efficacement.
+L'indépendant
+Qui veut séparer ses finances perso et pro.
+Le salarié
+Qui veut enfin réussir à économiser pour ses projets.
+L'utilisateur international
+Qui veut un outil simple dans sa langue et sa monnaie.
+Sika s'adapte à chaque personne, partout dans le monde.
+SIKA — Présentation du Projet Page 8 de 14
+9. Notre Vision Feuille de route
+Sika en 3 étapes :
+Étape 1 — Aujourd'hui
+Un site web simple pour gérer son argent.
+Étape 2 — Demain
+Ajout des budgets, objectifs, graphiques, paiement en ligne.
+Étape 3 — Plus tard
+Application mobile, multi-utilisateurs, présence internationale.
+NOTRE MISSION
+Aider des millions de personnes à reprendre le contrôle de leur argent.
+SIKA — Présentation du Projet Page 9 de 14
+10. Ce qu'on propose Offres
+Sika propose 5 formules :
+Formule Prix Description
+Découverte Gratuit Usage de base
+Essentiel 5 000 FCFA Fonctions avancées
+Capsule Sika 15 000 FCFA Complet — RECOMMANDÉ
+Création soi-même 3 000 FCFA Modèles + guide
+Sur mesure Sur devis Adapté au besoin
+Moyens de paiement acceptés :
+Wave, Orange Money, MTN, Moov, PayPal, cartes bancaires.
+SIKA — Présentation du Projet Page 10 de 14
+11. Pourquoi Sika va marcher Atouts
+5 raisons fondamentales :
+1. Le marché est immense
+Des millions de personnes en Afrique francophone n'ont pas d'outil adapté.
+2. Personne ne fait ça
+Aucune app n'est simple, gratuite, en français, multi-banques, multi-devises.
+3. Le besoin est réel
+Notre enquête le prouve : 100 % des gens interrogés sont intéressés.
+4. Le timing est parfait
+Le Mobile Money explose. Le smartphone se démocratise. La classe moyenne grandit.
+5. Notre approche est unique
+Adaptation automatique (pays, langue, monnaie). Simplicité radicale. Gratuité.
+SIKA — Présentation du Projet Page 11 de 14
+12. Notre Engagement Valeurs
+Sika s'engage à :
+1. Rester simple
+Si votre grand-mère ne comprend pas, on a échoué.
+2. Rester gratuit
+Pas d'abonnement caché pour l'usage de base.
+3. Rester respectueux
+Vos données restent les vôtres, en toute sécurité.
+4. Rester adapté
+Le site s'adapte à votre pays, votre langue, votre monnaie.
+5. Rester humain
+On parle comme des personnes, pas comme des robots.
+SIKA — Présentation du Projet Page 12 de 14
+13. Appel à l'action
+Sika arrive bientôt.
+Si vous voulez :
+Suivre votre argent simplement
+Voir où part votre budget
+Économiser pour vos projets
+Utiliser un outil gratuit et adapté
+Sika est fait pour vous. Rejoignez-nous.
+Contact direct :
+wilfriedahouaaka@gmail.com
+SIKA — Présentation du Projet Page 13 de 14
+Sika
+Votre argent, simplifié.
+Notre promesse
+Aider chacun, partout dans le monde, à comprendre et maîtriser son
+argent — simplement, gratuitement.
+Notre force
+Un site qui s'adapte à vous.
+Notre vision
+Né en Côte d'Ivoire, ouvert au monde.
+Merci.
+Wilfried Ahoua Aka
+Fondateur de Sika
+Côte d'Ivoire — Septembre 2026
+SIKA — Présentation du Projet Page 14 de 14

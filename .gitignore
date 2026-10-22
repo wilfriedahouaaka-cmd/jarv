@@ -1,0 +1,249 @@
+# ============================================================
+# .gitignore — PROTECTION DES SECRETS ET DES FICHIERS DE BUILD
+# ============================================================
+#
+# RÔLE
+#   Empêcher qu'un secret ou un fichier de build arrive un jour
+#   sur Git ou GitHub.
+#
+# VÉRIFICATION
+#   Avant chaque commit :
+#     git status --porcelain
+#   Si .env apparaît dans la liste, STOP. Ne commit pas.
+#
+# APRÈS UN COMMIT PAR RÉFLEXE
+#   Si un secret a été commité par erreur, le retirer du fichier
+#   ne suffit PAS : l'historique le conserve. Il faut le faire
+#   tourner chez le fournisseur (rotation), puis nettoyer l'historique.
+#
+# Ce fichier s'applique à TOUS les sous-dossiers, y compris
+# livrables/applications/<projet>/. Un .env dans un sous-dossier
+# est donc automatiquement protégé.
+# ============================================================
+
+
+# ----------------------------------------------------------
+# SECRETS : VARIABLES D'ENVIRONNEMENT
+# .env ignore, mais .env.example reste versionnable
+# ----------------------------------------------------------
+.env
+.env.*
+!.env.example
+
+# ----------------------------------------------------------
+# CLÉS, CERTIFICATS, FICHIERS DE SECRET
+# ----------------------------------------------------------
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.jks
+*.keystore
+*.der
+*.csr
+*.asc
+*.gpg
+id_rsa
+id_rsa.*
+id_ed25519
+id_ecdsa
+*.ppk
+secrets.json
+secrets.yaml
+secrets.yml
+credentials.json
+credentials.yml
+service-account*.json
+serviceaccount*.json
+*service-account*.json
+*service_account*.json
+*gcp*.json
+sa.json
+.gcp-credentials.json
+.aws/
+azure-account.json
+*.netrc
+.netrc
+.npmrc.local
+netrc
+
+# ----------------------------------------------------------
+# DEPENDANCES
+# ----------------------------------------------------------
+node_modules/
+jspm_packages/
+.pnp
+.pnp.js
+.yarn/*
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/versions
+vendor/
+bower_components/
+
+# ----------------------------------------------------------
+# DOSSIERS DE BUILD ET DE COMPILATION
+# ----------------------------------------------------------
+dist/
+build/
+out/
+.output/
+.next/
+.nuxt/
+.nitro/
+.svelte-kit/
+.astro/
+.angular/
+.turbo/
+.turbo-cache/
+.cache/
+.parcel-cache/
+.swc/
+.vercel/
+.netlify/
+.serverless/
+.sst/
+.static/
+storybook-static/
+
+# ----------------------------------------------------------
+# ARTEFACTS DE COMPILATION
+# ----------------------------------------------------------
+*.tsbuildinfo
+*.class
+*.dll
+*.exe
+*.out
+*.o
+*.a
+*.lib
+*.so
+*.dylib
+*.wasm
+*.map
+*.min.js
+*.min.css
+
+# ----------------------------------------------------------
+# CACHE DE PACKAGE MANAGERS
+# ----------------------------------------------------------
+.npm/
+.yarn/
+.pnpm-store/
+pnpm-store/
+.bun/
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+pip-wheel-metadata/
+
+# ----------------------------------------------------------
+# TESTS ET COUVERTURE
+# ----------------------------------------------------------
+coverage/
+.nyc_output/
+htmlcov/
+*.lcov
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# ----------------------------------------------------------
+# LOGS
+# ----------------------------------------------------------
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+# ----------------------------------------------------------
+# FICHIERS TEMPORAIRES ET SAUVEGARDES
+# ----------------------------------------------------------
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.swp
+*.swo
+*~
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+*.pid
+*.seed
+*.pid.lock
+
+# ----------------------------------------------------------
+# FICHIERS D'ÉDITEUR
+# ----------------------------------------------------------
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.iml
+*.ipr
+*.iws
+.fleet/
+.zed/
+*.sublime-project
+*.sublime-workspace
+.history/
+*.local
+
+# ----------------------------------------------------------
+# SECRETS SPÉCIFIQUES À CERTAINS OUTILS
+# ----------------------------------------------------------
+# Supabase : les clés de service ne doivent jamais partir
+supabase/.temp/
+*.supabase.*
+
+# Vercel
+.vercel/
+.now/
+
+# Firebase
+firebase-debug.log
+firestore-debug.log
+ui-debug.log
+.firebase/
+
+# AWS / Azure
+.aws/
+azure-account.json
+
+# Dossiers de credentials d'outils
+credentials/
+credentials.json
+
+# ----------------------------------------------------------
+# SYSTÈME
+# ----------------------------------------------------------
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ----------------------------------------------------------
+# CONTENU DU WORKSPACE JARVIS
+# Ces éléments sont propres à ce workspace, ils ne doivent pas
+# fuir dans un dépôt public.
+# ----------------------------------------------------------
+
+# Les documents que Wilfried fournit (CV, rapports importés,
+# PDF de clients) sont personnels et confidentiels
+context/import/
