@@ -1,0 +1,1054 @@
+/* ============================================================
+   JiaKo — Composants de base
+   Bouton, carte, pastille de statut, champ, barre de résultat,
+   état vide, squelette de chargement, barre de navigation.
+   Aucune valeur en dur : tout vient de tokens.css.
+   ============================================================ */
+
+/* ---------- Remise à zéro minimale, adaptée aux maquettes ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font-text);
+  font-size: var(--fs-base);      /* 16 px minimum, jamais moins */
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  font-weight: 600;
+}
+
+h3 {
+  font-weight: 500;
+}
+
+/* Newsreader sert aux titres et aux chiffres clés, jamais au corps de texte.
+   h3 en 500 plutôt que 600 : le design system distingue les poids par niveau
+   (headline-lg/md à 600, headline-sm à 500), ce qui donne la hiérarchie
+   typographique du style éditorial. */
+.chiffre {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--c-primary);
+}
+
+/* Focus visible : navigation clavier complète, testée à la livraison */
+:focus-visible {
+  outline: 3px solid var(--c-accent-deep);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* Respect de la préférence "réduire les animations" (WCAG 2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Structure ---------- */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section empilée d'une page de l'application (références, états, aide).
+   Filet séparateur et respiration, comme les sections de l'accueil :
+   une seule grammaire de séparation sur tout le produit. */
+.bloc {
+  padding: var(--sp-8) 0;
+  border-top: 1px solid var(--c-border);
+}
+
+.contenu {
+  width: 100%;
+  max-width: var(--w-page);   /* 1040 px, largeur du design system */
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-4) var(--sp-24);
+}
+
+.entete-page {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: var(--sp-6);
+}
+
+.entete-page h1 {
+  font-size: var(--fs-2xl);
+}
+
+.sur-titre {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--sp-1);
+}
+
+/* ---------- Barre de navigation (haut sur mobile, latérale sur desktop) ---------- */
+.nav {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+  padding: var(--sp-3) var(--sp-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  /* La barre reste collée en haut quand le contenu défile dessous :
+     l'ombre la détache, sinon les deux fonds se rejoignent sans limite */
+  box-shadow: var(--shadow-md);
+  /* Sur un écran de 360 px la barre se répartit sur deux lignes
+     plutôt que de déborder horizontalement */
+  flex-wrap: wrap;
+}
+
+/* La marque est un lien vers la page d'accueil sur TOUS les écrans :
+   depuis n'importe où, on revient au point de départ */
+.nav-marque {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+}
+
+.nav-marque-lien {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-marque-lien:hover {
+  color: var(--c-accent);
+}
+
+.nav-liens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-4);
+  font-size: var(--fs-sm);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-liens a {
+  color: var(--c-primary-ink);
+  text-decoration: none;
+  padding: var(--sp-2) var(--sp-1);
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+}
+
+/* aria-current="page" : c'est cette page.
+   aria-current="location" : on est dans cette section, sur un autre écran.
+   Les deux marquent la position, donc les deux reçoivent le trait ambre. */
+.nav-liens a[aria-current] {
+  border-bottom-color: var(--c-accent);
+  font-weight: 600;
+}
+
+.nav-liens a:hover {
+  border-bottom-color: var(--c-accent);
+}
+
+.nav-compte {
+  font-size: var(--fs-sm);
+  color: var(--c-primary-ink);
+  opacity: 0.85;
+}
+
+/* ---------- Boutons : cible tactile 48 px ----------
+
+   Rayon pilule (--r-full) plutôt que --r-md. C'est la demande du pattern
+   de style observé sur les références du secteur, et ça sert la
+   hiérarchie : un bouton en pilule ne ressemble à aucune carte de la
+   page, donc l'œil sait immédiatement ce qui est cliquable. Les cartes
+   gardent --r-md, qui reste le rayon dominant des surfaces. */
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  min-height: var(--h-control);   /* 48 px : zone tactile du design system */
+  padding: var(--sp-3) var(--sp-6);   /* latéral généreux : sinon pas de vraie pilule */
+  border-radius: var(--r-full);
+  border: 1px solid transparent;
+  font-family: var(--font-text);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+
+.bouton:active {
+  transform: translateY(1px);   /* retour immédiat, 150 ms */
+}
+
+/* Action principale de l'écran : le vert de marque, une seule par écran.
+   Rôle inversé le 22 octobre : l'ambre n'est plus la couleur du primaire. */
+.bouton-primaire {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+}
+
+.bouton-primaire:hover {
+  background: var(--c-primary-soft);
+  color: var(--c-primary-ink);
+}
+
+/* Action d'accent : l'ambre, réservée au partage WhatsApp et aux cas
+   qui demandent de l'urgence. Encre sombre sur ambre, jamais du papier. */
+.bouton-accent {
+  background: var(--c-accent);
+  color: var(--c-accent-ink);
+}
+
+.bouton-accent:hover,
+.bouton-accent:active {
+  background: var(--c-accent-deep);
+  color: var(--c-accent-ink);
+}
+
+/* Bouton en contour : 1,5 px de bordure verte, fond transparent */
+.bouton-secondaire {
+  background: transparent;
+  color: var(--c-primary);
+  border: 1.5px solid var(--c-primary);
+}
+
+.bouton-secondaire:hover {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+}
+
+/* Variante à poser sur un fond vert (bandeau d'appel final) : le contour
+   vert serait invisible sur fond vert, donc le contour devient papier */
+.bouton-secondaire-clair {
+  background: transparent;
+  color: var(--c-primary-ink);
+  border-color: var(--c-primary-ink);
+}
+
+.bouton-secondaire-clair:hover {
+  background: var(--c-primary-ink);
+  color: var(--c-primary);
+}
+
+/* Action tertiaire : texte seul, pour ne pas voler l'attention */
+.bouton-discret {
+  background: transparent;
+  color: var(--c-text-muted);
+  border-color: var(--c-border);
+}
+
+/* ---------- Carte ----------
+   Fond ivoire chaud, filet sable, 12 px. Padding élargi à partir
+   de 640 px, comme le veut le design system. */
+.carte {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 640px) {
+  .carte {
+    padding: var(--sp-6);
+  }
+}
+
+.carte + .carte {
+  margin-top: var(--sp-3);
+}
+
+.liste-cartes {
+  display: grid;
+  gap: var(--sp-3);
+}
+
+/* ---------- Pastille de statut : couleur + MOT, jamais la seule couleur ----------
+   Hauteur 28 px, pilule, fond pastel et encre foncée : lisibles en plein
+   soleil et sur un écran d'entrée de gamme. Pas de bordure : le fond suffit. */
+.pastille {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  min-height: var(--h-badge);
+  padding: 0 var(--sp-3);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  border-radius: var(--r-full);
+  background: var(--c-surface-2);
+  color: var(--c-text);
+}
+
+.pastille::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-full);
+  background: currentColor;
+}
+
+/* Publiée : le lien tourne, les réponses arrivent */
+.pastille-publiee {
+  background: var(--c-badge-wait-bg);
+  color: var(--c-badge-wait-ink);
+}
+
+/* Brouillon : rien n'est en ligne */
+.pastille-brouillon {
+  background: var(--c-badge-draft-bg);
+  color: var(--c-badge-draft-ink);
+}
+
+/* Fermée : les résultats sont figés */
+.pastille-fermee {
+  background: var(--c-badge-ok-bg);
+  color: var(--c-badge-ok-ink);
+}
+
+/* Badge de type de question : fond vert, texte papier */
+.badge-type {
+  display: inline-block;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: var(--sp-1) var(--sp-2);
+  border-radius: var(--r-sm);
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+}
+
+/* Ligne d'en-tête d'une question : numéro à gauche, contenu à droite */
+.question-entete {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: baseline;
+}
+
+.numero {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  color: var(--c-text-muted);
+}
+
+.question-libelle {
+  font-weight: 600;
+  margin-top: var(--sp-2);
+}
+
+/* ---------- Métadonnées d'une étude ---------- */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  margin-top: var(--sp-2);
+}
+
+.meta strong {
+  color: var(--c-text);
+  font-weight: 600;
+}
+
+/* ---------- Barre de résultat (jamais de camembert) ----------
+   Hauteur 8 px, rayon 4 px, piste sable : les valeurs du design
+   system. Le remplissage est vert doux, l'accent ambre foncé. */
+.resultat-ligne {
+  margin-top: var(--sp-4);
+}
+
+.resultat-libelle {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-1);
+}
+
+.resultat-valeur {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.piste {
+  height: 8px;
+  background: var(--c-border);
+  border-radius: var(--r-sm);
+  overflow: hidden;
+}
+
+.remplissage {
+  height: 100%;
+  background: var(--c-primary-soft);
+  border-radius: var(--r-sm);
+  transition: width var(--dur-base) var(--ease-out);
+}
+
+/* La question la plus marquante reçoit l'accent : une seule par écran.
+   Ambre foncé et non ambre clair : sur la piste sable, seul le foncé
+   atteint le contraste 3:1 exigé pour un élément graphique porteur de sens. */
+.remplissage-accent {
+  background: var(--c-accent-deep);
+}
+
+/* ---------- Champs de formulaire : label AU-DESSUS, jamais en placeholder ----------
+   Deux formes, comme le veut le design system : le champ sur une ligne est
+   en pilule à 48 px, la zone de texte garde le rayon des surfaces (12 px).
+   Bordure 1,5 px partout, halo de focus au vert du projet. */
+.champ {
+  display: block;
+  margin-bottom: var(--sp-4);
+}
+
+.champ-label {
+  display: block;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
+
+.champ-aide {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+  margin-bottom: var(--sp-2);
+}
+
+.champ-saisie,
+.champ-zone {
+  width: 100%;
+  padding: var(--sp-3);
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-border);
+  font-family: var(--font-text);
+  font-size: var(--fs-base);     /* empêche iOS d'agrandir le champ */
+  color: var(--c-text);
+}
+
+/* Champ sur une ligne : pilule, 48 px */
+.champ-saisie {
+  min-height: var(--h-control);
+  border-radius: var(--r-full);
+}
+
+/* Zone de texte : rayon des surfaces */
+.champ-zone {
+  min-height: 128px;
+  border-radius: var(--r-md);
+}
+
+.champ-saisie:focus,
+.champ-zone:focus {
+  border-color: var(--c-primary);
+  outline: none;
+  box-shadow: var(--halo-focus);
+}
+
+/* Erreur : sous le champ, en clair, avec un texte expliquant */
+.champ-erreur {
+  font-size: var(--fs-sm);
+  color: var(--c-danger);
+  font-weight: 600;
+  margin-top: var(--sp-1);
+}
+
+/* ---------- État vide : pourquoi c'est vide + quoi faire maintenant ---------- */
+.etat-vide {
+  text-align: center;
+  padding: var(--sp-12) var(--sp-4);
+  border: 1px dashed var(--c-border);
+  border-radius: var(--r-md);
+  background: var(--c-surface);
+}
+
+.etat-vide h2 {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--sp-2);
+}
+
+.etat-vide p {
+  color: var(--c-text-muted);
+  max-width: 46ch;
+  margin: 0 auto var(--sp-6);
+}
+
+/* ---------- Squelette de chargement : à la forme du contenu final,
+     jamais un cercle qui tourne ---------- */
+.squelette {
+  background: var(--c-surface-2);
+  border-radius: var(--r-sm);
+  height: 1em;
+  animation: pouls 1.2s ease-in-out infinite;
+}
+
+/* Épaisseur pour un titre de squelette : un titre n'a pas la hauteur
+   d'une ligne de texte. Les largeurs, elles, viennent des classes .w-*
+   déjà définies plus bas. */
+.squelette-titre { height: 1.6em; }
+
+@keyframes pouls {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* ---------- Bandeau d'information / alerte ---------- */
+.bandeau {
+  border-left: 4px solid var(--c-info);
+  background: var(--c-surface-2);
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--sp-6);
+}
+
+.bandeau-attention {
+  border-left-color: var(--c-warning);
+}
+
+/* Variante rouge, pour une erreur bloquante (quota atteint, échec d'envoi) */
+.bandeau-danger {
+  border-left-color: var(--c-danger);
+}
+
+/* ---------- Bloc d'état : erreur, accès refusé, quota ----------
+   Trois états qu'on oublie toujours de designer, et qui coûtent cher
+   en confiance quand ils arrivent. Trois règles, dans cet ordre :
+   1. le titre dit CE QUI S'EST PASSÉ, en français, sans code technique ;
+   2. le texte dit CE QUE LA PERSONNE PEUT FAIRE MAINTENANT ;
+   3. il y a toujours une action pour sortir de l'état, sauf si vraiment
+      rien n'est possible (et alors on dit pourquoi).
+   Centré et aéré : un état n'est pas un endroit où on se dépêche. */
+.etat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-8) var(--sp-6);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-left-width: 4px;
+  border-radius: var(--r-md);
+}
+
+/* La couleur de la bordure gauche porte la nature de l'état.
+   Elle ne porte JAMAIS l'information seule : le titre est toujours là. */
+.etat-erreur {
+  border-left-color: var(--c-danger);
+}
+
+.etat-acces {
+  border-left-color: var(--c-warning);
+}
+
+.etat-quota {
+  border-left-color: var(--c-info);
+}
+
+.etat-titre {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.etat-texte {
+  max-width: 60ch;
+  color: var(--c-text-muted);
+}
+
+.etat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-2);
+}
+
+/* ---------- Choix de réponse : cibles tactiles de 44 px minimum ---------- */
+.option-liste {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-height: 44px;
+  padding: var(--sp-3);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  cursor: pointer;
+  font-size: var(--fs-base);
+  transition: border-color var(--dur-fast) var(--ease-out),
+              background-color var(--dur-fast) var(--ease-out);
+}
+
+.option:hover {
+  border-color: var(--c-primary);
+}
+
+.option input {
+  width: 22px;      /* taille issue du design system */
+  height: 22px;
+  accent-color: var(--c-primary);
+  flex-shrink: 0;
+}
+
+.option:has(input:checked) {
+  border-color: var(--c-primary);
+  background: var(--c-surface-2);
+  font-weight: 600;
+}
+
+/* Échelle 1 à 5 : 5 boutons sur une ligne, lisibles au pouce */
+.echelle {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-2);
+}
+
+.echelle-bouton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.echelle-bouton:has(input:checked) {
+  background: var(--c-accent);
+  border-color: var(--c-accent-deep);
+  color: var(--c-accent-ink);
+}
+
+.echelle-bouton input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pied d'écran collant sur la page publique : l'envoi est toujours atteignable */
+.pied-envoi {
+  position: sticky;
+  bottom: 0;
+  background: var(--c-bg);
+  border-top: 1px solid var(--c-border);
+  padding: var(--sp-4) 0;
+  margin-top: var(--sp-6);
+}
+
+.bouton-large {
+  width: 100%;
+}
+
+/* Le honeypot : caché de l'humain, lisible par le robot.
+   Il est dans le HTML mais jamais à l'écran (détail technique, §9 de l'architecture) */
+.champ-leurre {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+/* ---------- Page publique de réponse (surface anonyme) ---------- */
+.entete-publique {
+  padding: var(--sp-4);
+  border-bottom: 1px solid var(--c-border);
+  background: var(--c-surface);
+}
+
+.entete-publique-interieur,
+.page-publique {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.page-publique {
+  padding: var(--sp-6) var(--sp-4);
+}
+
+.marque-publique {
+  color: var(--c-primary);
+}
+
+/* Un bloc de question : fieldset remis à zéro, l'outline par défaut ne sert à rien */
+.bloc-question {
+  border: 0;
+  padding: 0;
+  margin: 0 0 var(--sp-6);
+}
+
+.question-titre {
+  font-family: var(--font-text);
+  font-weight: 600;
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  padding: 0;
+  margin-bottom: var(--sp-3);
+}
+
+.option-mention {
+  font-weight: 400;
+}
+
+.texte-centre {
+  text-align: center;
+}
+
+/* Barre de progression remplie en entier (la valeur réelle viendra des données) */
+.remplissage-plein {
+  width: 100%;
+}
+
+/* ---------- KPI : 4 maximum par écran, au-delà aucune n'est principale ---------- */
+.kpi-ligne {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-6);
+}
+
+.kpi {
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-4);
+}
+
+.kpi-valeur {
+  font-family: var(--font-display);
+  font-size: var(--fs-3xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  font-variant-numeric: tabular-nums;
+}
+
+.kpi-libelle {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+/* Variante d'un KPI affiché en texte (sans chiffre géant) */
+.kpi-valeur-texte {
+  font-size: var(--fs-xl);
+  padding-top: var(--sp-3);
+}
+
+.kpi-unite {
+  font-size: var(--fs-lg);
+  font-weight: 400;
+}
+
+/* Largeurs de barre : dans l'application, elles viennent des données.
+   Ici, des classes, pour ne laisser aucune valeur en dur dans le HTML. */
+.w-2  { width: 2%; }
+.w-5  { width: 5%; }
+.w-10 { width: 10%; }
+.w-24 { width: 24%; }
+.w-36 { width: 36%; }
+.w-40 { width: 40%; }
+.w-48 { width: 48%; }
+.w-55 { width: 55%; }
+.w-60 { width: 60%; }
+.w-75 { width: 75%; }
+.w-80 { width: 80%; }
+
+/* ---------- Réponses en texte libre ---------- */
+.verbatim {
+  border-left: 3px solid var(--c-border);
+  padding-left: var(--sp-3);
+}
+
+.verbatim-source {
+  display: block;
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  margin-top: var(--sp-1);
+}
+
+/* ---------- Carte de résultat, pensée pour la capture d'écran WhatsApp.
+     Format 1080×1080 en production : proportions carrées dès maintenant. ---------- */
+.carte-partage {
+  aspect-ratio: 1 / 1;
+  max-width: 360px;
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+  border-radius: var(--r-md);
+  padding: var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carte-partage-titre {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+}
+
+/* Les mentions secondaires de la carte : lisibles, mais jamais au premier plan */
+.carte-partage-marque {
+  font-family: var(--font-display);
+  font-size: var(--fs-sm);
+  opacity: 0.85;
+}
+
+.carte-partage-note {
+  font-size: var(--fs-sm);
+  opacity: 0.9;
+}
+
+.carte-partage-date {
+  font-size: var(--fs-xs);
+  opacity: 0.75;
+}
+
+/* Ambre sur vert, jamais ambre sur papier : le contraste tient sur grand texte
+   (règle écrite dans la direction artistique, §3) */
+.carte-partage-chiffre {
+  font-family: var(--font-display);
+  font-size: var(--fs-4xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--c-accent);
+}
+
+/* ---------- Utilitaires d'espacement et de texte ---------- */
+.mt-2 { margin-top: var(--sp-2); }
+.mt-4 { margin-top: var(--sp-4); }
+.mt-6 { margin-top: var(--sp-6); }
+
+.titre-xl { font-size: var(--fs-2xl); }
+
+/* Titre qui sert de lien : pas de soulignement, la couleur du texte est conservée */
+.titre-lien {
+  color: inherit;
+  text-decoration: none;
+}
+
+.titre-lien:hover {
+  text-decoration: underline;
+}
+
+.texte-discret {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+/* ---------- Utilitaires de composition, pour éviter les styles en ligne ---------- */
+.carte-entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.titre-carte {
+  font-size: var(--fs-xl);
+  margin-top: var(--sp-2);
+}
+
+/* Le grand chiffre d'un résultat : chiffres tabulaires pour rester alignés,
+   taille dédiée du design system (28 px), interlettrage serré */
+.grand-chiffre {
+  font-family: var(--font-display);
+  font-size: var(--fs-stat);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--lh-tight);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;   /* boutons et texte secondaire alignés sur la même ligne */
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+/* Actions placées dans un en-tête de page : déjà alignées sur le titre,
+   pas besoin de les décaler à nouveau */
+.actions--haut {
+  margin-top: 0;
+}
+
+/* ---------- Pied de page commun à toutes les pages (sauf la page publique 03) ----------
+   Il porte la navigation longue : c'est ce qui permet de garder la barre
+   du haut courte et lisible sur un téléphone. Même rôle que le Footer de
+   Kofira, repris page par page puisqu'ici il n'y a pas de composant partagé.
+   La liste des liens à tenir à jour est dans navigation.md. */
+.pied {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+  border-top: 1px solid rgb(250 246 239 / 0.25);
+  padding: var(--sp-8) 0 var(--sp-6);
+  font-size: var(--fs-sm);
+  /* Se colle en bas de l'écran quand le contenu de la page est court */
+  margin-top: auto;
+}
+
+.pied-interieur {
+  width: 100%;
+  max-width: var(--w-page);   /* 1040px : aligné sur le reste de la page */
+  margin: 0 auto;
+  padding: 0 var(--sp-4);
+}
+
+.pied-colonnes {
+  display: grid;
+  gap: var(--sp-6);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+/* min-width: 0 indispensable dans une grille : sans lui, une adresse
+   email longue ou un mot sans espace fait déborder la colonne horizontalement */
+.pied-colonne {
+  min-width: 0;
+}
+
+.pied-titre {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--sp-2);
+}
+
+.pied-liens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-1);
+  align-content: start;
+}
+
+.pied-liens a {
+  color: var(--c-primary-ink);
+  text-decoration: none;
+  display: inline-block;
+  padding: var(--sp-1) 0;   /* cible cliquable élargie au-delà du texte seul */
+}
+
+.pied-liens a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--c-accent);
+  text-decoration-thickness: 2px;
+}
+
+.pied-bas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  justify-content: space-between;
+  border-top: 1px solid rgb(250 246 239 / 0.25);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-4);
+  opacity: 0.9;
+}
+
+.pied-bas a {
+  color: var(--c-primary-ink);
+}
+
+/* ---------- Pied de la page publique de réponse (écran 03) ----------
+   Un seul retour discret, JAMAIS la navigation de l'application :
+   le répondant est anonyme, il n'a ni compte ni espace. */
+.pied-publique {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: var(--sp-6) var(--sp-4) var(--sp-8);
+  border-top: 1px solid var(--c-border);
+  font-size: var(--fs-sm);
+}
+
+.pied-publique a {
+  color: var(--c-primary);
+}
+
+/* ---------- Liste de contenu simple : filets ambre au lieu des puces
+     par défaut du navigateur, qui changent de forme selon l'OS ---------- */
+.liste-simple {
+  list-style: none;
+  margin: var(--sp-4) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.liste-simple li {
+  padding-left: var(--sp-6);
+  position: relative;
+}
+
+.liste-simple li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 10px;
+  height: 2px;
+  background: var(--c-accent-deep);
+}
+
+/* ---------- Pied de note de travail ----------
+   Utilisée uniquement par `galerie.html`. Les pages du parcours n'en ont
+   plus depuis le 22 octobre : une page de produit ne présente pas sa
+   propre maquette. */
+.notice-travail {
+  font-size: var(--fs-xs);
+  color: var(--c-text-muted);
+  border-top: 1px solid var(--c-border);
+  margin-top: var(--sp-8);
+  padding-top: var(--sp-3);
+}

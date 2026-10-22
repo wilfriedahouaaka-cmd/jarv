@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Nous écrire</title>
+
+  <!-- Page publique : barre modèle A et pied commun, ancrage WhatsApp -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+  <link rel="stylesheet" href="accueil.css">
+</head>
+<body>
+  <div class="accueil">
+
+    <!-- Barre publique : modèle A de navigation.md -->
+    <header class="accueil-nav">
+      <div class="accueil-contenu accueil-nav-interieur">
+        <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+        <nav aria-label="Navigation du site">
+          <ul class="accueil-liens">
+            <li><a href="index.html#etapes">Comment ça marche</a></li>
+            <li><a href="index.html#modeles">Les modèles</a></li>
+            <li><a href="index.html#faq">Questions</a></li>
+            <li><a href="06-contact.html" aria-current="page">Contact</a></li>
+            <li><a href="01-etudes.html">Se connecter</a></li>
+            <li><a class="bouton bouton-accent" href="02-editeur.html">Créer une étude</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="accueil-contenu page-contenu">
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Contact</p>
+          <h1 class="titre-xl">Écris-nous, on répond sur WhatsApp</h1>
+        </div>
+      </div>
+
+      <!-- Ce bandeau dit un vrai manque (pas de formulaire encore),
+           pas une limite de maquette : on le garde, reformulé. -->
+      <div class="bandeau bandeau-attention">
+        <strong>Le formulaire arrive avec la première version de l'application.</strong>
+        Pour l'instant, écris-nous directement sur WhatsApp, c'est le plus rapide.
+      </div>
+
+      <section class="carte" id="whatsapp">
+        <p class="sur-titre">Le canal principal</p>
+        <h2 class="titre-carte">WhatsApp</h2>
+        <p class="mt-4">
+          C'est le plus rapide, et c'est de là que partent aussi les liens d'enquête.
+          Une réponse en général dans la journée.
+        </p>
+        <div class="actions">
+          <!-- WhatsApp est l'action d'accent du design system : ambre, encre sombre -->
+          <a class="bouton bouton-accent" href="https://wa.me/2250715383096"
+             target="_blank" rel="noopener">Ouvrir la discussion</a>
+          <span class="texte-discret">ou 07 15 38 30 96</span>
+        </div>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Par écrit</p>
+        <h2 class="titre-carte">Email</h2>
+        <p class="mt-4">
+          Pour un besoin plus détaillé, un devis ou une pièce à joindre.
+        </p>
+        <div class="actions">
+          <a class="bouton bouton-secondaire" href="mailto:wilfriedahouaaka@gmail.com">
+            wilfriedahouaaka@gmail.com
+          </a>
+        </div>
+        <p class="texte-discret mt-4">Abidjan, Côte d'Ivoire.</p>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Tu as répondu à une enquête ?</p>
+        <h2 class="titre-carte">Faire supprimer tes réponses</h2>
+        <p class="mt-4">
+          Tu peux demander l'accès, la rectification ou la suppression de tes réponses.
+          Écris-nous sur WhatsApp en indiquant le nom de l'enquête et le lien sur lequel
+          tu as répondu : c'est ce qu'il faut pour retrouver les données.
+          Le détail est sur la page <a href="05-confidentialite.html">confidentialité</a>.
+        </p>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Tu vends déjà et tu veux tester un prix ?</p>
+        <h2 class="titre-carte">Créer ton étude</h2>
+        <p class="mt-4">
+          Dix minutes pour écrire, un lien à envoyer sur WhatsApp, un résultat lisible
+          à la fin. Commences par un modèle : tu ne pars jamais d'une page blanche.
+        </p>
+        <div class="actions">
+          <a class="bouton bouton-primaire" href="02-editeur.html">Créer mon étude</a>
+          <a class="bouton bouton-discret" href="index.html#modeles">Voir les 3 modèles</a>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pied commun (navigation.md) -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html" aria-current="page">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

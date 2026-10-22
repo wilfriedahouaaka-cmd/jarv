@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport-fit : la page publique est faite pour un téléphone, d'abord -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Répondre à l'enquête</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Surface PUBLIQUE : pas de barre de navigation privée, pas de compte,
+         aucune mention d'inscription. C'est la règle des deux surfaces. -->
+    <header class="entete-publique">
+      <div class="entete-publique-interieur">
+        <span class="nav-marque marque-publique">JiaKo</span>
+        <p class="texte-discret">Enquête envoyée par Boutique Koumassi</p>
+      </div>
+    </header>
+
+    <main class="page-publique">
+
+      <h1 class="titre-xl">Test de prix : menu de livraison</h1>
+      <p class="texte-discret mt-4">
+        4 questions, environ 2 minutes. <strong>Tes réponses sont anonymes</strong>,
+        aucun compte n'est demandé.
+      </p>
+
+      <!-- Progression : l'utilisateur sait où il en est, il ne part pas à mi-chemin -->
+      <div class="resultat-ligne mt-6">
+        <div class="resultat-libelle">
+          <span>Progression</span>
+          <span class="resultat-valeur">4 questions</span>
+        </div>
+        <div class="piste">
+          <div class="remplissage remplissage-plein"></div>
+        </div>
+      </div>
+
+      <form class="mt-6" action="#" method="post">
+
+        <!-- Q1 : choix unique -->
+        <fieldset class="bloc-question">
+          <legend class="question-titre">
+            1. Quel plat commandes-tu le plus souvent ?
+          </legend>
+          <div class="option-liste">
+            <label class="option"><input type="radio" name="q1" value="attieke"> Attiéke poisson</label>
+            <label class="option"><input type="radio" name="q1" value="garba"> Garba</label>
+            <label class="option"><input type="radio" name="q1" value="poulet"> Poulet braisé</label>
+            <label class="option"><input type="radio" name="q1" value="autre"> Autre</label>
+          </div>
+        </fieldset>
+
+        <!-- Q2 : échelle de 1 à 5, valeur 4 pré-sélectionnée pour montrer l'état actif -->
+        <fieldset class="bloc-question">
+          <legend class="question-titre">
+            2. Ce prix te paraît plutôt…
+          </legend>
+          <div class="echelle">
+            <label class="echelle-bouton"><input type="radio" name="q2" value="1"> 1</label>
+            <label class="echelle-bouton"><input type="radio" name="q2" value="2"> 2</label>
+            <label class="echelle-bouton"><input type="radio" name="q2" value="3"> 3</label>
+            <label class="echelle-bouton"><input type="radio" name="q2" value="4" checked> 4</label>
+            <label class="echelle-bouton"><input type="radio" name="q2" value="5"> 5</label>
+          </div>
+          <div class="meta">
+            <span>1 · Très cher</span>
+            <span>5 · Très bon marché</span>
+          </div>
+        </fieldset>
+
+        <!-- Q3 : texte court, clavier numérique sur téléphone -->
+        <div class="champ">
+          <label class="champ-label" for="q3">3. Combien serais-tu prêt à payer pour ce menu ?</label>
+          <p class="champ-aide">En francs CFA, par exemple 3500.</p>
+          <input class="champ-saisie" type="text" id="q3" name="q3" inputmode="numeric" autocomplete="off">
+        </div>
+
+        <!-- Q4 : choix multiple -->
+        <fieldset class="bloc-question">
+          <legend class="question-titre">
+            4. Qu'est-ce qui te freine le plus dans une commande en ligne ?
+            <span class="texte-discret option-mention"> · plusieurs réponses possibles</span>
+          </legend>
+          <div class="option-liste">
+            <label class="option"><input type="checkbox" name="q4a" value="livraison"> Livraison lente</label>
+            <label class="option"><input type="checkbox" name="q4b" value="prix"> Le prix</label>
+            <label class="option"><input type="checkbox" name="q4c" value="confiance"> Je ne fais pas confiance</label>
+            <label class="option"><input type="checkbox" name="q4d" value="especes"> Je préfère payer en espèces</label>
+          </div>
+        </fieldset>
+
+        <!-- Honeypot : présent dans le HTML, jamais à l'écran.
+             Un humain laisse ce champ vide, un robot le remplit. -->
+        <div class="champ-leurre" aria-hidden="true">
+          <label for="site_web">Site web</label>
+          <input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="pied-envoi">
+          <!-- L'action principale, collante en bas : atteignable au pouce -->
+          <button type="submit" class="bouton bouton-primaire bouton-large">Envoyer mes réponses</button>
+          <p class="texte-discret texte-centre mt-2">
+            Aucun compte, aucun mot de passe.
+          </p>
+        </div>
+
+      </form>
+
+    </main>
+
+    <!-- Pied de la page publique : un retour discret vers JiaKo et vers la
+         confidentialité. JAMAIS la navigation de l'application : le
+         répondant est anonyme, il n'a ni compte ni espace (règle des
+         deux surfaces, §2 de navigation.md). -->
+    <footer class="pied-publique">
+      <p class="texte-centre">
+        Enquête créée avec <a href="index.html">JiaKo</a><br>
+        <a href="05-confidentialite.html">Ce que deviennent tes réponses</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>

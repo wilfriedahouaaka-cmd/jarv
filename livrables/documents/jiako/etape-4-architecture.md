@@ -93,7 +93,7 @@ Extension de `auth.users`. Supabase crée l'utilisateur dans `auth.users` (email
 2. **Généré seulement à la publication.** Une étude en brouillon n'a pas de token, donc pas de lien.
 3. **Unique et régénérable.** Si un lien fuite, le propriétaire peut en générer un autre. L'ancien devient invalide. C'est le seul moyen de révoquer un lien déjà partagé.
 
-**Ce qui reste à trancher** : est-ce que régénérer un token doit invalider les réponses déjà collectées ? Je propose **non**, les réponses sont conservées. À valider.
+**Décision technique (hypothèse posée le 22 octobre 2026, à valider par Wilfried)** : régénérer un token **n'invalide pas** les réponses déjà collectées. Pourquoi : les réponses appartiennent à l'étude, pas au lien. Invalider des réponses parce qu'un lien a fuité détruirait des données payées par le propriétaire, et créerait un moyen de perdre ses résultats par accident. Le token ne contrôle que l'accès futur en écriture, jamais l'accès aux données existantes. Conséquence à écrire dans l'interface : « régénérer le lien empêche les prochaines réponses, celles déjà reçues sont conservées ».
 
 ### `questions`
 
@@ -172,25 +172,28 @@ Sortie : jsonb  { titre, description, questions: [...] }
 C'est la fonction la plus risquée du produit. Elle fait quatre choses dans **une seule transaction**, tout ou rien.
 
 ```
-Entrée : p_token uuid, p_cle uuid, p_items jsonb
+Entrée : p_token uuid, p_cle uuid, p_items jsonb, p_leurre text
 Sortie : uuid  (l'id de la réponse)
 
 Séquence :
-  1. Trouver l'étude par token
+  1. Honeypot : p_leurre non vide → renvoyer un uuid au hasard, ne rien insérer
+     └─ détails en §9. Jamais d'erreur, pour ne pas signaler la détection
+
+  2. Trouver l'étude par token
      └─ inexistante ou non publiée → erreur, transaction annulée
 
-  2. Idempotence : existe-t-il déjà une réponse avec cette clé pour cette étude ?
+  3. Idempotence : existe-t-il déjà une réponse avec cette clé pour cette étude ?
      └─ OUI → retourner l'id existant, ne rien faire d'autre
      └─ NON → continuer
 
-  3. Quota atomique : incrémenter le compteur du mois
+  4. Quota atomique : incrémenter le compteur du mois
      └─ UPDATE ... RETURNING  → si la limite est atteinte, erreur, transaction annulée
 
-  4. Insérer la réponse et tous ses items
+  5. Insérer la réponse et tous ses items
      └─ toute erreur → transaction annulée, le compteur est revenu en arrière aussi
 ```
 
-**Pourquoi la séquence compte** : si je faisais l'insertion de la réponse avant de vérifier le quota, un quota dépassé laisserait une réponse orpheline. Si je faisais l'incrément du compteur avant l'idempotence, un double-clic consommerait deux quotas. L'ordre ci-dessus est le seul qui soit correct.
+**Pourquoi la séquence compte** : si je faisais l'insertion de la réponse avant de vérifier le quota, un quota dépassé laisserait une réponse orpheline. Si je faisais l'incrément du compteur avant l'idempotence, un double-clic consommerait deux quotas. Le honeypot est tout en premier pour une autre raison : répondre avant même de chercher le token évite de révéler à un robot si le token existe ou non. L'ordre ci-dessus est le seul qui soit correct.
 
 **Le point non négociable** : la fonction est `SECURITY DEFINER`, donc elle **contourne la RLS**. C'est un choix assumé, parce que la page publique n'a pas de `auth.uid()`. Mais ça impose trois règles strictes, écrites dans la fonction :
 
@@ -308,7 +311,7 @@ Fonction public.check_request() :
 | Attaquant en forgeant des requêtes | Écriture directe dans les tables | Aucune policy INSERT, RPC obligatoire |
 | Injection SQL | Exécution de code dans la base | Supabase paramètre toutes les requêtes |
 | Token deviné | Accès à une étude | UUID, 122 bits d'entropie, non devinable |
-| Envoi en masse | 10 000 réponses factices | Rate limiting par IP, honeypot |
+| Envoi en masse | 10 000 réponses factices | Rate limiting par IP, honeypot (détail §9) |
 | Question hors sujet | `valeur_echelle = 999` | Contrainte 1 à 5 dans la base |
 | Question d'une autre étude | L'attaquant passe un `question_id` d'une autre étude | **Vérification dans la RPC** que la question appartient à l'étude du token |
 
@@ -359,15 +362,39 @@ L'architecture donne l'ordre, et l'ordre est le même que celui de l'étape 1, m
 
 ---
 
-## 9. Ce que je n'ai pas résolu
+## 9. Ce qui n'était pas résolu, et où on en est
 
-Trois points restent ouverts, et je les écris plutôt que de faire semblant qu'ils sont réglés.
+Trois points étaient ouverts. Deux sont tranchés ici (hypothèses raisonnables posées par moi, à valider par Wilfried), un reste juridique.
 
-| Point | Ce qui manque | Quand le trancher |
+| Point | Décision | Statut |
 |---|---|---|
-| Régénérer un token invalide-t-il les réponses ? | Je propose non, mais c'est une décision produit | Avant l'étape 7 |
-| Honeypot : quel champ, quelle logique ? | Une décision simple, mais elle doit être décidée avant l'étape 10 | Avant l'étape 10 |
-| Suppression d'une réponse par le répondant lui-même ? | La loi exige un droit d'accès et d'effacement. Le propriétaire peut supprimer. Le répondant, anonyme, n'a pas d'identifiant | À trancher avec le juriste |
+| Régénérer un token invalide-t-il les réponses ? | **Non.** Le token ne contrôle que l'accès futur en écriture. Voir §2, `etudes.token_public` | **Tranché (hypothèse), à valider** |
+| Honeypot : quel champ, quelle logique ? | Décrit ci-dessous, prêt pour l'étape 10 | **Tranché (hypothèse), à valider** |
+| Suppression d'une réponse par le répondant lui-même ? | Le propriétaire peut supprimer via `supprimer_reponse`. Le répondant est anonyme, il n'a pas d'identifiant | **Ouvert : à trancher avec le juriste**, avant la bêta |
+
+### Le honeypot, détail de conception
+
+**Le principe** : un champ que tout humain laisse vide, et que les robots remplissent.
+
+```
+Champ : nom "site_web" (pas "honeypot", un robot lit aussi les noms)
+Affichage : caché par CSS (position:absolute; hors écran), aria-hidden="true",
+            tabindex="-1", autocomplete="off"
+Comportement humain : le champ reste vide
+Comportement robot : le champ est rempli
+```
+
+**Où la vérification est posée : dans `soumettre_reponse`, pas dans React.** C'est la même règle que tout le reste : le frontend n'est pas digne de confiance. Un attaquant qui appelle l'API directement ne passe jamais par mon formulaire, donc une vérification JavaScript ne servirait à rien.
+
+**La logique, en deux points :**
+
+1. Si `p_leurre` (la valeur du champ) est **non vide** → la fonction **simule un succès** : elle renvoie un uuid au hasard, sans rien insérer. Elle ne renvoie **jamais une erreur**, parce qu'une erreur apprendrait au robot que sa tentative a été détectée et le ferait muter. Deux robots identiques doivent recevoir exactement la même réponse qu'un humain.
+2. Si `p_leurre` est vide → la fonction suit la séquence normale (idempotence, quota, insertion).
+
+**Signal complémentaire (optionnel, à activer seulement si le spam persiste)** : un `horodatage_debut` généré au chargement de la page. Une soumission envoyée en moins de 3 secondes est presque toujours un robot. Je ne l'active pas dans un premier temps, pour ne pas bloquer quelqu'un qui a écrit sa réponse très vite. Décision notée : on l'ajoute après la bêta, si les faits montrent du spam malgré le honeypot.
+
+**Ce que le honeypot ne protège pas** : un robot qui laisse le champ vide, ou qui envoie des requêtes à l'API avec `leurre` vide. C'est là que le rate limiting par IP (§4) prend le relais. Les deux sont complémentaires, aucun des deux seul ne suffit.
+
 
 ---
 
@@ -377,4 +404,6 @@ Trois points restent ouverts, et je les écris plutôt que de faire semblant qu'
 
 **Le cœur du dispositif** est en trois mots : **aucune policy INSERT sur les tables de réponse**. Tout écrit par la page publique passe par une fonction qui vérifie tout. Si le code React contient un bug, la base refuse quand même.
 
-**Ce que je fais maintenant** : j'attends ton accord sur l'architecture, puis je construis l'étape 0, un fichier à la fois.
+**Les trois points ouverts sont traités** : le token régénéré conserve les réponses (hypothèse, §9), le honeypot est conçu en détail (hypothèse, §9), le droit d'effacement du répondant anonyme reste chez le juriste.
+
+**Ce que je fais maintenant** : j'attends ton accord sur l'architecture, y compris sur les deux hypothèses du §9. Ensuite seulement vient l'étape 0 du plan de construction, un fichier à la fois, et elle reste soumise au No-Go du 20 octobre : pas de code avant les interviews.

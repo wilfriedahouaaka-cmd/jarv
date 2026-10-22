@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Mes études</title>
+
+  <!-- Maquette statique : aucune donnée réelle, aucun compte.
+       Les polices viennent de Google Fonts ICI UNIQUEMENT, pour la maquette.
+       En production elles seront auto-hébergées et sous-ensemble français. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barre de navigation : modèle B de navigation.md. La marque et le lien
+         « Accueil du site » ramènent au point de départ depuis tout l'espace
+         connecté : aucun écran n'est une impasse. -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+      <ul class="nav-liens">
+        <li><a href="01-etudes.html" aria-current="page">Mes études</a></li>
+        <li><a href="02-editeur.html">Nouvelle</a></li>
+        <li><a href="index.html">Accueil du site</a></li>
+      </ul>
+      <span class="nav-compte">wilfried@…</span>
+    </nav>
+
+    <main class="contenu">
+
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Tableau de bord</p>
+          <h1>Tes études</h1>
+        </div>
+        <!-- Une seule action principale ambre par écran -->
+        <a class="bouton bouton-primaire" href="02-editeur.html">Créer une étude</a>
+      </div>
+
+      <!-- Information de compte, jamais cachée dans un menu :
+           l'utilisateur doit savoir où il en est sans chercher -->
+      <div class="bandeau bandeau-attention">
+        Offre gratuite : 25 réponses par étude et par mois.
+        <strong>17 reçues ce mois-ci</strong> sur ton étude la plus active.
+      </div>
+
+      <div class="liste-cartes">
+
+        <!-- Étude publiée : le lien est le cœur de l'usage, il est mis en avant -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="pastille pastille-publiee">Publiée</span>
+              <h2 class="titre-carte">
+                Avis clients : ma boutique de quartier
+              </h2>
+            </div>
+            <span class="grand-chiffre">42</span>
+          </div>
+
+          <div class="meta">
+            <span><strong>42</strong> réponses</span>
+            <span>Publiée le <strong>14 oct. 2026</strong></span>
+            <span>Lien <strong>actif</strong></span>
+          </div>
+
+          <div class="actions">
+            <a class="bouton bouton-secondaire" href="04-resultats.html">Voir les résultats</a>
+            <button type="button" class="bouton bouton-discret">Partager sur WhatsApp</button>
+          </div>
+        </article>
+
+        <!-- Étude en brouillon : l'action, c'est reprendre l'édition -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="pastille pastille-brouillon">Brouillon</span>
+              <h2 class="titre-carte">
+                Test de prix : menu de livraison
+              </h2>
+            </div>
+            <span class="grand-chiffre">0</span>
+          </div>
+
+          <div class="meta">
+            <span><strong>0</strong> réponse</span>
+            <span>Créée le <strong>20 oct. 2026</strong></span>
+            <span>Modèle <strong>« Je fixe mes prix »</strong></span>
+          </div>
+
+          <div class="actions">
+            <a class="bouton bouton-secondaire" href="02-editeur.html">Reprendre l'édition</a>
+          </div>
+        </article>
+
+        <!-- Étude fermée : le lien ne marche plus, c'est écrit en toutes lettres -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="pastille pastille-fermee">Fermée</span>
+              <h2 class="titre-carte">
+                Enquête fournisseurs : Marché de Treichville
+              </h2>
+            </div>
+            <span class="grand-chiffre">63</span>
+          </div>
+
+          <div class="meta">
+            <span><strong>63</strong> réponses</span>
+            <span>Fermée le <strong>5 oct. 2026</strong></span>
+            <span>Lien <strong>désactivé</strong></span>
+          </div>
+
+          <div class="actions">
+            <a class="bouton bouton-secondaire" href="04-resultats.html">Voir les résultats</a>
+            <button type="button" class="bouton bouton-discret">Exporter en CSV</button>
+          </div>
+        </article>
+
+      </div>
+
+    </main>
+
+    <!-- Pied commun à toutes les pages de l'espace connecté : la navigation
+         longue vit ici, la barre du haut reste lisible sur un téléphone.
+         Liste des liens à tenir à jour : navigation.md -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

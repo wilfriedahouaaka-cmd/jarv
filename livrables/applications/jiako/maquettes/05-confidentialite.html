@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Confidentialité et données des répondants</title>
+
+  <!-- Page publique : même barre et même pied que l'accueil, avec les
+       ancres préfixées puisqu'on n'est plus sur la page d'accueil. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+  <link rel="stylesheet" href="accueil.css">
+</head>
+<body>
+  <div class="accueil">
+
+    <!-- Barre publique : modèle A de navigation.md -->
+    <header class="accueil-nav">
+      <div class="accueil-contenu accueil-nav-interieur">
+        <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+        <nav aria-label="Navigation du site">
+          <ul class="accueil-liens">
+            <li><a href="index.html#etapes">Comment ça marche</a></li>
+            <li><a href="index.html#modeles">Les modèles</a></li>
+            <li><a href="index.html#faq">Questions</a></li>
+            <li><a href="06-contact.html">Contact</a></li>
+            <li><a href="01-etudes.html">Se connecter</a></li>
+            <li><a class="bouton bouton-accent" href="02-editeur.html">Créer une étude</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="accueil-contenu page-contenu">
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Confidentialité</p>
+          <h1 class="titre-xl">Qui voit tes réponses, et selon quelle loi</h1>
+        </div>
+      </div>
+
+      <!-- Avertissement conservé, reformulé : un texte légal non relu
+           par un juriste est un risque réel, pas un détail de maquette. -->
+      <div class="bandeau bandeau-attention">
+        <strong>À relire avant publication.</strong> JiaKo n'est pas encore en
+        ligne : ce qui suit décrit ce qui sera en place avant la bêta, pas ce qui
+        est déjà appliqué. Ce texte devra être relu par un juriste avant d'être
+        mis en ligne.
+      </div>
+
+      <!-- Le principe directeur, énoncé avant les détails -->
+      <section class="carte">
+        <p class="sur-titre">Le principe</p>
+        <h2 class="titre-carte">Une donnée que tu ne collectes pas, tu n'as pas à la protéger</h2>
+        <p class="mt-4">
+          JiaKo pose des questions courtes : un choix, une note, un prix, une phrase.
+          Pas de nom, pas de numéro, pas de date de naissance, pas de localisation.
+          Chaque question supplémentaire serait une donnée de plus à déclarer, à
+          protéger et à supprimer un jour.
+        </p>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Les trois rôles</p>
+        <h2 class="titre-carte">Qui voit quoi</h2>
+        <ul class="liste-simple">
+          <li>
+            <strong>Le répondant</strong> : il répond sans compte et sans nom. Sa réponse
+            est rattachée à l'étude, pas à une identité affichée.
+          </li>
+          <li>
+            <strong>Le propriétaire de l'étude</strong> : ton client voit les réponses de
+            <em>ses</em> études uniquement. Une étude n'est jamais visible depuis le compte
+            d'un autre utilisateur.
+          </li>
+          <li>
+            <strong>JiaKo</strong> : héberge les données et doit pouvoir les effacer, les
+            tracer et prouver ce qu'il conserve. L'accès interne est limité au strict
+            nécessaire à la maintenance.
+          </li>
+        </ul>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Le cadre légal</p>
+        <h2 class="titre-carte">Ce que la loi ivoirienne exige</h2>
+        <p class="mt-4">
+          La référence est la <strong>loi n° 2013-450 du 19 juin 2013</strong>, suivie
+          auprès de l'<strong>ARTCI</strong>. Le RGPD européen ne s'applique que si des
+          répondants se trouvent dans l'Union européenne : ce n'est pas la référence
+          principale ici.
+        </p>
+        <ul class="liste-simple">
+          <li><strong>Déclaration préalable</strong> à l'ARTCI pour tout traitement de données personnelles, à faire <em>avant</em> la bêta.</li>
+          <li><strong>Information des personnes</strong> : le répondant doit savoir qui collecte, pourquoi, et combien de temps.</li>
+          <li><strong>Finalité</strong> : des réponses collectées pour une satisfaction ne servent pas à autre chose.</li>
+          <li><strong>Durée de conservation</strong> : définie, affichée, et appliquée avec une suppression réelle à l'échéance.</li>
+          <li><strong>Droits des personnes</strong> : accès, rectification, suppression.</li>
+          <li><strong>Données sensibles</strong> : santé, opinions, religion. Leur collecte est déconseillée, et l'outil doit le signaler.</li>
+        </ul>
+        <p class="texte-discret mt-4">
+          Supabase et Vercel hébergent hors du pays. Ce n'est pas interdit, mais ça doit
+          être déclaré dans la démarche.
+        </p>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Tes droits, concrètement</p>
+        <h2 class="titre-carte">Accéder à tes réponses et les faire supprimer</h2>
+        <ul class="liste-simple">
+          <li>Un texte de consentement en français, avant la première question : qui collecte, pourquoi, combien de temps.</li>
+          <li>Une case à cocher d'acceptation, jamais pré-cochée.</li>
+          <li>Une demande de suppression possible depuis <a href="06-contact.html">notre page de contact</a>, avec accusé.</li>
+          <li>Une durée de conservation affichée dans les paramètres du compte.</li>
+          <li>Dans l'export, l'identité du répondant reste séparée de sa réponse.</li>
+        </ul>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Honnêteté</p>
+        <h2 class="titre-carte">Ce qui n'est pas encore tranché</h2>
+        <ul class="liste-simple">
+          <li>La <strong>durée de conservation exacte</strong> : aucune valeur décidée pour l'instant.</li>
+          <li>Le <strong>droit d'effacement d'un répondant anonyme</strong> : sans nom ni contact, retrouver ses réponses demande un mécanisme précis. À valider avec un juriste.</li>
+          <li>La <strong>génération de lien</strong> : ce qui arrive aux réponses déjà collectées quand un propriétaire régénère le lien d'une étude.</li>
+        </ul>
+        <p class="mt-4">
+          Une question sur ce sujet : <a href="06-contact.html">écris-nous</a>.
+        </p>
+      </section>
+
+    </main>
+
+    <!-- Pied commun (navigation.md) -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html" aria-current="page">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Une vraie étude de marché, sans savoir en faire une</title>
+
+  <!-- Maquette statique de la page d'accueil. Aucun compte, aucune donnée réelle.
+       Polices Google Fonts ici uniquement : en production, auto-hébergées. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+  <link rel="stylesheet" href="accueil.css">
+</head>
+<body>
+  <div class="accueil">
+
+    <!-- Bandeau supérieur : barre publique (modèle A de navigation.md).
+         Le bouton garde son encre sombre grâce à l'exception de accueil.css. -->
+    <header class="accueil-nav">
+      <div class="accueil-contenu accueil-nav-interieur">
+        <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+        <nav aria-label="Navigation du site">
+          <ul class="accueil-liens">
+            <li><a href="#etapes">Comment ça marche</a></li>
+            <li><a href="#modeles">Les modèles</a></li>
+            <li><a href="#faq">Questions</a></li>
+            <li><a href="06-contact.html">Contact</a></li>
+            <li><a href="01-etudes.html">Se connecter</a></li>
+            <li><a class="bouton bouton-accent" href="02-editeur.html">Créer une étude</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero : texte à gauche, visuel décalé à droite -->
+    <section class="accueil-contenu hero">
+      <div class="revele">
+        <p class="sur-titre">Étude de marché pour les entrepreneurs ivoiriens</p>
+        <h1 class="hero-titre">
+          Une vraie étude de marché,
+          <span class="souligne">sans savoir en faire une</span>.
+        </h1>
+        <!-- Sous-titre court et concret : le "comment", pas une deuxième promesse.
+             Le ton est celui d'un commerçant qui parle à un autre commerçant :
+             un verbe d'action par phrase, et le bénéfice à la fin. -->
+        <p class="hero-texte">
+          Tu décris ton activité, JiaKo écrit le questionnaire.
+          Tu partages le lien WhatsApp, les réponses arrivent sur ton téléphone.
+        </p>
+        <div class="hero-actions">
+          <a class="bouton bouton-primaire" href="02-editeur.html">Créer mon étude</a>
+          <a class="bouton bouton-secondaire" href="#modeles">Voir les modèles</a>
+        </div>
+        <p class="hero-garanties">
+          Sans installation · Sans compte pour tes clients · Liens prêts pour WhatsApp
+        </p>
+      </div>
+
+      <!-- Le visuel, c'est l'interface elle-même. Aucune photo de banque d'images. -->
+      <div class="hero-visuel revele">
+        <div class="carte-partage">
+          <div>
+            <p class="carte-partage-marque">JiaKo</p>
+            <p class="carte-partage-titre mt-4">Avis clients : ma boutique de quartier</p>
+          </div>
+          <div>
+            <p class="carte-partage-chiffre">4,2 / 5</p>
+            <p class="carte-partage-note">
+              42 réponses · 86 % ont terminé
+            </p>
+          </div>
+          <p class="carte-partage-date">Septembre – octobre 2026</p>
+        </div>
+        <div class="hero-badge">
+          <strong>42 réponses</strong><br>
+          reçues sur WhatsApp
+        </div>
+      </div>
+    </section>
+
+    <!-- Étape 2 : les 3 étapes, numéros décalés -->
+    <section class="accueil-contenu section revele" id="etapes">
+      <h2 class="section-titre">Trois étapes, et tu n'es jamais seul face à la page blanche</h2>
+      <ol class="etapes">
+        <li class="etape">
+          <p class="etape-numero">1</p>
+          <p class="etape-titre">Tu décris ton projet</p>
+          <p class="etape-texte">
+            Une phrase suffit : ce que tu vends, à qui, et ce que tu veux savoir.
+            JiaKo transforme ça en plan d'enquête.
+          </p>
+        </li>
+        <li class="etape">
+          <p class="etape-numero">2</p>
+          <p class="etape-titre">Tu choisis un modèle</p>
+          <p class="etape-texte">
+            Trois modèles selon ton moment : lancement, prix, satisfaction.
+            Tu ajustes les questions, tu retires celles qui ne servent pas.
+          </p>
+        </li>
+        <li class="etape">
+          <p class="etape-numero">3</p>
+          <p class="etape-titre">Tu partages le lien</p>
+          <p class="etape-texte">
+            Sur WhatsApp, comme un message. Les réponses arrivent sur ton tableau
+            de bord, et le résultat se lit en une page.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Les 3 modèles : lignes séparées, pas trois cartes jumelles -->
+    <section class="accueil-contenu section revele" id="modeles">
+      <h2 class="section-titre">Tu commences par un modèle, jamais par une page blanche</h2>
+      <div class="modeles">
+        <div class="modele">
+          <p class="modele-nom">
+            Je lance un produit
+            <span class="modele-moment">Avant lancement</span>
+          </p>
+          <div>
+            <p class="modele-texte">
+              Qui est ton client, quel problème il a réellement, et ce qu'il accepte
+              de payer avant même que tu n'aies investi dans du stock.
+            </p>
+            <p class="modele-lien">
+              <a href="02-editeur.html">Commencer avec ce modèle</a>
+            </p>
+          </div>
+        </div>
+        <div class="modele">
+          <p class="modele-nom">
+            Je fixe mes prix
+            <span class="modele-moment">Avant lancement ou après</span>
+          </p>
+          <div>
+            <p class="modele-texte">
+              Combien on est prêt à payer, et ce qui freine l'achat. La question qui
+              évite de vendre à perte pendant trois mois.
+            </p>
+            <p class="modele-lien">
+              <a href="02-editeur.html">Commencer avec ce modèle</a>
+            </p>
+          </div>
+        </div>
+        <div class="modele">
+          <p class="modele-nom">
+            Mes clients sont-ils satisfaits
+            <span class="modele-moment">Après lancement</span>
+          </p>
+          <div>
+            <p class="modele-texte">
+              Ce qui va, ce qui casse, et ce que tes clients recommanderaient.
+              À envoyer quand les ventes ralentissent.
+            </p>
+            <p class="modele-lien">
+              <a href="02-editeur.html">Commencer avec ce modèle</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pour tes clients : la contrainte centrale, le lien doit donner envie d'être cliqué -->
+    <section class="accueil-contenu section revele">
+      <h2 class="section-titre">Ce que vivent tes clients quand ils reçoivent ton lien</h2>
+      <p class="section-lien">
+        <a href="03-reponse-mobile.html">Ouvrir la page de réponse, telle que ton client la verra</a>
+      </p>
+      <div class="modeles">
+        <div class="modele">
+          <p class="modele-nom">Aucun compte</p>
+          <p class="modele-texte">
+            Pas d'inscription, pas de mot de passe. Le lien s'ouvre, la première
+            question s'affiche, la dernière réponse s'envoie.
+          </p>
+        </div>
+        <div class="modele">
+          <p class="modele-nom">Deux minutes sur un téléphone</p>
+          <p class="modele-texte">
+            Quatre questions en général, des boutons larges, un clavier adapté.
+            Pensé pour un écran de téléphone, pas pour un ordinateur de bureau.
+          </p>
+        </div>
+        <div class="modele">
+          <p class="modele-nom">Des réponses anonymes</p>
+          <p class="modele-texte">
+            Personne ne voit qui a répondu quoi. C'est ce qui fait dire la vérité
+            sur les prix, et c'est aussi ce que la loi exige.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ : en details, zéro JavaScript -->
+    <section class="accueil-contenu section revele" id="faq">
+      <h2 class="section-titre">Les questions qu'on nous posera</h2>
+      <div class="faq">
+        <details>
+          <summary>Combien ça coûte ?</summary>
+          <p>
+            Créer une étude et tester ton questionnaire est gratuit. Le paiement à
+            l'usage par mobile money sera annoncé avant le lancement, avec un prix
+            testé sur de vrais clients : pas de prix inventé à l'avance.
+          </p>
+        </details>
+        <details>
+          <summary>Mes clients doivent-ils s'inscrire quelque part ?</summary>
+          <p>
+            Non. Ils cliquent sur ton lien WhatsApp et répondent. Aucun compte, aucune
+            application à installer.
+          </p>
+        </details>
+        <details>
+          <summary>Je n'ai jamais fait d'enquête, par où commencer ?</summary>
+          <p>
+            Par un modèle. Tu choisis le modèle correspondant à ta situation, tu
+            décris ton projet en une phrase, et les questions sont déjà posées pour toi.
+            Tu n'as plus qu'à retirer ce qui ne te parle pas.
+          </p>
+        </details>
+        <details>
+          <summary>Qui voit mes réponses ?</summary>
+          <p>
+            Toi, et personne d'autre. Chaque étude appartient à son compte, les
+            réponses sont séparées entre les utilisateurs, et elles peuvent être
+            supprimées à la demande.
+            <a href="05-confidentialite.html">Le détail, en clair, sur la page confidentialité</a>.
+          </p>
+        </details>
+        <details>
+          <summary>Qu'est-ce qui empêche les réponses bidon ?</summary>
+          <p>
+            Chaque enregistrement n'est accepté qu'une fois, un quota limite le
+            nombre de réponses par mois, et un champ piège filtre les robots.
+            Ce n'est pas infaillible, mais une enquête à 40 réponses ne se truque
+            pas facilement.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <!-- Appel final : bandeau vert, contraste maximal -->
+    <section class="appel-final">
+      <div class="accueil-contenu revele">
+        <h2 class="section-titre">Avant d'acheter ton stock, demande à tes clients</h2>
+        <p>
+          Une étude te coûte dix minutes à écrire. Une mauvaise décision de prix
+          te coûte un trimestre. Commence gratuitement, avec un modèle adapté à
+          ta situation.
+        </p>
+        <div class="hero-actions">
+          <!-- Sur le bandeau vert, le primaire serait invisible : l'action
+               de conversion prend la couleur d'accent, ambre -->
+          <a class="bouton bouton-accent" href="02-editeur.html">Créer mon étude</a>
+          <a class="bouton bouton-secondaire-clair" href="04-resultats.html">
+            Voir un exemple de résultats
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pied de page : le pied commun de toutes les pages (composants.css).
+         C'est lui qui porte la navigation longue. Liste à tenir dans navigation.md -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+    <!--
+      MAQUETTE : tout ce qui précède est statique. Les boutons pointent vers
+      les autres maquettes, rien ne se connecte à une base de données.
+      Hypothèse posée : la cible « petits entrepreneurs » vient de l'étape 1
+      du plan (cible validée). La question des prix est volontairement
+      laissée ouverte : aucun montant n'est affiché, parce qu'aucun n'a été testé.
+    -->
+
+  </div>
+</body>
+</html>

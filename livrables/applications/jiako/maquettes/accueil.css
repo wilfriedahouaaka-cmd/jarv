@@ -1,0 +1,374 @@
+/* ============================================================
+   JiaKo — Page d'accueil (surface persuasive)
+   Même identité que l'application, MAIS budget de mouvement
+   différent : ouvert ici, quasi nul dans l'application.
+   Révélations au scroll en CSS natif, ZÉRO JavaScript.
+
+   Ce fichier ne contient aucune valeur brute : tout vient de tokens.css
+   et des composants partagés.
+   ============================================================ */
+
+/* ---------- Structure de la page ---------- */
+.accueil {
+  background: var(--c-bg);
+  /* La carte du hero déborde volontairement : on évite la barre de
+     défilement horizontale sur petit écran */
+  overflow-x: hidden;
+}
+
+.accueil-contenu {
+  width: 100%;
+  max-width: var(--w-page);   /* 1040px : même mesure que l'application */
+  margin: 0 auto;
+  padding: 0 var(--sp-4);
+}
+
+/* Bandeau supérieur : vert, même famille que la barre de l'application.
+   Collante elle aussi, donc même ombre portée pour la séparer du contenu. */
+.accueil-nav {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+  padding: var(--sp-4) 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--shadow-md);
+}
+
+.accueil-nav-interieur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+}
+
+.accueil-liens {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: var(--fs-sm);
+}
+
+/* Règle de couleur du bandeau. Elle n'atteint PAS les boutons : chacun
+   porte sa propre couleur selon son rôle (.bouton-primaire en vert,
+   .bouton-accent en ambre). Sans :not(.bouton), un bouton primaire
+   hériterait du papier de la barre, puis perdrait sa couleur de fond
+   au moment de l'inversion vert/ambre du 22 octobre. */
+.accueil-liens a:not(.bouton) {
+  color: var(--c-primary-ink);
+  text-decoration: none;
+}
+
+.accueil-liens a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--c-accent);
+  text-decoration-thickness: 2px;
+}
+
+.accueil-liens a.bouton:hover {
+  text-decoration: none;
+}
+
+/* ---------- Hero : composition volontairement asymétrique.
+     Le texte prend plus de place que l'image, et l'image déborde
+     légèrement : une mise en page centrée serait le réflexe par défaut. ---------- */
+.hero {
+  display: grid;
+  gap: var(--sp-8);
+  padding: var(--sp-12) 0 var(--sp-16);
+  align-items: center;
+}
+
+@media (min-width: 860px) {
+  .hero {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--sp-12);
+    padding: var(--sp-16) 0 var(--sp-24);
+  }
+}
+
+.hero-titre {
+  font-size: var(--fs-3xl);
+  margin-bottom: var(--sp-4);
+}
+
+@media (min-width: 860px) {
+  .hero-titre {
+    font-size: var(--fs-4xl);
+  }
+}
+
+/* Le mot frappé est souligné d'un trait d'ambre épais :
+   l'accent sert de marque, jamais de couleur de texte sur papier */
+.souligne {
+  border-bottom: 6px solid var(--c-accent);
+  padding-bottom: var(--sp-1);
+}
+
+.hero-texte {
+  font-size: var(--fs-lg);
+  max-width: 52ch;
+  margin-bottom: var(--sp-6);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+}
+
+.hero-garanties {
+  font-size: var(--fs-sm);
+  color: var(--c-text-muted);
+}
+
+/* Visuel : la carte de résultat déjà pensée pour WhatsApp, légèrement
+   pivotée, avec une petite carte qui chevauche. Pas de photo de banque. */
+.hero-visuel {
+  position: relative;
+  max-width: 360px;
+  margin: 0 auto;
+  transform: rotate(-1.5deg);
+}
+
+.hero-badge {
+  position: absolute;
+  right: -12px;
+  bottom: -18px;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--r-md);
+  padding: var(--sp-3) var(--sp-4);
+  box-shadow: var(--shadow-md);
+  font-size: var(--fs-sm);
+  transform: rotate(1.5deg);
+}
+
+.hero-badge strong {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+}
+
+/* ---------- Sections : rythme volontairement irrégulier.
+     Alternance de densité, sinon la page ressemble à un formulaire. ---------- */
+.section {
+  padding: var(--sp-12) 0;
+  border-top: 1px solid var(--c-border);
+}
+
+.section-titre {
+  font-size: var(--fs-2xl);
+  margin-bottom: var(--sp-6);
+  max-width: 24ch;
+}
+
+.section-large {
+  max-width: none;
+}
+
+/* Page de contenu hors accueil (contact, confidentialité) : mêmes marges
+   latérales que l'accueil, rythme vertical plus calme qu'une section. */
+.page-contenu {
+  padding-top: var(--sp-12);
+  padding-bottom: var(--sp-16);
+}
+
+/* Les 3 étapes : grands numéros en Newsreader, décalés les uns des autres.
+   Trois cartes identiques seraient le réflexe par défaut à éviter. */
+.etapes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--sp-8);
+}
+
+@media (min-width: 860px) {
+  .etapes {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  /* Décalages volontaires : la 2e descend, la 3e remonte */
+  .etape:nth-child(2) { margin-top: var(--sp-8); }
+  .etape:nth-child(3) { margin-top: calc(var(--sp-8) / -2); }
+}
+
+.etape-numero {
+  font-family: var(--font-display);
+  font-size: var(--fs-4xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  color: var(--c-primary);
+  /* Assez opaque pour rester lisible en grand (3:1) : l'ordre est déjà
+     donné par la liste <ol>, la couleur ne porte jamais l'information seule */
+  opacity: 0.7;
+}
+
+.etape-titre {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+  margin: var(--sp-2) 0 var(--sp-2);
+}
+
+.etape-texte {
+  color: var(--c-text-muted);
+  font-size: var(--fs-base);
+}
+
+/* Les 3 modèles : des lignes séparées par des filets, pas trois cartes jumelles */
+.modeles {
+  border-top: 1px solid var(--c-border);
+}
+
+.modele {
+  display: grid;
+  gap: var(--sp-2);
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--c-border);
+}
+
+@media (min-width: 720px) {
+  .modele {
+    grid-template-columns: 0.9fr 1.4fr;
+    gap: var(--sp-6);
+    align-items: baseline;
+  }
+}
+
+.modele-nom {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: var(--lh-tight);
+}
+
+.modele-moment {
+  display: block;
+  font-family: var(--font-text);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--c-text-muted);
+  margin-top: var(--sp-1);
+}
+
+.modele-texte {
+  color: var(--c-text-muted);
+}
+
+/* Lien d'action sous chaque modèle : il mène à l'éditeur. Un troisième
+   bouton par modèle alourdirait la section, le texte suffit. */
+.modele-lien {
+  font-size: var(--fs-sm);
+  margin-top: var(--sp-2);
+}
+
+.modele-lien a {
+  font-weight: 600;
+}
+
+/* Lien placé juste sous un titre de section */
+.section-lien {
+  margin-top: calc(var(--sp-6) * -1);
+  margin-bottom: var(--sp-6);
+}
+
+/* ---------- FAQ en <details> : aucune bibliothèque, aucun JavaScript ---------- */
+.faq {
+  max-width: 68ch;
+}
+
+.faq details {
+  border-bottom: 1px solid var(--c-border);
+  padding: var(--sp-3) 0;
+}
+
+.faq summary {
+  font-weight: 600;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: var(--h-control);   /* 48px : cible tactile du design system */
+  font-size: var(--fs-base);
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  color: var(--c-primary);
+}
+
+.faq details[open] summary::after {
+  content: "−";
+}
+
+.faq p {
+  color: var(--c-text-muted);
+  padding: var(--sp-2) 0 var(--sp-3);
+}
+
+/* ---------- Appel final : bandeau vert, contraste maximal ---------- */
+.appel-final {
+  background: var(--c-primary);
+  color: var(--c-primary-ink);
+  padding: var(--sp-16) 0;
+  margin-top: var(--sp-8);
+}
+
+.appel-final .section-titre {
+  max-width: 20ch;
+  font-size: var(--fs-3xl);
+}
+
+.appel-final p {
+  max-width: 52ch;
+  margin-bottom: var(--sp-6);
+  opacity: 0.9;
+}
+
+/* ---------- Pied de page ----------
+   Le pied de l'accueil n'est plus une exception : c'est le pied commun
+   `.pied` défini dans composants.css, identique sur toutes les pages,
+   pour qu'un seul bloc de navigation serve tout le parcours. */
+
+/* ---------- Révélations au scroll : CSS natif, 0 Ko de JS.
+     Règle de sécurité : le contenu est VISIBLE par défaut. L'animation
+     ne s'applique que si le navigateur supporte animation-timeline ET
+     que l'utilisateur n'a pas demandé à réduire les animations.
+     Personne ne se retrouve jamais face à un texte invisible. ---------- */
+@keyframes entree-douce {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .revele {
+      animation: entree-douce 400ms var(--ease-out) both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 32%;
+    }
+  }
+}

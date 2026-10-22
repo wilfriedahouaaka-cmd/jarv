@@ -7,11 +7,11 @@
 
 | | |
 |---|---|
-| **Phase actuelle** | Phase 1, validation sans code. Les étapes de planification sont en cours |
+| **Phase actuelle** | Phase 1, validation sans code. Cadrage terminé, maquettes produites |
 | **Décision du 20 octobre 2026** | Go pour la validation, No-Go pour le développement |
-| **Décisions validées le 22 octobre 2026** | Périmètre (rapport du 20), cible (petits entrepreneurs), modèle (freemium), nom (JiaKo), stack, hébergement |
-| **Prochaine action** | Valider la direction artistique, puis lancer les interviews |
-| **Blocage principal** | Aucun. Direction artistique validée le 22 octobre 2026. Prochaine étape : construire |
+| **Décisions validées le 22 octobre 2026** | Périmètre (rapport du 20), cible (petits entrepreneurs), modèle (freemium), nom (JiaKo), stack, hébergement, direction artistique |
+| **Prochaine action** | **Lancer les interviews.** L'outil de suivi est prêt (`suivi-interviews.csv`), il ne reste qu'à lister 10 noms |
+| **Blocage principal** | **0 interview sur 10 à 15.** C'est le seul vrai blocage, tout le reste est outillé |
 | **Objectif de la phase** | Atteindre les seuils de la section 5 du rapport de planification, ou pivoter |
 
 **Aucune ligne de code avant le bilan de la phase 1.** Ce n'est pas une posture théorique : JiaKo manipule des comptes et des données de tiers, donc le coût de construire correctement est élevé. Valider d'abord évite de payer ce coût pour un produit que personne ne veut.
@@ -24,7 +24,8 @@
 |---|---|---|
 | Rapport de planification (20 octobre 2026) | `livrables/documents/jiako/rapport-de-planification.pdf` | Le document de référence. 12 sections : idée, marché, concurrents, validation, faisabilité, MVP, préparation, plan d'exécution, risques, décisions, sources |
 | Dossier de cadrage et identité (16 octobre 2026) | `livrables/documents/jiako/cadrage-et-identite.pdf` | Le dossier de cadrage d'origine, repris par le rapport du 20 octobre |
-| Rapport de suivi (interne) | `context/rapports/JiaKo.md` | Version texte du rapport de planification, lisible sans PDF |
+| Rapport de suivi (interne) | `context/rapports/JiaKo.md` | Le rapport de suivi, mis à jour à chaque avancée |
+| Version texte du rapport de planification | `livrables/documents/jiako/rapport-de-planification.md` | La version texte du PDF du 20 octobre, lisible sans PDF |
 
 **En cas de conflit**, le rapport de planification du 20 octobre prévaut : il est postérieur et reprend explicitement le dossier du 16 octobre.
 
@@ -132,18 +133,22 @@ Ce n'est pas un avis juridique, c'est la liste des points à faire confirmer.
 
 Le coût de l'IA est variable : il faut l'estimer avant de promettre une analyse IA dans le plan gratuit.
 
-## Direction artistique validée
+## Direction artistique et design system
 
-**Validée par Wilfried le 22 octobre 2026.** C'est la référence du projet, à respecter dans chaque écran.
+**Direction artistique validée par Wilfried le 22 octobre 2026**, puis complétée le même jour par un **design system fourni par lui : « Warm Editorial Rigor »**. La source est conservée dans `context/import/jiako-design-system.md`. Quand le design system et la direction écrite divergent, **le design system gagne** : c'est Wilfried qui a tranché.
+
+Le document YAML du design system annonce une palette différente (`#003228` en primaire). On retient la palette décrite en clair dans la section « Colors », parce que les composants du même document (ombres, halo de focus) utilisent bien `rgba(18, 74, 61, …)`, c'est-à-dire `#124A3D`.
 
 ```
 Ambiance      : Confiance sobre, vérité de terrain. Un outil sérieux qui parle aux gens,
                 pas un rapport de consultant
 
-Palette       : Vert bouteille profond #124A3D (dominant) + ambre marigold #E8A33D (accent unique)
-                + papier chaud #FAF6EF (surface) + encre #14171A (texte) + gris chaud #6B7268 (secondaire)
+Palette       : Vert bouteille profond #124A3D (primaire, action principale)
+                + ambre marigold #E8A33D (accent, partage WhatsApp)
+                + papier chaud #FAF6EF (surface) + encre #192823 (texte)
+                + gris chaud #707975 (secondaire)
 
-Typographies  : Fraunces, en display seulement (titres, chiffres clés)
+Typographies  : Newsreader, en display seulement (titres, chiffres clés)
                 Public Sans, pour tout le reste
 
 Images        : Aucune photo de banque. L'interface elle-même est l'image, plus une carte de
@@ -152,6 +157,17 @@ Images        : Aucune photo de banque. L'interface elle-même est l'image, plus
 Animations    : Application quasi nulle, 150-250 ms, transform et opacity seulement
                 Page d'attente ouverte : révélations au scroll en CSS natif, 0 Ko de JavaScript
 ```
+
+**Les règles du design system appliquées aux maquettes** :
+
+- **Le primaire est le vert**, l'ambre devient l'action d'accent (partage WhatsApp, conversion sur fond vert). Rôle inversé par rapport à la direction écrite du 22/10, sur décision de Wilfried.
+- Boutons en pilule, **48 px de zone tactile**, fond vert pour le primaire, ambre pour l'accent, contour 1,5 px pour le secondaire.
+- Cartes à 12 px, padding 16 px en mobile et 24 px au-delà de 640 px, largeur de page 1040 px.
+- Champs : **pilule sur une ligne, 12 px pour les zones de texte**, halo de focus vert.
+- Pastilles de statut : 28 px, fond pastel et encre foncée (jamais la couleur seule).
+- Barres de résultat : 8 px de haut, rayon 4 px, piste sable.
+- Grand chiffre : Newsreader 28 px, chiffres tabulaires.
+- Ombres teintées de vert, deux niveaux seulement : légère pour les cartes, portée pour ce qui flotte.
 
 **Les règles de couleur qui vont avec** :
 
@@ -210,6 +226,7 @@ jiako/
 ├── plan-de-travail.md           # le plan d'action détaillé, phase par phase
 ├── parcours-technique.md        # le chemin de construction, étape par étape
 ├── direction-design.md          # le design 2026, et les références à m'envoyer
+├── maquettes/                   # 10 pages HTML/CSS interliées. index.html EST l'accueil du site, galerie.html est hors navigation. navigation.md + verifier-liens.mjs
 └── (le code, plus tard)
 ```
 
@@ -226,6 +243,10 @@ jiako/
 | `etape-0-comprehension.md` | Le compte rendu de lecture des deux PDF, 8 contradictions, 6 points flous |
 | `etape-1-plan-mvp.md` | **Le plan du MVP** : 5 indispensables, 11 reportés, ordre de construction en 11 étapes estimé à 16-22 jours, cas limites par fonctionnalité, et les précautions légales sur les données de répondants |
 | `etape-2-stack.md` | Le comparatif de stack, les tarifs vérifiés le 22 octobre, et la décision d'hébergement qui lève le blocage budgétaire |
-| `etape-3-direction-artistique.md` | **La direction artistique en 5 lignes**, en attente de l'accord de Wilfried |
+| `etape-3-direction-artistique.md` | **La direction artistique en 5 lignes**, validée par Wilfried le 22 octobre |
+| `etape-4-architecture.md` | **L'architecture** : 2 surfaces de confiance distincte, 7 tables, 3 fonctions RPC, RLS, rate limiting |
+| `chantier-c-outils-enquete-ia.md` | La recherche sur les outils d'enquête assistés par IA. Constat principal : **Tally AI fait déjà le guidage IA, gratuitement et sans limite** |
+| `analyse-design-concurrents.md` | L'analyse du design de 5 plateformes, les standards du secteur, les 5 différenciateurs de JiaKo, les recommandations |
+| `suivi-interviews.md` + `.csv` | L'outil de suivi des interviews. **Le CSV est vide : 0 interview faite** |
 
-Le rapport de suivi interne est dans `context/rapports/JiaKo.md`.
+Le rapport de suivi interne est dans `context/rapports/JiaKo.md`, mis à jour le 22 octobre 2026.

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Éditeur de questions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barre de navigation : modèle B de navigation.md -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+      <ul class="nav-liens">
+        <li><a href="01-etudes.html">Mes études</a></li>
+        <li><a href="02-editeur.html" aria-current="page">Nouvelle</a></li>
+        <li><a href="index.html">Accueil du site</a></li>
+      </ul>
+      <span class="nav-compte">wilfried@…</span>
+    </nav>
+
+    <main class="contenu">
+
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Étape 2 sur 3 · les questions</p>
+          <h1>Test de prix : menu de livraison</h1>
+        </div>
+        <!-- Le lien n'existe qu'après publication : une seule action principale -->
+        <a class="bouton bouton-primaire" href="03-reponse-mobile.html">Publier et obtenir le lien</a>
+      </div>
+
+      <!-- Le modèle choisi reste affiché en permanence :
+           l'utilisateur se souvient d'où viennent ces questions -->
+      <div class="bandeau">
+        Modèle de départ : <strong>« Je fixe mes prix »</strong>.
+        Tu peux ajouter, retirer, reformuler et réordonner chaque question.
+      </div>
+
+      <div class="liste-cartes">
+
+        <!-- Type 1 : choix unique -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div class="question-entete">
+              <span class="numero">1</span>
+              <div>
+                <span class="badge-type">Choix unique</span>
+                <p class="question-libelle">
+                  Quel plat commandes-tu le plus souvent ?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Attieké poisson</span>
+            <span>Garba</span>
+            <span>Poulet braisé</span>
+            <span>Autre</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="bouton bouton-discret">Modifier</button>
+            <button type="button" class="bouton bouton-discret">Monter</button>
+            <button type="button" class="bouton bouton-discret">Descendre</button>
+            <button type="button" class="bouton bouton-discret">Retirer</button>
+          </div>
+        </article>
+
+        <!-- Type 2 : échelle de 1 à 5 -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div class="question-entete">
+              <span class="numero">2</span>
+              <div>
+                <span class="badge-type">Échelle de 1 à 5</span>
+                <p class="question-libelle">
+                  Ce prix te paraît plutôt…
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>1 · Très cher</span>
+            <span>3 · Acceptable</span>
+            <span>5 · Très bon marché</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="bouton bouton-discret">Modifier</button>
+            <button type="button" class="bouton bouton-discret">Monter</button>
+            <button type="button" class="bouton bouton-discret">Descendre</button>
+            <button type="button" class="bouton bouton-discret">Retirer</button>
+          </div>
+        </article>
+
+        <!-- Type 3 : texte court -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div class="question-entete">
+              <span class="numero">3</span>
+              <div>
+                <span class="badge-type">Texte court</span>
+                <p class="question-libelle">
+                  Combien serais-tu prêt à payer pour ce menu ?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Réponse libre, saisie sur le téléphone</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="bouton bouton-discret">Modifier</button>
+            <button type="button" class="bouton bouton-discret">Monter</button>
+            <button type="button" class="bouton bouton-discret">Descendre</button>
+            <button type="button" class="bouton bouton-discret">Retirer</button>
+          </div>
+        </article>
+
+        <!-- Type 4 : choix multiple -->
+        <article class="carte">
+          <div class="carte-entete">
+            <div class="question-entete">
+              <span class="numero">4</span>
+              <div>
+                <span class="badge-type">Choix multiple</span>
+                <p class="question-libelle">
+                  Qu'est-ce qui te freine le plus dans une commande en ligne ?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="meta">
+            <span>Livraison lente</span>
+            <span>Le prix</span>
+            <span>Je ne fais pas confiance</span>
+            <span>Je préfère payer en espèces</span>
+          </div>
+          <div class="actions">
+            <button type="button" class="bouton bouton-discret">Modifier</button>
+            <button type="button" class="bouton bouton-discret">Monter</button>
+            <button type="button" class="bouton bouton-discret">Descendre</button>
+            <button type="button" class="bouton bouton-discret">Retirer</button>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Ajouter, en secondaire : l'action principale reste la publication.
+           Le retour vers la liste est toujours possible, l'éditeur n'est
+           jamais une impasse. -->
+      <div class="actions">
+        <button type="button" class="bouton bouton-secondaire">Ajouter une question</button>
+        <a class="bouton bouton-discret" href="01-etudes.html">Revenir à mes études</a>
+      </div>
+
+      <div class="bandeau bandeau-attention mt-6">
+        <strong>4 questions, environ 2 minutes</strong> pour le répondant.
+        Au-delà de 8 questions, le taux de complétion chute : JiaKo te le signale ici.
+      </div>
+
+    </main>
+
+    <!-- Pied commun à toutes les pages (navigation.md) -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

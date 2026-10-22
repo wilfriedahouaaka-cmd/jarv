@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Galerie des maquettes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barre de la galerie : ce n'est ni la barre du site, ni celle de
+         l'application. C'est un outil de travail, il le dit. -->
+    <nav class="nav" aria-label="Navigation de la galerie">
+      <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+      <ul class="nav-liens">
+        <li><a href="index.html">Accueil du site</a></li>
+        <li><a href="01-etudes.html">Espace connecté</a></li>
+        <li><a href="galerie.html" aria-current="page">Galerie</a></li>
+      </ul>
+      <span class="nav-compte">maquettes</span>
+    </nav>
+
+    <main class="contenu">
+
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Maquettes du 22 octobre 2026</p>
+          <h1>Les écrans de JiaKo</h1>
+        </div>
+      </div>
+
+      <div class="bandeau">
+        Ce sont des <strong>images de pages</strong>, pas l'application : aucun compte, aucune
+        base de données, rien ne fonctionne. Ouvre un fichier dans ton navigateur, idéalement
+        en réduisant la fenêtre à la largeur d'un téléphone (360 px). Commence par
+        <strong>00</strong>, la page d'accueil, puis <strong>01</strong> : l'ordre est
+        celui du parcours réel.
+      </div>
+
+      <div class="liste-cartes">
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 0</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="index.html">Page d'accueil</a></h2>
+              <p class="texte-discret mt-2">La page publique qui convainc : promesse, 3 étapes, les modèles, les questions fréquentes, aucun prix affiché.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 1</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="01-etudes.html">Mes études</a></h2>
+              <p class="texte-discret mt-2">La liste des études du propriétaire : statut, réponses, actions.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 1b</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="01b-etudes-vide.html">État vide</a></h2>
+              <p class="texte-discret mt-2">Le même écran avec un compte neuf : pourquoi c'est vide, quoi faire, et les 3 modèles de départ.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 2</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="02-editeur.html">Éditeur de questions</a></h2>
+              <p class="texte-discret mt-2">Les 4 types de questions du MVP, un modèle de départ affiché en permanence.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 3</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="03-reponse-mobile.html">Page publique de réponse</a></h2>
+              <p class="texte-discret mt-2">Ce que le client de ton client voit sur son téléphone. Aucun compte, honeypot inclus dans le HTML.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Écran 4</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="04-resultats.html">Résultats et partage</a></h2>
+              <p class="texte-discret mt-2">4 indicateurs, des barres (jamais de camembert), les textes ouverts, et la carte 1080×1080 pour WhatsApp.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Page publique</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="05-confidentialite.html">Confidentialité</a></h2>
+              <p class="texte-discret mt-2">Qui voit les réponses, la loi 2013-450, les droits, et ce qui n'est pas encore tranché. Rédigée à partir de l'étape 1 du plan.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Page publique</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="06-contact.html">Contact</a></h2>
+              <p class="texte-discret mt-2">WhatsApp (le lien wa.me fonctionne), email, et la demande de suppression de réponses.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="carte">
+          <div class="carte-entete">
+            <div>
+              <span class="badge-type">Référence</span>
+              <h2 class="titre-carte"><a class="titre-lien" href="07-etats.html">Les 5 états d'un écran</a></h2>
+              <p class="texte-discret mt-2">Chargement, vide, erreur, accès refusé, quota. Conçus maintenant, pas au moment où l'écran casse.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Les états que l'application devra gérer : ils sont décidés maintenant,
+           pas au moment où l'écran casse pour la première fois -->
+      <section class="carte mt-6">
+        <p class="sur-titre">États prévus, au-delà du cas nominal</p>
+        <h2 class="titre-carte">Ce que chaque écran devra afficher</h2>
+
+        <p class="mt-4">
+          Cinq états ont un rendu dessiné sur
+          <a class="titre-lien" href="07-etats.html">la page 07</a> : chargement,
+          vide, erreur, accès refusé, quota. Ils y sont accompagnés de la règle
+          qui les gouverne.
+        </p>
+
+        <div class="meta mt-4">
+          <span><strong>Chargement</strong> : squelette à la forme du contenu (dessiné)</span>
+          <span><strong>Vide</strong> : pourquoi, et quoi faire (dessiné : écran 1b)</span>
+          <span><strong>Erreur</strong> : ce qui a cassé, et le bouton pour réessayer (dessiné)</span>
+          <span><strong>Pas les droits</strong> : formulé comme une page inexistante (dessiné)</span>
+          <span><strong>Quota atteint</strong> : combien, et quand il repart (dessiné)</span>
+        </div>
+
+        <p class="mt-4"><strong>Prévu mais PAS dessiné :</strong></p>
+        <div class="meta">
+          <span><strong>Données périmées</strong> : afficher la date de dernière mise à jour quand de nouvelles réponses sont arrivées depuis le chargement. Réelle pour JiaKo, mais hors des 5 états demandés cette fois-ci, donc laissée pour la construction.</span>
+        </div>
+
+        <!-- Exemple visuel du squelette de chargement -->
+        <div class="carte mt-6">
+          <div class="squelette w-40"></div>
+          <div class="squelette mt-4 w-75"></div>
+          <div class="squelette mt-4 w-55"></div>
+          <p class="texte-discret mt-4">Exemple : l'état de chargement d'une carte d'étude.</p>
+        </div>
+      </section>
+
+      <section class="carte mt-6">
+        <p class="sur-titre">Ce que j'ai vérifié, ce que je n'ai pas pu vérifier</p>
+        <h2 class="titre-carte">Honnêteté de livraison</h2>
+
+        <p class="mt-4"><strong>Vérifié :</strong></p>
+        <div class="meta">
+          <span>Aucune valeur en dur hors de <code>tokens.css</code> (recherche faite)</span>
+          <span>Design system appliqué : « Warm Editorial Rigor ». Vert bouteille + ambre, Newsreader, Public Sans</span>
+          <span>Aucun dégradé violet, aucune police par défaut, aucun emoji-icône</span>
+          <span>Statuts affichés avec un mot, jamais par la couleur seule</span>
+          <span>Cibles tactiles à 44 px minimum, corps de texte à 16 px</span>
+          <span><code>prefers-reduced-motion</code> respecté</span>
+        </div>
+
+        <p class="mt-4"><strong>Non vérifié par moi :</strong></p>
+        <div class="meta">
+          <span>Rendu réel dans un navigateur (je n'en ouvre pas)</span>
+          <span>Contraste exact des couleurs mesuré au compteur</span>
+          <span>Test sur un vrai téléphone</span>
+          <span>Lighthouse (aucune page d'application, donc pas de mesure pertinente)</span>
+          <span>Chargement des polices Google Fonts sur une connexion lente</span>
+          <span>Révélations au scroll de la page d'accueil (<code>animation-timeline</code>, support d'environ 85 % des navigateurs)</span>
+        </div>
+      </section>
+
+
+      <!-- Les mentions qui figuraient en bas de chaque écran ont été retirées
+           le 22 octobre, à la demande de Wilfried : une page de produit ne
+           présente pas sa propre maquette. Leur contenu est conservé ici. -->
+      <section class="carte mt-6">
+        <p class="sur-titre">Ce que chaque page est censée montrer</p>
+        <h2 class="titre-carte">Les mentions retirées des écrans</h2>
+        <p class="texte-discret mt-2">
+          Elles étaient en bas de chaque page. Retirées pour que les écrans
+          présentent JiaKo comme un produit, pas comme un dossier de travail.
+        </p>
+
+        <div class="liste-cartes mt-4">
+          <div class="carte"><p><strong>01 — Mes études :</strong> écran 1 sur 5. Aucune donnée réelle : les noms d'études et les chiffres sont des exemples écrits pour montrer le rendu. Les boutons ne font rien.</p></div>
+          <div class="carte"><p><strong>01b — État vide :</strong> écran 1b, la même page que l'état avec des études, mais quand le compte est neuf. Les boutons ne font rien.</p></div>
+          <div class="carte"><p><strong>02 — Éditeur :</strong> écran 2 sur 5. Les 4 types de questions du MVP sont montrés, un par carte. Aucune donnée réelle, les boutons ne font rien.</p></div>
+          <div class="carte"><p><strong>03 — Page de réponse :</strong> écran 3 sur 5. Page publique : aucun compte, aucun lien vers l'application. C'est l'écran que le client de ton client voit quand il clique le lien WhatsApp. Les boutons ne font rien.</p></div>
+          <div class="carte"><p><strong>04 — Résultats :</strong> écran 4 sur 5. Dernière mise à jour des données simulée : il y a 2 minutes. Les chiffres sont des exemples cohérents avec le quota gratuit de 25 réponses par étude et par mois. Boutons inactifs.</p></div>
+          <div class="carte"><p><strong>05 — Confidentialité :</strong> page rédigée à partir du plan du MVP de JiaKo (étape 1, section 6). Aucun formulaire ici, le lien d'envoi n'existe pas encore.</p></div>
+          <div class="carte"><p><strong>06 — Contact :</strong> coordonnées reprises du fichier de configuration (WhatsApp et email utilisés aussi sur Kofira).</p></div>
+          <div class="carte"><p><strong>07 — Les états :</strong> page de référence. Aucun de ces états n'est déclenché par une vraie donnée : ils sont écrits pour être conçus avant d'être urgents.</p></div>
+        </div>
+      </section>
+
+      <p class="notice-travail">
+        Galerie des maquettes JiaKo. Le vrai code de l'application reste bloqué par le
+        No-Go du 20 octobre : interviews d'abord.
+      </p>
+
+    </main>
+
+    <!-- Pied commun (navigation.md) -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span><a href="galerie.html" aria-current="page">Galerie des maquettes</a> · Page de travail, octobre 2026</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

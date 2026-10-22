@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Résultats d'une étude</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barre de navigation : modèle B de navigation.md. Ici on est sur un
+         écran DÉPENDANT d'une étude, donc « Mes études » est la section
+         courante (aria-current="location") mais pas la page affichée. -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+      <ul class="nav-liens">
+        <li><a href="01-etudes.html" aria-current="location">Mes études</a></li>
+        <li><a href="02-editeur.html">Nouvelle</a></li>
+        <li><a href="index.html">Accueil du site</a></li>
+      </ul>
+      <span class="nav-compte">wilfried@…</span>
+    </nav>
+
+    <main class="contenu">
+
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Étude publiée depuis le 14 septembre</p>
+          <h1>Avis clients : ma boutique de quartier</h1>
+        </div>
+        <!-- La carte de résultat est la pièce de partage WhatsApp : c'est
+             l'action d'accent du design system, donc ambre, pas verte -->
+        <div class="actions actions--haut">
+          <a class="bouton bouton-accent" href="#carte">Partager la carte sur WhatsApp</a>
+          <a class="bouton bouton-discret" href="02-editeur.html">Modifier les questions</a>
+        </div>
+      </div>
+
+      <div class="bandeau bandeau-attention">
+        <strong>17 réponses ce mois-ci</strong> sur les 25 autorisées par l'offre gratuite.
+        42 réponses au total depuis septembre.
+      </div>
+
+      <!-- 4 indicateurs, jamais plus : au-delà, aucune information n'est principale -->
+      <div class="kpi-ligne">
+        <div class="kpi">
+          <p class="kpi-valeur">42</p>
+          <p class="kpi-libelle">réponses au total</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-valeur">4,2<span class="kpi-unite"> / 5</span></p>
+          <p class="kpi-libelle">satisfaction moyenne</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-valeur">86 %</p>
+          <p class="kpi-libelle">ont terminé le questionnaire</p>
+        </div>
+        <div class="kpi">
+          <p class="kpi-valeur kpi-valeur-texte">il y a 2 h</p>
+          <p class="kpi-libelle">dernière réponse reçue</p>
+        </div>
+      </div>
+
+      <!-- Question à échelle : des barres, jamais de camembert -->
+      <section class="carte">
+        <p class="sur-titre">Question 3 · échelle</p>
+        <h2 class="titre-carte">Sur 1 à 5, recommanderais-tu ma boutique ?</h2>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>5 · Tout à fait</span>
+            <span class="resultat-valeur">20 · 48 %</span>
+          </div>
+          <div class="piste">
+            <!-- Le résultat le plus marquant reçoit l'accent : un seul par écran -->
+            <div class="remplissage remplissage-accent w-48"></div>
+          </div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>4 · Plutôt</span>
+            <span class="resultat-valeur">15 · 36 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-36"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>3 · Moyen</span>
+            <span class="resultat-valeur">4 · 10 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-10"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>2 · Plutôt pas</span>
+            <span class="resultat-valeur">2 · 5 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-5"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>1 · Pas du tout</span>
+            <span class="resultat-valeur">1 · 2 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-2"></div></div>
+        </div>
+      </section>
+
+      <!-- Question à choix multiple -->
+      <section class="carte">
+        <p class="sur-titre">Question 5 · choix multiple</p>
+        <h2 class="titre-carte">Qu'est-ce qui t'a plu dans ta visite ?</h2>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>L'accueil</span>
+            <span class="resultat-valeur">25 · 60 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-60"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>Les prix</span>
+            <span class="resultat-valeur">20 · 48 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-48"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>La proximité du magasin</span>
+            <span class="resultat-valeur">15 · 36 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-36"></div></div>
+        </div>
+
+        <div class="resultat-ligne">
+          <div class="resultat-libelle">
+            <span>La qualité des produits</span>
+            <span class="resultat-valeur">10 · 24 %</span>
+          </div>
+          <div class="piste"><div class="remplissage w-24"></div></div>
+        </div>
+      </section>
+
+      <!-- Textes ouverts : lus tels quels, jamais d'analyse automatique dans le MVP -->
+      <section class="carte">
+        <p class="sur-titre">Question 7 · texte court</p>
+        <h2 class="titre-carte">Un conseil pour améliorer la boutique ?</h2>
+
+        <p class="verbatim mt-4">
+          « Toujours de bonne humeur, ça donne envie de revenir. »
+          <span class="verbatim-source">Réponse 12 · 18 octobre</span>
+        </p>
+        <p class="verbatim mt-4">
+          « Le prix du savon a augmenté, je vais chez le voisin quand c'est trop cher. »
+          <span class="verbatim-source">Réponse 27 · 19 octobre</span>
+        </p>
+        <p class="verbatim mt-4">
+          « Est-ce qu'on pourra bientôt commander par téléphone ? »
+          <span class="verbatim-source">Réponse 33 · 21 octobre</span>
+        </p>
+      </section>
+
+      <!-- La carte 1080×1080 : pensée pour être capturée et envoyée sur WhatsApp.
+           C'est le canal de distribution de JiaKo, donc le format est carré
+           dès la première maquette, pas bricolé plus tard. -->
+      <section class="carte mt-6" id="carte">
+        <p class="sur-titre">Carte de résultat · à capturer et à envoyer</p>
+        <div class="carte-partage mt-4">
+          <div>
+            <p class="carte-partage-marque">JiaKo</p>
+            <p class="carte-partage-titre mt-4">Avis clients : ma boutique de quartier</p>
+          </div>
+          <div>
+            <p class="carte-partage-chiffre">4,2 / 5</p>
+            <p class="carte-partage-note">
+              42 réponses · 86 % ont terminé
+            </p>
+          </div>
+          <p class="carte-partage-date">Septembre – octobre 2026</p>
+        </div>
+
+        <div class="actions">
+          <a class="bouton bouton-secondaire" href="#carte">Exporter en CSV</a>
+          <button type="button" class="bouton bouton-discret">Voir les réponses une par une</button>
+          <a class="bouton bouton-discret" href="01-etudes.html">Revenir à mes études</a>
+        </div>
+      </section>
+
+      <!-- Données périmées : l'horodatage est affiché, pas caché -->
+
+    </main>
+
+    <!-- Pied commun à toutes les pages (navigation.md) -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

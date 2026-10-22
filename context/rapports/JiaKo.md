@@ -1,731 +1,117 @@
 # Rapport de projet : JiaKo
 
-> Source : `JiaKo_Rapport_de_Planification.pdf` (original dans `context/import/`)
+> Rapport de suivi interne. En cas de conflit, le rapport de planification du 20 octobre prévaut sur le périmètre du MVP.
+> Version texte du rapport de planification : `livrables/documents/jiako/rapport-de-planification.md` (le PDF est dans le même dossier).
+
+Dernière mise à jour : 2026-10-22
 
 ---
 
-JIAKO  |  RAPPORT DE PLANIFICATION
-JiaKo
-Étude de marché guidée : planification de A à Z
-Reprise du cadrage selon le Guide Complet
-DATE
-20 octobre 2026
-STATUT
-Planification avant construction
-BASE
-Dossier de cadrage du 16 octobre 2026, repris
-NOM
-JiaKo : nom de travail, à confirmer
-MÉTHODE
-Guide Complet : sécurité, checklist, 10 défis
-Document de travail confidentiel. Les points à vérifier sont signalés dans le texte.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 2
-Sommaire
-2
-Sommaire
- 3
-1. Lecture rapide
- 4
-2. Clarifier l’idée (étape 1)
- 5
-3. Recherche sur le problème et le marché (étape 2)
- 6
-4. Analyse des concurrents (étape 3)
- 7
-5. Validation de la cible (étape 4)
- 8
-6. Faisabilité technique, légale et sécurité (étape 5)
- 10
-7. Définition du MVP (étape 6)
- 11
-8. Préparation avant de construire (étape 7)
- 12
-9. Plan d’exécution (étape 8)
- 13
-10. Risques
- 14
-11. Décisions à prendre
- 15
-12. Sources et limites
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 3
-1. Lecture rapide
-Décision recommandée : Go pour la validation, No-Go pour le développement
-Ne code rien tant que 10 à 15 personnes de ta cible n’ont pas été interrogées. Le moyen le moins coûteux de valider :
-vendre à la main une étude de marché clé en main à 3 à 5 clients, avant d’automatiser.
-Les constats qui comptent
-  La collecte de réponses est gratuite et banale. Tally propose des formulaires et des réponses illimités
-gratuitement (sous usage équitable), avec logique conditionnelle et envoi de fichiers. Google Forms est
-gratuit aussi. JiaKo ne peut pas gagner sur la collecte.
- La valeur possible est ailleurs : guider la méthode, analyser les réponses, produire un rapport clair, en
-français et adapté au contexte local. C’est exactement là que ton savoir-faire en IA et automatisation sert,
-et pourtant ton dossier la place dans les « fonctionnalités futures ».
- Le dossier ne dit pas comment le guidage fonctionne sans humain. C’est la question centrale du
-produit.
- Une étude de marché est un besoin ponctuel (avant un lancement, pour un mémoire). Un abonnement
-mensuel convient mal ; un forfait par étude est à tester.
- Aucune interview n’a été faite, et le nom est déjà noté « validé ». Or jiako.com est en vente à 8 255 $,
-jiako.co est pris, et « Jako » est très proche. Le sens du nom n’est pas vérifié.
- Un produit en ligne a des coûts fixes avant le premier revenu (environ 45 $ par mois, voir §6.2), et il
-manipule des données de tiers : la sécurité est bien plus exigeante qu’une vitrine.
- Tu es seul, et Kofira n’a pas encore de client. Lancer un produit multi-utilisateurs en parallèle est le
-plus gros risque du projet.
-Verdict Go / No-Go (étape 6 de la checklist du guide)
-Critère
-État
-Verdict
-Idée claire en 2-3 phrases
-Partiel : 7 segments de cible, « comment guider » non
-défini
-À faire
-Preuve que le besoin existe
-Non : aucune interview
-À faire
-Analyse des concurrents
-Partiel : une liste de noms, sans analyse
-À faire
-Cible validée
-Non
-À faire
-Faisabilité technique
-Oui pour un MVP réduit ; non pour le périmètre du
-dossier
-Go (MVP réduit)
-Conformité légale
-Non étudiée : le dossier ne cite que le RGPD
-À faire
-Sécurité
-Exigeante : comptes et données de tiers
-À planifier dès le départ
-Verdict global
-No-Go pour écrire le code. Go pour la validation : interviews, recherche de demandes, pilote manuel. Si les seuils du
-§5 sont atteints, le MVP du §7 est faisable.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 4
-2. Clarifier l’idée (étape 1)
-Question
-Réponse actuelle
-Solidité
-Quel problème précis ?
-Des personnes doivent comprendre leur marché (avant un lancement,
-pour un projet ou un mémoire) mais ne connaissent pas la méthode,
-jonglent entre Google Forms, Excel, WhatsApp et Word, et
-n’obtiennent pas de rapport exploitable (ton dossier).
-Plausible, non vérifié
-Qui a ce problème ?
-Ton dossier liste 7 segments : trop large. Deux candidats à tester : (a)
-les étudiants (mémoires, soutenances), (b) les petits entrepreneurs
-avant de lancer un produit. En choisir un seul. Ce sont des
-hypothèses, pas des faits.
-Manquant
-Comment font-ils
-aujourd’hui ?
-Google Forms ou Tally, Excel, WhatsApp, interviews orales, agences
-d’études (chères).
-Bon, à confirmer
-Pourquoi ta solution
-serait-elle meilleure ?
-Guidage étape par étape, analyse, rapport clair, en français, à prix
-adapté. Mais le « comment » n’est pas défini : modèles par secteur
-? assistant IA ? accompagnement humain ?
-Incomplet
-Quelle valeur principale
-?
-Passer de « je ne sais pas par où commencer » à « j’ai un rapport que
-je peux présenter ».
-Solide
-Besoin fréquent ou rare
-?
-Ponctuel : avant un lancement ou un rendu. Peu de récurrence.
-Conséquence : un abonnement mensuel risque de produire beaucoup
-de départs ; un forfait par étude est à tester.
-Solide, impact fort
-La phrase de départ (test du guide)
-« JiaKo aide [étudiants / petits entrepreneurs] à réaliser une vraie étude de marché sans connaître la méthode : il les
-guide pour écrire le questionnaire, collecte les réponses et produit un rapport clair. »
-Résultat du test : la phrase passe, sauf la cible et la manière de guider.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 5
-3. Recherche sur le problème et le marché (étape 2)
-Ce qu’on sait
-  Ton dossier décrit un problème crédible : outils dispersés, méthode absente, rapport introuvable.
- Le marché de la collecte d’enquêtes est établi, avec des outils gratuits puissants (voir §4).
-Ce qu’on ne sait pas
-  La demande réelle à Abidjan ou en Côte d’Ivoire, le nombre de personnes concernées, le prix acceptable.
- Les usages locaux : téléphone, WhatsApp, coût des données, paiement. Ce sont des hypothèses
-sérieuses (la distribution par WhatsApp et le paiement par mobile money sont probables), mais je ne les
-ai pas vérifiées.
-Comment le savoir, gratuitement
-  Chercher dans les groupes Facebook et WhatsApp d’étudiants et d’entrepreneurs des demandes du type
-« aide pour mon questionnaire » ou « comment faire une étude de marché », et les compter.
- Faire 10 à 15 interviews avec un seul segment (voir §5).
- Demander à des enseignants ou à des associations d’entrepreneurs ce qu’ils voient revenir.
- Rechercher les outils d’enquête assistés par IA : je ne l’ai pas fait, et c’est indispensable avant de te
-positionner sur l’IA.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 6
-4. Analyse des concurrents (étape 3)
-Prix vérifiés le 20 octobre 2026 quand c’est indiqué. Les outils de ta liste que je n’ai pas étudiés sont marqués « non vérifié ».
-Outil
-Ce qu’il offre
-Prix
-Limite pour ta cible
-Google Forms
-Formulaires simples, liés à Sheets
-Gratuit (non revérifié ici)
-Aucune méthode, aucun
-rapport guidé
-Tally
-Formulaires et réponses illimités
-sous usage équitable, logique
-conditionnelle, fichiers, intégrations
-Gratuit ; Pro payant (de l’ordre
-de 20 € à 29 $ par mois selon
-les sources)
-Pas de guidage d’étude
-de marché
-Typeform
-Formulaires soignés
-Selon une page comparative
-de Tally (source concurrente, à
-vérifier) : plan gratuit limité à 10
-réponses par mois
-Cher à l’usage, pas de
-guidage
-SurveyMonkey,
-Qualtrics,
-QuestionPro, Zoho
-Survey
-Plateformes professionnelles
-Non vérifié
-Selon ton dossier :
-coûteuses et complexes
-Outils d’enquête
-avec IA
-Non recherchés
-Non vérifié
-À rechercher avant de
-décider
-Excel, WhatsApp,
-agences
-Concurrents indirects
-Variable
-Pas de méthode ou trop
-cher
-Ce que ça implique
-La collecte est gratuite. JiaKo ne peut gagner que sur quatre choses : le guidage (quoi demander et à qui), l’analyse
-(comprendre les réponses), le rapport (le livrable présentable) et le contexte local (français, exemples, prix, paiement).
-Le plan gratuit de JiaKo doit être meilleur que Tally sur ces points, pas sur le nombre de réponses.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 7
-5. Validation de la cible (étape 4)
-Plan d’interviews : 10 à 15 personnes, un seul segment
-Règle : demande des faits passés, pas des opinions sur ton idée. « Raconte ta dernière étude » vaut mieux
-que « tu utiliserais mon outil ? ».
-  Raconte-moi ta dernière étude de marché ou enquête : comment t’y es-tu pris ?
- Qu’est-ce qui était le plus difficile ? Combien de temps cela t’a-t-il pris ?
- Quels outils as-tu utilisés ? As-tu payé quelqu’un ? Combien ?
- Qu’as-tu fait des réponses ? As-tu obtenu un rapport ?
- Si un outil faisait X, qu’est-ce qui t’empêcherait de l’utiliser ?
- À quel moment aurais-tu payé, et combien ?
-Seuils Go proposés (à confirmer par toi)
-Sur 10 personnes du segment choisi
-Seuil proposé
-Ont réalisé ou prévoient une étude dans les 6 prochains mois
-6 sur 10 ou plus
-Ont déjà payé quelqu’un ou perdu beaucoup de temps sur ce problème
-4 sur 10 ou plus
-Acceptent un prix précis, une précommande ou un pilote
-3 sur 10 ou plus
-Inscriptions à une liste d’attente de personnes que tu ne connais pas
-20 ou plus (à ajuster)
-Le pilote manuel (« concierge »)
-Propose à 3 à 5 clients une étude de marché clé en main. Tu utilises Tally ou Google Forms pour la
-collecte, tu analyses avec l’IA, tu livres un rapport. Note les heures passées, le prix payé et ce qui est
-répétitif : c’est ce qu’il faudra automatiser. Avantages : un revenu, des preuves, et un travail qui met
-directement en valeur tes compétences en automatisation et en agents IA.
-Pourquoi je le recommande
-Cette étape coûte zéro ligne de code, zéro abonnement, et te dit si les gens paient pour le résultat. Elle suit la même
-logique que ta décision pour Kofira : valider avant de construire.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 8
-6. Faisabilité technique, légale et sécurité (étape 5)
-6.1 Technique
-Le périmètre du dossier est trop large pour un développeur solo : 5 rôles, 4 offres d’abonnement, PDF,
-Excel, graphiques, panel de répondants, IA, collaboration. Un MVP réduit (voir §7) est faisable avec les
-outils que tu utilises déjà.
-6.2 Coûts et hébergement
-Service
-Règle ou limite
-Impact sur JiaKo
-Supabase, plan gratuit
-Pause après 7 jours d’inactivité, 500 Mo de base, 1
-Go de fichiers ; pas de sauvegardes incluses d’après
-la page de comparaison citée en sources (à
-confirmer)
-Inutilisable en production : un produit en
-pause fait fuir les utilisateurs
-Supabase Pro
-25 $ par mois, pas de pause, 8 Go de base
-Nécessaire dès la bêta réelle
-Vercel Hobby
-Usage personnel non commercial uniquement
-Dès qu’un abonnement existe, le plan
-Pro (environ 20 $ par mois, à confirmer)
-est requis
-Seuil de rentabilité des coûts fixes
-Coût fixe indicatif : environ 45 $ par mois, soit 25 000 à 29 000 FCFA au taux variable du jour (à recalculer).
-Nombre d’utilisateurs payants nécessaires pour couvrir uniquement ce coût :
-Prix mensuel par utilisateur
-Utilisateurs payants nécessaires
-2 000 FCFA
-13 à 15
-5 000 FCFA
-5 à 6
-10 000 FCFA
-3
-Hors frais de paiement mobile, e-mails transactionnels, domaine et coût de l’IA. Le coût de l’IA est variable : il faut l’estimer
-avant de promettre une analyse IA dans le plan gratuit.
-Domaines (tes captures Namecheap du 20 octobre) : jiako.com en vente à 8 255 $ ; jiako.co déjà enregistré (2023) ; jiako.org
-8,48 $ puis 14,48 $ ; jiako.io 29,98 $ puis 65,98 $ ; jiako.ai 89,98 $.
-6.3 Légal et conformité (je ne suis pas juriste : à confirmer)
-  Ton dossier ne cite que le RGPD. En Côte d’Ivoire, la loi n° 2013-450 du 19 juin 2013 sur les données
-personnelles s’applique, avec l’ARTCI comme autorité. D’après l’ARTCI et la presse, tout traitement doit
-faire l’objet d’une déclaration préalable ou d’une autorisation. Le RGPD ne s’applique que si des
-répondants se trouvent dans l’Union européenne.
- Rôles de chacun. Tes utilisateurs collectent les réponses de leurs répondants ; tu héberges. Qui est
-responsable de quoi doit être clarifié avec un juriste, puis écrit dans les CGU.
- Consentement et données sensibles. Informer les répondants de l’usage de leurs réponses ; avertir ou
-interdire la collecte de données sensibles (santé, opinions politiques, religion) ; définir la durée de
-conservation et la suppression.
- Transferts à l’étranger. Supabase et Vercel hébergent hors du pays : ce point est encadré par la loi.
- Paiement. Le mobile money passera par un service de paiement local, à identifier, avec ses frais et ses
-exigences (entreprise enregistrée au CEPICI, probablement).
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 9
-6.4 Sécurité (partie 1 du guide), appliquée à JiaKo
-Menace
-Où dans JiaKo
-Protection
-XSS
-Réponses en texte libre affichées dans le
-tableau de bord
-Échapper tout texte de répondant ; politique CSP
-Injection de formules
-dans les exports
-Un répondant écrit « =... » ou « +... » et
-l’export CSV l’exécute dans Excel (point non
-listé dans ton guide, mais réel)
-Neutraliser les cellules qui commencent par = + -
-@ à l’export
-IDOR
-Changer l’identifiant d’une étude dans l’URL
-Identifiants aléatoires (UUID), RLS, vérification du
-propriétaire à chaque requête
-Spam et bots
-Lien public de réponse
-Honeypot, limitation par appareil ou adresse, limite
-de réponses par étude, captcha si besoin
-Force brute
-Connexion
-Authentification fournie par la plateforme (n’écris
-pas ton propre hachage) ; vérifier ses limites de
-débit dans la documentation
-Secrets
-Clés d’API
-Clé service_role jamais dans le navigateur ;
-fichiers .env non commités
-Données des
-répondants
-Base de données
-Minimiser, anonymat par défaut, aucune donnée
-sensible inutile
-Abus du plan gratuit
-Création massive de comptes ou d’études
-Limites par compte, vérification de l’e-mail
-6.5 Les 10 défis d’ingénierie, appliqués à JiaKo
-#
-Défi
-S’applique ?
-Réponse
-01
-Concurrence
-Oui
-Quota de réponses du plan gratuit : deux réponses
-simultanées ne doivent pas le dépasser (compteur atomique).
-02
-Idempotence
-Oui
-Un double clic ou un réseau lent ne doit créer qu’une seule
-réponse (clé unique par soumission).
-03
-Atomicité
-Oui
-Une réponse et ses réponses aux questions s’enregistrent
-ensemble ou pas du tout (fonction RPC).
-04
-Scalabilité
-Oui, point chaud
-Un lien partagé à des centaines de personnes à la fois : la
-route publique de réponse est le point fragile.
-05
-Autorisation, IDOR
-Critique
-Seul le propriétaire lit les réponses. Tests d’accès croisés
-avant toute bêta.
-06
-Multi-services
-Plus tard
-Paiement, abonnement et e-mail : clés d’idempotence sur les
-notifications de paiement.
-07
-Déploiement,
-migrations
-Dès les premières
-données réelles
-Migrations compatibles avec l’ancienne version ; retour arrière
-possible.
-08
-Hors ligne, conflits
-Pertinent localement
-Connexions instables : la soumission réessaie sans créer de
-doublon. PWA possible plus tard.
-09
-Fiabilité de l’IA
-Critique si tu vends
-l’analyse IA
-Afficher les données sources, ne pas laisser l’IA inventer des
-chiffres, vérifier les conclusions.
-10
-Théorème CAP
-Non
-Une seule base de données.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 10
-7. Définition du MVP (étape 6)
-Le MVP en une phrase
-Un étudiant ou petit entrepreneur crée une étude guidée à partir d’un modèle, partage un lien, reçoit des réponses et voit
-des résultats simples.
-Indispensable (must-have)
-  Un compte (authentification fournie par la plateforme).
- Créer une étude à partir d’un modèle guidé : 3 modèles au plus, 4 types de questions (choix unique, choix
-multiple, échelle, texte court).
- Un lien public de réponse pensé pour le téléphone, avec un bouton « partager sur WhatsApp » (un simple
-lien wa.me).
- Des résultats simples : comptages, graphiques en barres, liste des réponses en texte.
- Un export CSV sécurisé.
-Peut attendre (nice-to-have)
-  Rapport PDF, export Excel, rapports personnalisés.
- Abonnements et paiement en ligne (d’abord un pilote payé à la main).
- Rôles Administrateur, Support et Analyste ; collaboration en équipe ; comparaison d’études.
- Panel de répondants, intégrations, application mobile.
-Place de l’IA : à décider après les interviews
-Option : une seule fonction IA dans le MVP (proposer des questions à partir de la description du projet), avec un coût
-plafonné par utilisation. C’est le meilleur candidat pour te différencier de Tally. Elle n’entre dans le MVP que si les
-interviews confirment qu’elle résout un vrai blocage.
-Parcours principal, étape par étape
-Créateur
-Répondant
-1. S’inscrit. 2. Décrit son projet. 3. Choisit un modèle. 4. Adapte les
-questions. 5. Publie. 6. Partage le lien. 7. Suit les réponses. 8.
-Exporte.
-1. Ouvre le lien sur son téléphone. 2. Répond sans
-créer de compte. 3. Voit un message de
-remerciement.
-Ce que je retire du périmètre du dossier
-Élément du dossier
-Décision
-Raison
-Rôles Administrateur, Support, Analyste
-Plus tard
-Tu es seul
-Offres Starter, Pro, Business
-Plus tard
-D’abord gratuit plus pilote payé à la main
-PDF et Excel
-CSV d’abord
-Moins de code, moins de risques
-Panel, IA, intégrations
-Après validation
-Rien ne prouve encore qu’ils sont
-nécessaires
-React ou Next.js, Node, Django ou Laravel
-Un seul choix (§8)
-Moins de pièces à maintenir
-RGPD seul
-Ajouter la loi 2013-450
-Contexte ivoirien
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 11
-8. Préparation avant de construire (étape 7)
-Stack proposée
-React, TypeScript, Vite et Tailwind pour l’interface ; Supabase (authentification, base PostgreSQL, règles
-RLS) ; Vercel en plan Pro ; Recharts pour les graphiques. Pourquoi : ce sont les outils prévus pour Kofira,
-tu n’as aucune nouvelle compétence à apprendre, et il n’y a pas de serveur Node séparé à sécuriser. Next.js
-n’est pas nécessaire pour ce produit.
-Modèle de données du MVP
-Entité
-Champs clés
-Règle d’accès
-Utilisateur
-Géré par l’authentification
-Chacun voit son compte
-Étude
-id (UUID), propriétaire, titre, description, statut
-(brouillon, publiée, fermée)
-Le propriétaire lit et écrit
-Question
-id, étude, type, libellé, options, position
-Lecture publique seulement si l’étude
-est publiée ; écriture par le propriétaire
-Réponse
-id, étude, date, clé unique de soumission
-Insertion publique via une fonction
-contrôlée ; lecture par le propriétaire
-seulement
-Réponse à une
-question
-id, réponse, question, valeur
-Comme la réponse
-Rapport et Abonnement du dossier sont hors MVP.
-Règle d’or
-Personne d’autre que le propriétaire de l’étude ne peut lire ses réponses. Ce point se teste avec deux comptes différents
-avant toute bêta.
-Checklist du guide
-Élément du guide
-État
-Commentaire
-Cahier des charges ou cadrage
-Partiel
-Dossier du 16 octobre à resserrer avec ce rapport
-Stack choisie et justifiée
-Proposée
-Voir ci-dessus
-Outils d’organisation
-Partiel
-GitHub ; créer un tableau de suivi des interviews
-Checklist de sécurité adaptée
-Oui
-Voir §6.4
-10 défis parcourus
-Oui
-Voir §6.5
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 12
-9. Plan d’exécution (étape 8)
-Durées indicatives, à recalibrer sur ta disponibilité réelle. Je ne connais pas ton emploi du temps.
-Phase
-Contenu
-Critère de sortie
-Durée indicative
-0. Cible et phrase
-Choisir un segment, écrire la phrase de
-départ et les hypothèses
-Segment et phrase écrits
-2 à 3 jours
-1. Validation sans
-code
-10 à 15 interviews, recherche de
-demandes en ligne, recherche d’outils IA
-concurrents, liste d’attente
-Seuils du §5 atteints, ou pivot ou
-abandon assumé
-3 à 4 semaines
-2. Pilote manuel
-3 à 5 études clé en main, heures et prix
-notés. En parallèle de la phase 1
-3 clients payants ou
-enseignements clairs
-3 à 6 semaines
-3. Bilan Go /
-No-Go
-Décider du MVP, du modèle de prix et du
-rôle de l’IA
-Décision écrite
-1 jour
-4. MVP
-Les 5 must-have du §7
-Test d’accès croisé réussi, test
-sur téléphone
-À estimer après le
-bilan (hypothèse : 6 à
-10 semaines à temps
-partiel)
-5. Bêta fermée
-10 à 20 utilisateurs réels, corrections
-Pas de faille connue, retours
-intégrés
-3 à 4 semaines
-6. Lancement
-payant
-Paiement mobile money, CGU, ARTCI,
-entreprise enregistrée
-Toutes les conditions légales
-vérifiées
-À estimer
-Comment articuler JiaKo et Kofira
-Les phases 0 et 1 ne demandent aucun code : elles peuvent avancer pendant que Kofira cherche ses premiers clients. Ne
-commence pas la phase 4 avant le bilan de Kofira. Sinon tu diluerais ton temps sur deux produits sans client.
-Le nom : à traiter comme provisoire
-Constat
-Source
-jiako.com est en vente à 8 255 $ (renouvellement 18,48 $ par an)
-Tes captures Namecheap
-jiako.co est déjà enregistré depuis 2023
-Tes captures Namecheap
-« Jako » est une entreprise allemande d’articles de sport, phonétiquement très proche
-Recherche du 20 octobre
-Le sens « interroger le marché » est une construction personnelle (Jiahao et Aiko sont
-chinois et japonais ; les sens agni ne sont pas vérifiés)
-Ton dossier de cadrage
-Recommandation : garde JiaKo comme nom de travail. Décide du nom définitif avant d’acheter un
-domaine ou de publier une page. Fais valider les sens agni par des locuteurs avant de les utiliser
-publiquement, et vérifie les marques (OAPI, WIPO) et les comptes de réseaux sociaux.
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 13
-10. Risques
-Risque
-Impact
-Probabilité
-Mesure
-Aucune demande locale réelle
-Élevé
-Moyenne
-Interviews et pilote avant le code
-Concurrents gratuits (Tally, Google Forms)
-Élevé
-Élevée
-Ne pas concurrencer sur la collecte
-Abonnement mensuel mal adapté à un
-besoin ponctuel
-Moyen
-Élevée
-Tester un forfait par étude
-Mauvaise gestion des données de
-répondants
-Élevé
-Moyenne
-RLS, minimisation, démarches ARTCI
-Faille de sécurité sur un produit avec
-comptes
-Élevé
-Moyenne
-Guide, tests d’accès croisés, relecture
-Surcharge (Kofira, JiaKo, recherche de
-stage)
-Élevé
-Élevée
-Priorité écrite, validation sans code
-d’abord
-Coûts fixes avant les revenus
-Moyen
-Élevée
-Pilote manuel d’abord
-Coût et fiabilité de l’IA
-Moyen
-Moyenne
-Plafonner l’usage, afficher les sources
-Nom, domaine et marque (Jako, .co pris)
-Moyen
-Moyenne
-Nom provisoire, vérifications avant
-achat
-Sens du nom utilisé sans vérification
-Faible
-Moyenne
-Faire valider par des locuteurs agni
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 14
-11. Décisions à prendre
-#
-Décision
-Bloquante ?
-Ma proposition
-1
-Cible unique
-Oui
-Étudiants ou petits entrepreneurs, à choisir avant
-les interviews
-2
-Priorité entre Kofira et JiaKo (4
-semaines)
-Oui
-Kofira d’abord ; pour JiaKo, validation sans code
-3
-Rôle de l’IA
-Après les interviews
-Une fonction dans le MVP, ou service manuel
-assisté par IA d’abord
-4
-Modèle de prix
-Après les interviews
-Tester un forfait par étude contre un abonnement
-5
-Nom définitif
-Avant la page
-d’attente
-Nom de travail JiaKo en attendant
-6
-Périmètre du MVP
-Avant la phase 4
-Les 5 must-have du §7
-7
-Stack
-Non
-React, TypeScript, Vite, Tailwind, Supabase,
-Vercel
-8
-Gestion des données (conservation,
-suppression, anonymat)
-Avant la bêta
-À écrire avec un conseil juridique
-JIAKO - Rapport de planification
-Confidentiel - document de travail
-20 octobre 2026
-Page 15
-12. Sources et limites
-Ce que j’ai vérifié (consulté le 20 octobre 2026)
-  Tally, offres et limites : jetadmin.io/blog/tally-pricing ; surveylab.com/blog/tally-app ; pages comparatives
-de tally.so/help (source concurrente pour Typeform).
- Supabase, tarifs : supabase.com/pricing ; comparaison citant la page de tarifs :
-neon.com/guides/neon-vs-supabase-free-plan
- Vercel, règles d’usage équitable : vercel.com/docs/limits/fair-use-guidelines
- Loi 2013-450 et ARTCI : cio-mag.com (déclaration préalable) ; dlapiperdataprotection.com (fiche Côte
-d’Ivoire)
- Prix des domaines et disponibilité : tes captures d’écran Namecheap du 20 octobre 2026.
-Ce que je n’ai pas pu vérifier
-  La demande locale, le nombre de cibles potentielles, les usages réels.
- Les outils d’enquête assistés par IA et les prix de SurveyMonkey, Qualtrics, QuestionPro et Zoho Survey.
- Les limites de débit de l’authentification Supabase, et les services de paiement mobile money locaux.
- Le prix actuel exact du plan Vercel Pro et le sens agni des éléments du nom.
-Comment utiliser ce rapport avec ton guide
-Contrairement à Kofira, JiaKo manipule des comptes et des données de tiers : les niveaux intermédiaire et senior du guide
-(IDOR, RLS, idempotence, atomicité, limitation de débit) s’appliquent dès le premier jour du MVP. C’est une raison de
-plus de valider avant de construire, parce que le coût de construire correctement est élevé.
+## 1. En une phrase
+
+JiaKo est une application web d'étude de marché guidée pour les petits entrepreneurs de Côte d'Ivoire : on part d'un modèle pré-rempli, on écrit son questionnaire en dix minutes, on partage un lien sur WhatsApp, on reçoit les réponses et un résultat lisible sans savoir en faire une. L'objectif chiffré est celui du portefeuille : 500 000 FCFA de chiffre d'affaires par mois d'ici 6 mois, avec 3 à 5 premiers clients payants.
+
+---
+
+## 2. Où j'en suis
+
+**La planification est terminée. La validation terrain n'a pas commencé.**
+
+**Fait le 20 octobre** : le rapport de planification, 12 sections. Verdict : Go pour la validation, No-Go pour le développement.
+
+**Fait le 22 octobre** :
+
+- Les étapes 0 à 4 de cadrage, produites dans `livrables/documents/jiako/` : compte rendu de lecture avec 8 contradictions (`etape-0-comprehension.md`), plan du MVP avec 5 indispensables et 11 reportés (`etape-1-plan-mvp.md`), comparatif de stack avec tarifs vérifiés et décision d'hébergement (`etape-2-stack.md`), direction artistique (`etape-3-direction-artistique.md`), architecture (`etape-4-architecture.md`)
+- La direction artistique, validée
+- L'architecture proposée, en attente d'accord
+- **10 maquettes HTML/CSS interliées** dans `livrables/applications/jiako/maquettes/`, et **`index.html` est la page d'accueil du site**, pas une galerie. L'ancien `00-accueil.html` a été supprimé, son contenu déplacé dans `index.html`, et les liens des 9 autres pages réécrits. La galerie existe encore sous le nom `galerie.html`, mais **aucune page ne la lie** : elle s'ouvre en tapant l'adresse. Contrôle automatique des liens : **10 pages, 261 liens, aucune impasse, aucune cible manquante**
+- **Les pages présentent JiaKo comme un produit, pas comme un dossier de travail** : les huit notices « Maquette statique » ont été retirées (contenu transféré dans `galerie.html`), les titres d'onglet nettoyés, la mention « Page de travail, octobre 2026 » du pied remplacée par « © 2026 JiaKo ». La classe CSS correspondante est renommée `.notice-travail`
+- **Deux bandeaux conservés et reformulés**, parce qu'ils portent un vrai risque et pas une trace de maquette : sur `05-confidentialite.html`, l'avertissement « à relire avant publication, un juriste doit valider » (loi 2013-450, texte légal non vérifié) ; sur `06-contact.html`, le fait qu'aucun formulaire d'envoi n'existe encore
+- **La direction de style du secteur appliquée aux maquettes** (22 octobre, dans la foulée) : boutons en pilule au rayon `--r-full` pour les distinguer des cartes, hero retravaillé (sous-titre court et direct, CTA secondaire « Voir les modèles »), et **les 5 états d'un écran dessinés** sur la page `07-etats.html` : chargement, vide, erreur, accès refusé, quota. Point de sécurité porté par le texte de l'accès refusé : il est formulé comme une page inexistante, pour ne jamais confirmer l'existence d'une étude chez quelqu'un d'autre
+- **Le design system de Wilfried appliqué aux maquettes** (22 octobre, dernière opération) : `context/import/jiako-design-system.md` (« Warm Editorial Rigor », fourni dans ses Téléchargements), appliqué tel quel sur décision de lui. **Newsreader remplace Fraunces**, le **bouton primaire devient vert** et l'ambre passe en action d'accent/WhatsApp, l'échelle typographie est recalée (12/14/16/18/20/24/32/40), la largeur de page à 1040 px, boutons à 48 px, champs en pilule sur une ligne et 12 px en zone de texte, pastilles à 28 px sur fonds pastel, barres de résultat à 8 px. `tokens.css` réécrit, `composants.css` et `accueil.css` alignés. Contrôle automatique étendu : **151 classes toutes définies, 57 tokens tous utilisés, 0 style en ligne, 0 dégradé**
+- **Trois bugs trouvés et corrigés pendant l'application** : le bouton primaire, devenu vert, serait passé fond vert sur fond vert dans la barre publique et l'appel final (passés en ambre, et règle de couleur de la barre réécrite en `:not(.bouton)` pour que le problème ne revienne pas) ; la classe `.pied-colonne`, utilisée dans les 9 pages sans exister dans le CSS (elle reçoit `min-width: 0`, qui empêche une adresse email longue de faire déborder le pied) ; 4 tokens morts supprimés (`--c-success`, `--lh-title`, `--r-lg`, `--shadow-lg`). Nouveau script de contrôle : `verifier-classes.mjs`
+- **Deux barres collantes reçoivent l'ombre portée** : le design system prévoit une ombre pour elles, sans quoi la barre se confond avec le contenu qui défile dessous
+- **L'analyse des 5 concurrents de design** (`analyse-design-concurrents.md`) : Alchemer, Qualtrics, QuestionPro, SurveySparrow, Similarweb
+- **L'outil de suivi des interviews** (`suivi-interviews.md` et `.csv`) : les 6 questions, les verdicts définis à l'avance, les seuils, la procédure de saisie depuis un téléphone
+- **Le chantier C, la recherche sur les outils d'enquête assistés par IA** (`chantier-c-outils-enquete-ia.md`), qualifié de « plus urgent et plus négligé » par le rapport du 20 octobre. Constat principal : **Tally AI génère déjà un formulaire complet à partir d'une description, gratuitement, sur tous les plans, sans limite d'usage IA**. Jotform et SurveyMonkey font de même avec des plafonds
+
+**Non fait : 0 interview sur les 10 à 15 prévues.** Le fichier `suivi-interviews.csv` ne contient que l'en-tête. Le cadrage est solide sur papier, mais aucune personne de la cible n'a été interrogée et aucun pilote payé n'a été vendu.
+
+---
+
+## 3. Décisions prises
+
+- **Go pour la validation, No-Go pour le développement** : ne rien coder avant 10 à 15 interviews et le bilan (20 octobre)
+- **Périmètre = les 5 must-have du rapport du 20** : compte, étude guidée depuis 3 modèles avec 4 types de questions, lien public mobile avec partage WhatsApp, résultats simples, export CSV sécurisé. Pas de PDF, pas d'Excel (22 octobre)
+- **Cible = petits entrepreneurs** : hypothèse retenue par défaut à partir de la recommandation, à confirmer par les interviews (22 octobre)
+- **Modèle = freemium, 4 offres**, mais le MVP n'a aucun paiement (22 octobre)
+- **Nom = JiaKo**, confirmé comme nom de travail (22 octobre)
+- **Stack = React, TypeScript, Vite, Tailwind, Supabase, Recharts, shadcn/ui** (22 octobre)
+- **Hébergement = Vercel gratuit pendant le développement, migration obligatoire vers Cloudflare Pages** avant la page de vente ou le premier client payant. Vérifié : le plan Hobby interdit l'usage commercial et peut suspendre un déploiement sans préavis (22 octobre)
+- **Coûts = 0 $/mois** pendant le développement, 25 $/mois au premier client payant (Supabase Pro) (22 octobre)
+- **Direction artistique validée** (22 octobre), puis **complétée le même jour par le design system « Warm Editorial Rigor » fourni par Wilfried**, appliqué tel quel : Newsreader en display, primaire vert #124A3D, ambre #E8A33D en action d'accent et partage WhatsApp, encre #192823, gris chaud #707975, papier chaud #FAF6EF, animations quasi nulles dans l'application. **Quand le design system et la direction écrite divergent, le design system gagne** : c'est lui qui a tranché. Source conservée dans `context/import/jiako-design-system.md`
+- **Palette retenue dans la section « Colors » du document, pas dans son bloc YAML.** Le YAML annonce `#003228` en primaire et `#feb64e`, alors que les ombres et le halo de focus du même document utilisent `rgba(18, 74, 61, …)`, c'est-à-dire `#124A3D`. Le texte et les composants concordent, le YAML est incohérent avec eux
+- **L'ambre ne sert plus de couleur de bouton principal.** Elle est réservée au partage WhatsApp et aux conversions posées sur fond vert, où un bouton vert serait invisible. Cas relevés et corrigés : barre publique, appel final de l'accueil, lien WhatsApp du contact, partage de carte des résultats
+- **h3 en poids 500 là où h1 et h2 restent en 600**, pour suivre la hiérarchie du document (headline-md et headline-sm à 500) sans affaiblir les titres porteurs
+- **`--c-success` supprimé des tokens** : plus aucun écran ne l'utilise après le passage des pastilles aux fonds pastel. À recréer dès qu'un état « succès » sera dessiné, plutôt que le laisser pourrir
+- **Boutons en pilule, cartes en 12 px** : le rayon `--r-full` est réservé aux boutons, `--r-md` reste le rayon dominant des surfaces. La distinction dit à l'œil ce qui est cliquable (22 octobre)
+- **Les 5 états d'un écran sont conçus avant d'être urgents** : chargement (squelette à la forme du contenu), vide, erreur, accès refusé, quota. L'accès refusé est formulé comme une page inexistante, jamais comme « cette étude appartient à quelqu'un d'autre », qui confirmerait l'existence de la ressource (22 octobre)
+- **`index.html` est la page d'accueil du site, pas une galerie** : le fichier d'entrée porte le nom qu'aurait un hébergement réel. La galerie des maquettes (`galerie.html`) n'est liée par aucune page et ne figure dans aucune navigation (22 octobre)
+- **Aucune trace visible de maquette dans les pages du parcours** : notices retirées (contenu conservé dans `galerie.html`), titres d'onglet nettoyés, mention « Page de travail » du pied remplacée par « © 2026 JiaKo ». Exception assumée : les deux bandeaux qui portent un vrai risque (texte légal à faire relire, formulaire inexistant) sont conservés, reformulés (22 octobre)
+- **Architecture à deux surfaces de confiance distincte** : aucune policy INSERT sur `reponses` et `reponses_items`, tout passe par `soumettre_reponse()`, une fonction SECURITY DEFINER qui vérifie le token, le statut publié, l'idempotence, le quota et l'appartenance des questions à l'étude. En attente d'accord (22 octobre)
+- **Maquettes : navigation dupliquée en HTML dans chaque fichier, source de vérité dans `navigation.md`**, aucun JavaScript pour la navigation (22 octobre)
+- **3 surfaces de navigation** : barre publique (accueil, confidentialité, contact), barre d'application (4 écrans connectés), pied discret pour la page de réponse du répondant anonyme, qui n'a jamais accès à la navigation de l'application (22 octobre)
+- **Pas de page Tarifs ni À propos** : aucun prix n'a été testé et rien n'est validé à raconter. Le lien Tarifs pointe vers la FAQ de l'accueil (22 octobre)
+- **Identité confirmée face aux concurrents** : le papier chaud et le vert bouteille ne sont utilisés par aucun des 5 plateformes analysées. La direction validée est défendable, aucun ajustement n'est nécessaire (22 octobre)
+
+---
+
+## 4. Textes validés
+
+- **La phrase de départ**, avec la cible mise à jour : « JiaKo aide les petits entrepreneurs à réaliser une vraie étude de marché sans connaître la méthode : il les guide pour écrire le questionnaire, collecte les réponses et produit un rapport clair. »
+- **La direction artistique en 5 lignes** (ambiance, palette, typographies, images, animations), validée le 22 octobre, puis **le design system complet qui la complète le même jour** : palette, typographie, échelle, rayons, hauteurs, composants. Les deux documents sont conservés, avec les notes qui disent lequel fait foi
+- **La source du design system** : `context/import/jiako-design-system.md`, copie du `design.md` fourni par Wilfried dans ses Téléchargements
+- **Les coordonnées de contact** : WhatsApp 07 15 38 30 96 et wilfriedahouaaka@gmail.com, reprises du fichier de configuration et utilisées sur la page Contact
+
+---
+
+## 5. Objectifs
+
+**Court terme (phase 1, validation sans code)** : 10 à 15 interviews avec un seul segment, en remplissant `suivi-interviews.csv` au fur et à mesure.
+
+Seuils Go proposés dans le rapport du 20 octobre, à confirmer :
+
+| Seuil | Cible |
+|---|---|
+| Ont réalisé ou prévoient une étude dans les 6 mois | 6 sur 10 ou plus |
+| Ont déjà payé quelqu'un ou perdu beaucoup de temps | 4 sur 10 ou plus |
+| Acceptent un prix précis, une précommande ou un pilote | 3 sur 10 ou plus |
+| Inscriptions liste d'attente de personnes inconnues | 20 ou plus |
+
+**Phase 2** : vendre à la main 3 à 5 études clé en main, noter les heures et le prix.
+
+**Long terme** : 500 000 FCFA de chiffre d'affaires mensuel dans le portefeuille, dont JiaKo est un moteur possible.
+
+---
+
+## 6. Prochaines étapes
+
+1. **Lancer les interviews**, c'est le seul vrai blocage. L'outil est prêt (`suivi-interviews.md`), il ne reste qu'à lister 10 noms
+2. **Trancher les 6 questions ouvertes** : gratuit (30 réponses une fois ou illimité sur une étude), prix visibles ou renvoi WhatsApp, visuel du hero (page de réponse ou liste des études), section exemple réel, badge « la plus populaire », WhatsApp dans la navbar. Elles étaient prévues « avant la phase de maquettes » : les maquettes sont maintenant construites et avancent sans elles, donc le retard se paie sur les pages concernées (prix, hero, section exemple)
+3. **Donner un avis sur l'architecture** proposée le 22 octobre
+4. **Trancher les 3 points ouverts de l'architecture** : effet de la régénération de token sur les réponses existantes, design du honeypot, droit d'effacement du répondant anonyme
+5. **Estimer le coût de l'IA** avant de promettre une analyse IA dans le plan gratuit
+6. **Choisir le nom définitif** avant d'acheter un domaine ou de publier une page
+
+---
+
+## 7. Points de vigilance
+
+- **Le No-Go et les maquettes.** Le rapport du 20 octobre dit « aucune ligne de code avant le bilan ». Les maquettes HTML/CSS ne sont pas du code de production : pas de build, pas de base de données, pas de serveur. Techniquement la règle tient. Mais le risque réel n'est pas juridique, il est temporel : on construit une interface sans avoir interrogé un seul prospect. Si les interviews disent que le besoin n'est pas là, tout le travail de design sera à refaire.
+- **Aucune interview faite.** 0 ligne dans le CSV, sur 10 à 15 prévues. C'est le seul point qui bloque réellement le projet.
+- **Le gratuit est faible face à QuestionPro**, qui offre 200 réponses par sondage et 30 types de questions gratuitement, à vie. La défense n'est pas le chiffre, c'est l'accompagnement. Si la page d'accueil met « 30 réponses » en gros et rien d'autre, la comparaison se perd.
+- **Le différenciant IA est déjà pris.** Le rapport du 20 octobre recommandait de tester une seule fonction IA dans le MVP, et le chantier C du 22 octobre répond : **Tally AI génère un questionnaire complet à partir d'une description, gratuitement et sans limite**. Jotform et SurveyMonkey font pareil avec des plafonds. Une fonction « IA qui propose les questions » n'est donc plus un argument de vente, c'est un minimum attendu. La différenciation de JiaKo doit porter ailleurs : le contexte ivoirien, le français, le WhatsApp, le prix en mobile money, le livrable partageable.
+- **Aucune preuve sociale au lancement.** Les 5 concurrents affichent des logos clients dans le premier écran. Aucun logo n'est disponible, et il ne faut surtout pas en inventer.
+- **Nom provisoire** : jiako.com en vente à 8 255 $, jiako.co déjà enregistré, « Jako » est une entreprise allemande d'articles de sport phonétiquement très proche.
+- **Légal** : la loi n° 2013-450 du 19 juin 2013 et l'ARTCI s'appliquent, avec une déclaration préalable à faire avant la bêta. Trois points restent à trancher avec un juriste.
+- **Vercel Hobby interdit l'usage commercial** et peut mettre un déploiement en pause sans préavis. La migration vers Cloudflare Pages est obligatoire avant toute page de prix.

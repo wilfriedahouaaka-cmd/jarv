@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JiaKo — Les états de l'application</title>
+
+  <!-- Maquette statique : aucune donnée réelle, aucun compte.
+       Les polices viennent de Google Fonts ICI UNIQUEMENT, pour la maquette.
+       En production elles seront auto-hébergées et sous-ensemble français. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="composants.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Barre de navigation : modèle B de navigation.md -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="nav-marque nav-marque-lien" href="index.html">JiaKo</a>
+      <ul class="nav-liens">
+        <li><a href="01-etudes.html">Mes études</a></li>
+        <li><a href="02-editeur.html">Nouvelle</a></li>
+        <li><a href="index.html">Accueil du site</a></li>
+      </ul>
+      <span class="nav-compte">wilfried@…</span>
+    </nav>
+
+    <main class="contenu">
+
+      <div class="entete-page">
+        <div>
+          <p class="sur-titre">Référence de conception</p>
+          <h1>Les cinq états d'un écran</h1>
+        </div>
+      </div>
+
+      <p>
+        Un écran n'existe jamais uniquement dans son cas nominal. Il attend,
+        il est vide, il échoue, il refuse, il sature. Voici le rendu voulu
+        pour les cinq cas de JiaKo, et la règle qui les gouverne tous :
+        <strong>dire ce qui s'est passé, puis ce qu'on peut faire maintenant</strong>.
+        Jamais un code d'erreur, jamais une page blanche.
+      </p>
+
+      <!-- ============ 1. Chargement ============ -->
+      <section class="bloc">
+        <p class="sur-titre">État 1 sur 5</p>
+        <h2 class="titre-carte">Le chargement : la forme de ce qui arrive</h2>
+        <p class="etat-texte">
+          On montre la silhouette du contenu en cours d'arrivée, jamais un
+          cercle qui tourne. Le squelette prend la forme de la carte qui va
+          s'afficher, pour que le saut de mise en page soit minime. Si le
+          chargement dépasse une seconde, on ajoute un mot : « Chargement de
+          tes réponses ». Et si ça prend plus de dix secondes, on le dit
+          plutôt que de laisser tourner le squelette indéfiniment.
+        </p>
+
+        <div class="carte mt-4">
+          <div class="carte-entete">
+            <div>
+              <div class="squelette w-24"></div>
+              <div class="squelette squelette-titre w-80 mt-4"></div>
+            </div>
+            <div class="squelette squelette-titre w-24"></div>
+          </div>
+          <div class="mt-4">
+            <div class="squelette w-55"></div>
+            <div class="squelette w-80 mt-4"></div>
+          </div>
+          <div class="actions mt-4">
+            <div class="squelette w-55"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2. Vide ============ -->
+      <section class="bloc">
+        <p class="sur-titre">État 2 sur 5</p>
+        <h2 class="titre-carte">Le vide : expliquer, puis proposer</h2>
+        <p class="etat-texte">
+          Un écran vide sans explication, c'est un utilisateur qui part. On
+          dit pourquoi c'est vide, puis on donne la suite la plus courte
+          possible. Dans JiaKo, l'état vide propose directement les trois
+          modèles de départ : on ne demande jamais à un débutant de décider
+          quoi faire. Le rendu complet est sur
+          <a href="01b-etudes-vide.html">la page « un compte tout juste créé »</a>.
+        </p>
+
+        <div class="etat mt-4">
+          <h3 class="etat-titre">Tu n'as pas encore d'étude</h3>
+          <p class="etat-texte">
+            Une étude, c'est un modèle choisi et quelques questions. Tu peux
+            en avoir une en dix minutes.
+          </p>
+          <div class="etat-actions">
+            <a class="bouton bouton-primaire" href="02-editeur.html">Commencer</a>
+            <a class="bouton bouton-secondaire" href="index.html#modeles">Voir les modèles</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 3. Erreur ============ -->
+      <section class="bloc">
+        <p class="sur-titre">État 3 sur 5</p>
+        <h2 class="titre-carte">L'erreur : ce qui s'est passé, en français</h2>
+        <p class="etat-texte">
+          Pas de code, pas de « Error 500 », pas de message qui dit juste
+          « Une erreur est survenue ». On nomme l'opération qui a échoué
+          (« Nous n'avons pas pu envoyer ta question »), on dit que les
+          réponses déjà saisies sont gardées, et on propose de réessayer.
+          C'est le cas le plus grave en Côte d'Ivoire, où la connexion
+          saute : si l'utilisateur croit avoir perdu son travail, il ne
+          revient pas.
+        </p>
+
+        <div class="etat etat-erreur mt-4">
+          <h3 class="etat-titre">Nous n'avons pas pu enregistrer ta question</h3>
+          <p class="etat-texte">
+            Ta connexion a été interrompue. Tes 3 questions précédentes sont
+            sauvegardées, rien n'est perdu. Réessaie quand ta connexion
+            revient.
+          </p>
+          <div class="etat-actions">
+            <button type="button" class="bouton bouton-primaire">Réessayer</button>
+            <button type="button" class="bouton bouton-discret">Continuer sans enregistrer</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 4. Pas les droits ============ -->
+      <section class="bloc">
+        <p class="sur-titre">État 4 sur 5</p>
+        <h2 class="titre-carte">L'accès refusé : ne rien révéler</h2>
+        <p class="etat-texte">
+          C'est le point où la sécurité dicte le texte. Si l'écran disait
+          « Cette étude appartient à un autre compte », il confirmerait
+          qu'elle existe : n'importe qui pourrait tester des identifiants
+          et savoir quelles études tournent. On utilise donc la même
+          formulation que pour une page inexistante. La différence entre
+          « inexistant » et « interdit » n'apparaît nulle part, ni dans le
+          texte, ni dans le délai de réponse.
+        </p>
+
+        <div class="etat etat-acces mt-4">
+          <h3 class="etat-titre">Cette page n'existe pas</h3>
+          <p class="etat-texte">
+            Le lien a peut-être expiré, ou il est incomplet. Si quelqu'un
+            te l'a envoyé, demande-lui de le renvoyer.
+          </p>
+          <div class="etat-actions">
+            <a class="bouton bouton-secondaire" href="01-etudes.html">Retour à mes études</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 5. Quota ============ -->
+      <section class="bloc">
+        <p class="sur-titre">État 5 sur 5</p>
+        <h2 class="titre-carte">Le quota : la limite annoncée, pas subie</h2>
+        <p class="etat-texte">
+          Le quota se signale AVANT d'être atteint, sur la liste des études,
+          et une fois atteint on dit trois choses : combien il en reste,
+          quand le compteur se réinitialise, et ce qui est possible
+          maintenant. Fermer une étude à 25 réponses au beau milieu d'une
+          campagne WhatsApp sans prévenir, c'est perdre un client pour
+          toujours.
+        </p>
+
+        <div class="bandeau bandeau-attention mt-4">
+          <strong>17 réponses reçues</strong> sur les 25 incluses ce mois-ci
+          pour cette étude. Le compteur repart au 1<sup>er</sup> novembre.
+        </div>
+
+        <div class="etat etat-quota mt-4">
+          <h3 class="etat-titre">Le quota de réponses est atteint</h3>
+          <p class="etat-texte">
+            Ton étude « Avis clients : ma boutique de quartier » a reçu ses
+            25 réponses du mois. Les 25 réponses déjà reçues restent
+            consultables et exportables. Le lien reste actif, les réponses
+            supplémentaires seront comptées à partir du 1<sup>er</sup> novembre.
+          </p>
+          <div class="etat-actions">
+            <a class="bouton bouton-primaire" href="04-resultats.html">Voir les 25 réponses</a>
+            <a class="bouton bouton-secondaire" href="06-contact.html">Parler du quota adapté</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Pied commun à toutes les pages de l'espace connecté.
+         Liste des liens à tenir à jour : navigation.md -->
+    <footer class="pied">
+      <div class="pied-interieur">
+        <div class="pied-colonnes">
+          <div class="pied-colonne">
+            <p class="pied-titre">Le produit</p>
+            <ul class="pied-liens">
+              <li><a href="index.html#etapes">Comment ça marche</a></li>
+              <li><a href="index.html#modeles">Les modèles</a></li>
+              <li><a href="index.html#faq">Questions fréquentes</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Ton espace</p>
+            <ul class="pied-liens">
+              <li><a href="01-etudes.html">Se connecter</a></li>
+              <li><a href="02-editeur.html">Créer une étude</a></li>
+              <li><a href="01b-etudes-vide.html">Un compte tout juste créé</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">Voir aussi</p>
+            <ul class="pied-liens">
+              <li><a href="03-reponse-mobile.html">Ce que voient tes clients</a></li>
+              <li><a href="04-resultats.html">Un exemple de résultats</a></li>
+              <li><a href="07-etats.html">Les états d'un écran</a></li>
+              <li><a href="06-contact.html">Nous écrire</a></li>
+            </ul>
+          </div>
+          <div class="pied-colonne">
+            <p class="pied-titre">JiaKo</p>
+            <ul class="pied-liens">
+              <li><a href="06-contact.html#whatsapp">WhatsApp</a></li>
+              <li><a href="05-confidentialite.html">Confidentialité</a></li>
+              <li><a href="index.html#faq">Tarifs</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pied-bas">
+          <span>JiaKo · Abidjan, Côte d'Ivoire</span>
+          <span>&copy; 2026 JiaKo</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

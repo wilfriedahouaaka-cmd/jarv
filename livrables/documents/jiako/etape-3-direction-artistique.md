@@ -3,6 +3,8 @@
 > Application de la méthode en 4 étapes de la skill `design-interface`.
 > Le cadrage (étape 1 de la skill) est déjà fait : le public est connu, les contraintes aussi. Je propose donc directement la direction artistique (étape 2), et **j'attends ton accord avant de construire quoi que ce soit**.
 
+> **Mise à jour du 22 octobre 2026.** Ce document est la décision d'origine. Il a été complété le même jour par un **design system fourni par Wilfried : « Warm Editorial Rigor »** (source : `context/import/jiako-design-system.md`). Ce que ce document dit de Fraunces, de l'encre `#14171A`, du gris `#6B7268` et du rôle de l'ambre ne fait plus foi : **le design system gagne**. Il impose Newsreader, l'encre `#192823`, le gris `#707975`, et inverse les rôles (vert primaire, ambre en accent WhatsApp). Le reste de l'analyse, notamment le cadrage et les deux budgets de mouvement, reste valable.
+
 ---
 
 ## 1. Le cadrage, ce que je sais déjà

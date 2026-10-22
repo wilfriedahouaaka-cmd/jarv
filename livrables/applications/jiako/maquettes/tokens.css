@@ -1,0 +1,128 @@
+/* ============================================================
+   JiaKo — Fondations de design (design tokens)
+   Design system appliqué le 22 octobre 2026 : « Warm Editorial
+   Rigor » (fichier fourni par Wilfried, conservé dans
+   context/import/jiako-design-system.md).
+
+   Direction : vert bouteille + ambre marigold, papier chaud,
+   Newsreader (display) + Public Sans (texte),
+   animations quasi nulles dans l'application.
+
+   NOTE sur la source : le bloc YAML du document annonce une palette
+   différente (#003228 en primary, #feb64e en secondary-container).
+   On retient la palette décrite en clair dans la section « Colors »,
+   parce que les composants du même document (ombres, halo de focus)
+   utilisent bien rgba(18, 74, 61, …), c'est-à-dire #124A3D.
+
+   C'est le SEUL fichier où une valeur brute apparaît.
+   Tout le reste du code utilise var(--...).
+   ============================================================ */
+
+:root {
+  /* ----------------------------------------------------------
+     Couleurs : une dominante forte (vert bouteille) portant
+     l'action principale, et l'ambre réservée à l'accent et au
+     partage WhatsApp. Rôle inversé par rapport à la direction
+     artistique du 22/10, sur décision de Wilfried.
+     ---------------------------------------------------------- */
+  --c-primary: #124A3D;        /* vert bouteille : action principale, marque */
+  --c-primary-ink: #FFFDF9;    /* texte posé sur le vert */
+  --c-primary-soft: #1D6453;   /* variante claire : survol, barres, fill */
+
+  --c-accent: #E8A33D;         /* ambre : bouton WhatsApp et accent */
+  --c-accent-ink: #192823;     /* texte sur ambre : contraste ~9:1 */
+  --c-accent-deep: #B8791F;    /* ambre foncé : état actif, texte accentué */
+
+  /* Neutres : 6 nuances, toutes chaudes, jamais de gris froid */
+  --c-bg: #FAF6EF;             /* papier chaud, la page */
+  --c-surface: #FFFDF9;        /* carte et panneau */
+  --c-surface-2: #F1EDE6;      /* zone secondaire, en-tête de tableau */
+  --c-border: #E8E0D2;         /* filets, séparateurs : sable doux */
+  --c-text: #192823;           /* encre : charbon forestier, plus chaud que le noir */
+  --c-text-muted: #707975;     /* gris chaud, texte secondaire */
+
+  /* États : le statut ne se signalera JAMAIS par la couleur seule,
+     toujours avec un mot en clair à côté (règle d'accessibilité) */
+  --c-warning: #B8791F;
+  --c-danger: #BA1A1A;
+  --c-info: #2C5F8A;
+
+  /* Fonds pastel des pastilles de statut, valeurs du design system.
+     Fonds clairs + encre foncée : lisibles en plein soleil. */
+  --c-badge-ok-bg: #E7F3EF;      /* Terminé : fond vert pâle, encre verte */
+  --c-badge-ok-ink: #124A3D;
+  --c-badge-wait-bg: #FCF4E6;    /* En cours : fond crème, encre ambre */
+  --c-badge-wait-ink: #B8791F;
+  --c-badge-draft-bg: #F2EDE4;   /* Brouillon : fond sable, encre grise */
+  --c-badge-draft-ink: #5B6661;
+
+  /* Halo de focus, extrait du design system */
+  --halo-focus: 0 0 0 3px rgb(18 74 61 / 0.12);
+
+  /* ----------------------------------------------------------
+     Typographie : 2 familles maximum.
+     En production, auto-hébergées et sous-ensemble français.
+     Ici, la maquette appelle Google Fonts (maquette locale uniquement).
+     ---------------------------------------------------------- */
+  --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-text: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Échelle issue du design system, base 16 px :
+     12 / 14 / 16 / 18 / 20 / 24 / 32 / 40 */
+  --fs-xs: 0.75rem;      /* 12 px : label-md, comptages secondaires */
+  --fs-sm: 0.875rem;     /* 14 px : body-md, labels */
+  --fs-base: 1rem;       /* 16 px : body-lg, titre de champ */
+  --fs-lg: 1.125rem;     /* 18 px : title-lg */
+  --fs-xl: 1.25rem;      /* 20 px : headline-sm */
+  --fs-2xl: 1.5rem;      /* 24 px : headline-md */
+  --fs-3xl: 2rem;        /* 32 px : headline-lg */
+  --fs-4xl: 2.5rem;      /* 40 px : display-lg */
+  --fs-stat: 1.75rem;    /* 28 px : grand chiffre, tabular-stat */
+
+  --lh-tight: 1.1;
+  --lh-normal: 1.5;
+  --tracking-tight: -0.02em;
+  --tracking-label: 0.02em;   /* labels et badges : large, pour les écrans d'entrée de gamme */
+
+  /* Espacements : échelle de 4 px */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+
+  /* Rayons : UN rayon dominant (12 px), deux valeurs en complément.
+     Les contrôles interactifs passent en pilule, les surfaces gardent 12 px.
+     Si tout est arrondi, rien ne l'est. */
+  --r-sm: 4px;
+  --r-md: 12px;      /* rayon dominant : cartes et conteneurs */
+  --r-full: 9999px;  /* pilule : boutons, pastilles, champs sur une ligne */
+
+  /* Hauteur des contrôles : 48 px de zone tactile, 44 px minimum intérieur */
+  --h-control: 3rem;
+  --h-badge: 1.75rem;
+
+  /* Largeur de page */
+  --w-page: 1040px;
+
+  /* Ombres teintées par le vert du projet, jamais du noir pur.
+     La profondeur vient du pigment, pas d'un gris froid.
+     Deux ombres suffisent : légère pour les cartes, portée pour tout ce qui
+     flotte au-dessus du contenu (barre collante, feuille). Le design system
+     prévoit une ombre "overlay" orientée vers le haut, pensée pour les
+     feuilles qui montent du bas ; une barre en haut reçoit la même famille,
+     orientée vers le bas, sinon l'ombre se perdrait sous la barre. */
+  --shadow-sm: 0 1px 3px 0 rgb(18 74 61 / 0.04);
+  --shadow-md: 0 4px 16px -2px rgb(18 74 61 / 0.07),
+               0 1px 3px 0 rgb(18 74 61 / 0.04);
+
+  /* Mouvement : budget d'APPLICATION, 150-250 ms maximum.
+     Au-delà de 250 ms, c'est un délai perçu par l'utilisateur. */
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
