@@ -13,7 +13,8 @@
 | `etape-0-comprehension.md` | 22 octobre 2026 | Le compte rendu de lecture, les 8 contradictions et les 6 points flous |
 | `etape-1-plan-mvp.md` | 22 octobre 2026 | **Le plan du MVP** : 5 indispensables, 11 reportés, ordre de construction en 11 étapes, cas limites, données de répondants et loi ivoirienne |
 | `etape-2-stack.md` | 22 octobre 2026 | Le comparatif de stack, les tarifs vérifiés, et la décision d'hébergement qui lève un blocage |
-| `etape-3-direction-artistique.md` | 22 octobre 2026 | La direction artistique en 5 lignes, en attente d'accord |
+| `etape-3-direction-artistique.md` | 22 octobre 2026 | La direction artistique en 5 lignes. **Validée par Wilfried le 22 octobre 2026** |
+| `etape-4-architecture.md` | 22 octobre 2026 | **L'architecture** : 7 tables, 3 fonctions RPC, la RLS table par table, le rate limiting, et la surface d'attaque de chaque fonctionnalité |
 
 ## Décisions validées le 22 octobre 2026
 
@@ -25,7 +26,8 @@
 | Nom | **JiaKo** confirmé |
 | Stack | React + TypeScript + Vite + Tailwind + Supabase + Recharts + shadcn/ui, sans changement |
 | Hébergement | **Vercel gratuit pendant le développement** (0 $/mois). Migration obligatoire vers Cloudflare Pages avant la page de vente ou le premier client payant |
-| Direction artistique | Proposée, **en attente de l'accord de Wilfried** |
+| Direction artistique | **Validée par Wilfried le 22 octobre 2026**. Vert bouteille #124A3D + ambre marigold #E8A33D, Fraunces + Public Sans |
+| Architecture | **Proposée le 22 octobre 2026**. 7 tables, 3 fonctions RPC, RLS, rate limiting. En attente d'accord |
 
 ## Versions texte
 

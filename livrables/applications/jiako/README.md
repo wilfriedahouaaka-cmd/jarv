@@ -11,7 +11,7 @@
 | **Décision du 20 octobre 2026** | Go pour la validation, No-Go pour le développement |
 | **Décisions validées le 22 octobre 2026** | Périmètre (rapport du 20), cible (petits entrepreneurs), modèle (freemium), nom (JiaKo), stack, hébergement |
 | **Prochaine action** | Valider la direction artistique, puis lancer les interviews |
-| **Blocage principal** | Accord sur la direction artistique (étape 3). Le blocage n°1 (segment cible) est tranché par hypothèse |
+| **Blocage principal** | Aucun. Direction artistique validée le 22 octobre 2026. Prochaine étape : construire |
 | **Objectif de la phase** | Atteindre les seuils de la section 5 du rapport de planification, ou pivoter |
 
 **Aucune ligne de code avant le bilan de la phase 1.** Ce n'est pas une posture théorique : JiaKo manipule des comptes et des données de tiers, donc le coût de construire correctement est élevé. Valider d'abord évite de payer ce coût pour un produit que personne ne veut.
@@ -131,6 +131,60 @@ Ce n'est pas un avis juridique, c'est la liste des points à faire confirmer.
 | 10 000 FCFA | 3 |
 
 Le coût de l'IA est variable : il faut l'estimer avant de promettre une analyse IA dans le plan gratuit.
+
+## Direction artistique validée
+
+**Validée par Wilfried le 22 octobre 2026.** C'est la référence du projet, à respecter dans chaque écran.
+
+```
+Ambiance      : Confiance sobre, vérité de terrain. Un outil sérieux qui parle aux gens,
+                pas un rapport de consultant
+
+Palette       : Vert bouteille profond #124A3D (dominant) + ambre marigold #E8A33D (accent unique)
+                + papier chaud #FAF6EF (surface) + encre #14171A (texte) + gris chaud #6B7268 (secondaire)
+
+Typographies  : Fraunces, en display seulement (titres, chiffres clés)
+                Public Sans, pour tout le reste
+
+Images        : Aucune photo de banque. L'interface elle-même est l'image, plus une carte de
+                résultat conçue pour être capturée et partagée sur WhatsApp
+
+Animations    : Application quasi nulle, 150-250 ms, transform et opacity seulement
+                Page d'attente ouverte : révélations au scroll en CSS natif, 0 Ko de JavaScript
+```
+
+**Les règles de couleur qui vont avec** :
+
+- L'ambre #E8A33D est **trop faible en contraste sur le papier #FAF6EF** pour porter du texte. Il sert uniquement de fond de boutons, de soulignement, de marque.
+- Le texte est toujours encre sur papier, ou papier sur vert. Jamais d'ambre en texte courant.
+- Contraste exigé : 4,5:1 pour le texte courant, 3:1 pour le grand texte.
+
+**Le test d'identité** : si je collais le logo de Kofira ou de Sika sur une page JiaKo, est-ce qu'on verrait la différence ? Oui : Kofira est un site émotionnel, JiaKo est un outil de vérité. Deux univers.
+
+**À retenir pour la suite** : deux budgets de mouvement (quasi nul dans l'application, ouvert sur la page d'attente) ; la carte de résultat partageable n'est pas dans le MVP mais ses proportions sont pensées dès maintenant ; `prefers-reduced-motion` respecté dès le premier jour, c'est une exigence WCAG.
+
+## L'architecture
+
+**Document : `livrables/documents/jiako/etape-4-architecture.md`** (22 octobre 2026)
+
+L'architecture sépare **deux surfaces à niveau de confiance distinct**, et c'est le principe qui organise tout le reste :
+
+| Surface | Routes | Sécurité |
+|---|---|---|
+| **Privée** | `/app/*`, authentifiée | RLS, policy sur chaque table |
+| **Publique** | `/r/:token`, anonyme | Aucune policy INSERT, tout passe par des fonctions RPC |
+
+**Le cœur du dispositif** : `reponses` et `reponses_items` n'ont **aucune policy INSERT**. Le droit d'écriture n'existe que dans `soumettre_reponse()`, une fonction `SECURITY DEFINER` qui vérifie tout : le token, que l'étude est publiée, l'idempotence (clé unique), le quota (compteur atomique), et **que chaque question appartient bien à l'étude du token**.
+
+Résultat : si le code React contient un bug, **la base refuse quand même**.
+
+| | |
+|---|---|
+| **7 tables** | `profils`, `etudes`, `questions`, `reponses`, `reponses_items`, `compteurs`, `modeles` |
+| **3 fonctions RPC** | `lire_etude_publique`, `soumettre_reponse`, `supprimer_reponse` |
+| **Rate limiting** | Fonction `check_request()` déclarée via `pgrst.db_pre_request`, qui tourne avant chaque requête, lit l'IP dans `x-forwarded-for`, et rejette au-delà du seuil. Table dans le schéma `private` pour que les IP ne soient pas lisibles |
+
+**3 points restés ouverts** (section 9 du document) : l'effet de la régénération de token sur les réponses existantes, le honeypot, et le droit d'effacement du répondant anonyme.
 
 ## Le nom
 

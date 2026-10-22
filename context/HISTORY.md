@@ -9,6 +9,15 @@
 
 ## 2026-10-22
 
+### JiaKo : direction artistique validée et architecture produite
+- **Direction artistique validée par Wilfried** (« JE VALIDE ») : vert bouteille #124A3D + ambre marigold #E8A33D, papier chaud #FAF6EF, Fraunces en display + Public Sans en texte, aucune photo de banque, animations quasi nulles dans l'app (150-250 ms) et ouvertes sur la page d'attente (CSS natif, 0 Ko de JS). La direction est notée dans `livrables/applications/jiako/README.md` comme le veut la skill de design
+- **Architecture produite** : `livrables/documents/jiako/etape-4-architecture.md`. 7 tables (`profils`, `etudes`, `questions`, `reponses`, `reponses_items`, `compteurs`, `modeles`), 3 fonctions RPC (`lire_etude_publique`, `soumettre_reponse`, `supprimer_reponse`)
+- **Le principe d'architecture** : deux surfaces à niveau de confiance distinct. La page publique `/r/:token` n'a **aucune policy INSERT** sur les tables de réponse. Tout écrit par un répondant passe par `soumettre_reponse()`, une fonction `SECURITY DEFINER` qui vérifie le token, le statut publié, l'idempotence (clé unique par étude), le quota (compteur atomique) et **que chaque question appartient bien à l'étude du token**. Si le code React contient un bug, la base refuse quand même
+- **Mécanisme d'idempotence** : `soumission_cle` générée côté client au chargement, unique par étude. Le double-clic et la reprise réseau produisent une seule réponse
+- **Rate limiting vérifié en ligne** : fonction `check_request()` en `pgrst.db_pre_request` de PostgREST, qui tourne avant chaque requête, lit l'IP dans `x-forwarded-for` et rejette avec un code HTTP 420. Table `private.rate_limits` pour que les IP ne soient pas lisibles via l'API. Seuil proposé : 30 écritures par IP sur 5 minutes. Limite assumée : contournable par distribution sur plusieurs IP, c'est une protection robots
+- **3 points restés ouverts** : effet de la régénération de token sur les réponses existantes, design du honeypot, droit d'effacement du répondant anonyme (à trancher avec un juriste)
+- **Note technique sur `SECURITY DEFINER`** : les fonctions RPC contournent la RLS, donc `SET search_path = ''`, qualification complète des tables, et `REVOKE EXECUTE FROM PUBLIC` avec `GRANT` limité aux rôles nécessaires
+
 ### JiaKo : les étapes 1 à 3 de planification produites
 - **Décisions validées par Wilfried** : périmètre = celui du rapport du 20 octobre (5 must-have, CSV seul, pas de PDF ni d'Excel), cible = **petits entrepreneurs**, modèle = freemium 4 offres, nom = **JiaKo** confirmé
 - Hypothèse posée sur la cible : Wilfried a dit « la cible est bonne » sans préciser laquelle entre étudiants et entrepreneurs. L'interprétation retenue est la recommandation déjà formulée (petits entrepreneurs). À confirmer avec les interviews
