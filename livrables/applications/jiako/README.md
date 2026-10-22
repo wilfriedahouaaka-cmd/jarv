@@ -135,7 +135,15 @@ Décide du nom définitif avant d'acheter un domaine ou de publier une page. Fai
 jiako/
 ├── README.md              # ce fichier
 ├── plan-de-travail.md     # le plan d'action détaillé, phase par phase
+├── parcours-technique.md  # le chemin de construction, étape par étape
+├── direction-design.md    # le design 2026, et les références à m'envoyer
 └── (le code, plus tard)
 ```
+
+| Document | Ce qu'il contient |
+|---|---|
+| `plan-de-travail.md` | Les 6 phases de validation, les 5 chantiers de la phase 1, les seuils Go, ce qu'il ne faut pas faire, les 8 décisions |
+| `parcours-technique.md` | Le chemin jusqu'à l'application en production : la page d'attente, la décision sur le guidage, le socle technique, les 5 must-have, la bêta. Chaque étape a un livrable et une condition de passage |
+| `direction-design.md` | L'état réel du design web 2026, vérifié avec les chiffres. Le budget de mouvement par surface, la checklist de fin de chantier, et la liste des références à m'envoyer |
 
 Les documents du projet sont dans `livrables/documents/jiako/`. Le rapport de suivi interne est dans `context/rapports/JiaKo.md`.

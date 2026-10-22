@@ -9,6 +9,17 @@
 
 ## 2026-10-22
 
+### Parcours technique et direction design JiaKo
+- Wilfried a collé le PDF du rapport de planification : c'est **exactement le même document** que celui déjà lu et utilisé pour le plan de travail. Aucune information nouvelle, le dossier n'a pas changé
+- Deux nouveaux documents produits dans `livrables/applications/jiako/` : `parcours-technique.md` (le chemin de construction) et `direction-design.md` (le design 2026)
+- **Parcours technique** : 2 surfaces distinctes (page d'attente, puis application), 5 étapes avec livrable et condition de passage. Étape A = la page d'attente, seul code justifiable maintenant, 3 fichiers sans build. Étape B = la décision sur le modèle de guidage (A modèles par secteur / B assistant IA / C accompagnement humain). Étape C = socle technique, stack React/TS/Vite/Tailwind/Supabase/Vercel/Recharts/shadcn, structure par features, 6 migrations dans l'ordre. Étape D = les 5 must-have un par un, chacun avec sa porte de sortie. Étape E = la bêta fermée, avec le dossier ARTCI à lancer en amont
+- **Direction design** : état réel du design 2026 vérifié en ligne, pas de mémoire. Points clés retenus : le CSS gère nativement les animations au scroll (`animation-timeline`, support ~85 %, Safari depuis septembre 2025, priorité interop 2026), GSAP est 100 % gratuit depuis le 30 avril 2025 (racheté par Webflow, licence commerciale incluse), INP est le juge de paix (43 % des sites échouent au seuil 200 ms, INP bon sur 77 % du mobile contre 97 % du desktop, 48 % des origines mobiles passent les 3 Core Web Vitals), le balancement a gagné, `prefers-reduced-motion` est une tableur de base
+- Décision de design recommandée : **deux budgets de mouvement distincts**. Page d'attente ouverte (scroll, révélations, CSS natif sans JS). Application quasi nulle (150-250 ms, transform/opacity seulement, `will-change` uniquement pendant l'animation). Refus explicite du WebGL, du 3D, du curseur personnalisé et du défilement lissé sur mobile, pour la cible sur forfait
+- Règle de design fondatrice retenue : « une animation qui n'explique rien ne mérite pas d'exister »
+- Sources de références à envoyer par Wilfried : Awwwards (landing page, Site of the Year), Exhibit a, Landbook, SaaS Frame, Godly pour la page d'attente ; Mobbin, Refero, Onboarding Love, Screenlane, Dashboard Design Patterns pour l'application. Format demandé : lien + une phrase sur ce qu'il aime + capture d'écran, et aussi ce qu'il n'aime pas
+- Point signalé : le chantier « outils d'enquête assistés par IA » du rapport du 20 octobre reste non fait et conditionne la différenciation. Plus prioritaire que le design
+- Décision d'attente : la page d'attente n'est pas construite avant que le segment cible soit tranché (décision n°1), parce que le titre, la promesse et les 3 modèles présentés en dépendent
+
 ### Dossier de travail JiaKo créé
 - Deux PDF récupérés dans `C:\Users\HP KS\Downloads` : `Dossier de Cadrage et Identite - JiaKo.pdf` (16 octobre 2026) et `JiaKo_Rapport_de_Planification.pdf` (20 octobre 2026), copiés dans `livrables/documents/jiako/`
 - Le rapport du 20 octobre a été lu **intégralement** (12 sections) et a servi de base à la planification. Le dossier de cadrage du 16 octobre n'a pas pu être converti en texte : le modèle ne lit pas les PDF, et l'extracteur PowerShell écrit pour l'occasion n'a pas abouti (polices à table ToUnicode par police, flux mal délimités). Wilfried a demandé d'arrêter. Le dossier du 16 octobre est donc **non lu**
