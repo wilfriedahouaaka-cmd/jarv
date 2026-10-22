@@ -145,11 +145,14 @@ Une fois que je confirme, mettez à jour le fichier en question et ajoutez une e
 ├── .claude/
 │   ├── commands/                 # Les 6 commandes, pour Claude Code
 │   └── skills/
-│       └── recherche-actualites/ # La même skill de veille, pour OpenCode
+│       ├── recherche-actualites/ # La même skill de veille, pour OpenCode
+│       └── design-interface/     # La même skill de design, pour OpenCode
 ├── .opencode/                    # Les mêmes choses, pour OpenCode
 │   ├── agents/jarvis.md          # Mon profil d'agent, l'agent par défaut
 │   ├── commands/                 # Les 6 commandes, pour OpenCode
-│   └── skills/                   # Skills (super-pouvoirs)
+│   └── skills/
+│       ├── recherche-actualites/ # Skill de veille personnalisée
+│       └── design-interface/     # Skill de design d'interface
 └── module-installs/
     └── jarvis-install/           # Module d'installation initial
 ```
@@ -217,6 +220,14 @@ Un rapport par projet, dans `context/rapports/<projet>.md`. L'assistant présent
 Skill de veille intelligente qui filtre les actualités selon mon contexte personnel. Activée automatiquement quand je demande "fais-moi un point sur les actualités", "donne-moi les news du jour", ou via la commande `/morning`.
 
 L'avantage : pas de bruit. Seulement ce qui me concerne vraiment, vu mes objectifs et projets actuels.
+
+### design-interface
+
+Skill de design d'interface. S'active dès que je demande de concevoir, refaire ou améliorer l'interface, la mise en page, la palette, la typographie, les animations ou l'identité visuelle d'un site ou d'une application.
+
+Elle contient une méthode en 4 étapes (cadrage, direction artistique validée, fondations avant pages, auto-relecture), deux familles de design (sites émotionnels et applications fonctionnelles), la liste noire des signes qui trahissent un design généré par IA, et la checklist de livraison. Le protocole complet est dans `.opencode/skills/design-interface/SKILL.md`.
+
+**Appliquez-la sans avoir à la citer.** Dès que la demande porte sur de l'interface, suivez la méthode, y compris dans un dossier projet hors du workspace, grâce à la version globale.
 
 ---
 

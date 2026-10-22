@@ -9,6 +9,16 @@
 
 ## 2026-10-22
 
+### Skill de design d'interface créée
+- Demande de Wilfried : une skill à appliquer automatiquement dès qu'il demande de concevoir ou d'améliorer l'interface d'un site ou d'une application, pour que le résultat ne ressemble pas à un site généré par IA
+- Fichier canonique : `.opencode/skills/design-interface/SKILL.md`. Miroir Claude Code : `.claude/skills/design-interface/SKILL.md` (empreinte MD5 identique). Version globale : `~/.config/opencode/skills/design-interface/SKILL.md`, pointeur qui renvoie au canonique, pour que la skill s'applique aussi dans les dossiers projet (Kofira, JiaKo, site client) et pas seulement dans le workspace
+- Contenu : méthode en 4 étapes (cadrage avec 3 à 5 questions max, direction artistique en 5 lignes avec accord attendu, fondations avant pages, auto-relecture), 2 familles de design (sites émotionnels / applications fonctionnelles), liste noire des 7 signes IA, checklist de livraison en 5 blocs, consignes techniques React
+- Éléments ajoutés par rapport à la demande initiale, pour l'adapter au contexte réel de Wilfried : palette dominante + accent unique avec 6 neutres, tokens sémantiques plutôt que couleurs brutes, un seul rayon dominant par projet, ombres teintées, échelle typographique à ratio 1.25 ou 1.333, budget de mouvement differentiated (page d'attente ouverte, application 150-250 ms), et l'état de l'art 2026 vérifié (CSS `animation-timeline` natif en premier choix, GSAP gratuit depuis avril 2025, `prefers-reduced-motion` en WCAG 2.3.3, `transform` et `opacity` uniquement, `will-change` pendant l'animation active seulement)
+- Points d'attention inscrits dans la skill : le public est ivoirien sur téléphone en connexion lente, donc la performance passe avant le spectaculaire. WebGL, 3D et curseur personnalisé sont explicitement exclus pour cette cible
+- Test de non-identité ajouté : « si je collais le logo d'un autre projet sur cette page, verrait-on la différence ? ». Si non, l'identité n'existe pas
+- Rappel inscrit : quand une image manque, demander à Wilfried exactement ce qu'il faut fournir (dimensions, ratio, format, poids), et concevoir la mise en page pour qu'elle soit remplaçable, plutôt que d'utiliser une banque d'images générique
+- `AGENTS.md` et `CLAUDE.md` mis à jour : la skill est listée dans les skills disponibles, et je dois l'appliquer sans avoir à la citer
+
 ### Parcours technique et direction design JiaKo
 - Wilfried a collé le PDF du rapport de planification : c'est **exactement le même document** que celui déjà lu et utilisé pour le plan de travail. Aucune information nouvelle, le dossier n'a pas changé
 - Deux nouveaux documents produits dans `livrables/applications/jiako/` : `parcours-technique.md` (le chemin de construction) et `direction-design.md` (le design 2026)

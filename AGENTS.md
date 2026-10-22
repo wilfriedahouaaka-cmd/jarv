@@ -156,11 +156,13 @@ Une fois que je confirme, mets à jour le fichier et ajoute une entrée dans `co
 │   ├── agents/jarvis.md          # Mon profil d'agent, l'agent par défaut
 │   ├── commands/                 # Mes commandes, pour OpenCode
 │   └── skills/                   # Skills (super-pouvoirs)
-│       └── recherche-actualites/ # Skill de veille personnalisée
+│       ├── recherche-actualites/ # Skill de veille personnalisée
+│       └── design-interface/     # Skill de design d'interface (sites et applications)
 ├── .claude/
 │   ├── commands/                 # Les mêmes 6 commandes, pour Claude Code
 │   └── skills/
-│       └── recherche-actualites/ # La même skill de veille, pour Claude Code
+│       ├── recherche-actualites/ # La même skill de veille, pour Claude Code
+│       └── design-interface/     # La même skill de design, pour Claude Code
 └── module-installs/
     └── jarvis-install/           # Module d'installation initial
 ```
@@ -233,6 +235,14 @@ Affiche la table de correspondance entre mes intentions et les commandes.
 Skill de veille intelligente qui filtre les actualités selon mon contexte personnel. Activée automatiquement quand je demande "fais-moi un point sur les actualités", "donne-moi les news du jour", ou via la commande `/morning`.
 
 L'avantage : pas de bruit. Seulement ce qui me concerne vraiment, vu mes objectifs et projets actuels.
+
+### design-interface
+
+Skill de design d'interface. S'active dès que je demande de concevoir, refaire ou améliorer l'interface, la mise en page, la palette, la typographie, les animations ou l'identité visuelle d'un site ou d'une application.
+
+Elle contient une méthode en 4 étapes (cadrage, direction artistique validée, fondations avant pages, auto-relecture), deux familles de design (sites émotionnels et applications fonctionnelles), la liste noire des signes qui trahissent un design généré par IA, et la checklist de livraison. Le protocole complet est dans `.opencode/skills/design-interface/SKILL.md`.
+
+**Je l'applique sans avoir à la citer.** Dès que la demande porte sur de l'interface, je suis la méthode, y compris quand je travaille dans un dossier projet hors du workspace, grâce à la version globale.
 
 ---
 
