@@ -9,6 +9,15 @@
 
 ## 2026-10-22
 
+### Dossier de travail JiaKo créé
+- Deux PDF récupérés dans `C:\Users\HP KS\Downloads` : `Dossier de Cadrage et Identite - JiaKo.pdf` (16 octobre 2026) et `JiaKo_Rapport_de_Planification.pdf` (20 octobre 2026), copiés dans `livrables/documents/jiako/`
+- Le rapport du 20 octobre a été lu **intégralement** (12 sections) et a servi de base à la planification. Le dossier de cadrage du 16 octobre n'a pas pu être converti en texte : le modèle ne lit pas les PDF, et l'extracteur PowerShell écrit pour l'occasion n'a pas abouti (polices à table ToUnicode par police, flux mal délimités). Wilfried a demandé d'arrêter. Le dossier du 16 octobre est donc **non lu**
+- Classement : JiaKo est une **application** (comptes, base de données, questionnaires, export, modèle freemium), pas un site de contenu. Dossier dans `livrables/applications/jiako/`, documents dans `livrables/documents/jiako/`
+- Contenu produit : `livrables/applications/jiako/README.md` (statut, raisonnement, phases, MVP, modèle de données, sécurité spécifique à JiaKo, légal, coûts, nom) et `plan-de-travail.md` (les 6 phases détaillées, les 5 chantiers de la phase 1, les seuils Go, ce qu'il ne faut pas faire, les 8 décisions, le premier pas concret)
+- Point de sécurité propre à JiaKo retenu : **injection de formules dans les exports CSV** (une réponse commençant par `=`, `+`, `-` ou `@` s'exécute dans Excel). Ce point n'est pas dans le guide, il est réel
+- Statut acté : phase 1, validation sans code. Décisions bloquantes n°1 (cible unique : étudiants ou petits entrepreneurs) et n°2 (priorité Kofira d'abord)
+- Repère important : le rapport du 20 octobre prévaut sur le dossier du 16 octobre en cas de conflit, il le reprend explicitement
+
 ### Sauvegarde GitHub activée
 - Décision : le workspace est maintenant versionné et sauvegardé sur GitHub, dépôt `https://github.com/wilfriedahouaaka-cmd/jarv.git` (compte `wilfriedahouaaka-cmd`), branche `main`
 - Premier commit : `9d5e962` « Sauvegarde initiale du workspace Jarvis », 43 fichiers
