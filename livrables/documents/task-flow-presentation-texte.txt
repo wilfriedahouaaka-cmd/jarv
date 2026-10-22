@@ -1,0 +1,99 @@
+
+========== PAGE 1 ==========
+TASK FLOW
+Transformez vos tâches en progrès visibles
+Application de gestion de tâches 100 % locale
+Simple • Privée • Sans compte
+Analyse & Présentation
+
+========== PAGE 2 ==========
+Task Flow — Présentation 2 / 8
+L'essence du projet
+Task Flow est une application web statique de productivité personnelle. Elle permet d'organiser ses tâches, de
+définir des priorités et de suivre sa progression entièrement dans le navigateur, sans aucun serveur ni
+inscription.
+L'idée centrale
+Offrir un outil de gestion de tâches simple, clair et respectueux de la vie privée. Toutes les données restent
+sur l'appareil de l'utilisateur (localStorage). Aucune donnée n'est jamais envoyée sur internet.
+Simplicité Confidentialité Autonomie
+Interface claire
+Sans friction
+Prêt en 30 secondes
+Zéro serveur
+Zéro tracking
+Données 100 % locales
+Pas de compte
+Fonctionne hors ligne
+Contrôle total
+
+========== PAGE 3 ==========
+Task Flow — Présentation 3 / 8
+Problème & Solution
+Le constat
+• La plupart des applications de tâches demandent un compte et envoient les données sur des serveurs.
+• Elles sont souvent trop complexes ou chargées de fonctionnalités inutiles.
+• L'utilisateur perd le contrôle de ses propres informations personnelles.
+La réponse de Task Flow
+Une application légère, rapide et privée qui se concentre uniquement sur l'essentiel : créer, organiser et
+terminer des tâches, tout en offrant un tableau de bord de progression et un petit profil personnel.
+« Transformez vos tâches en progrès visibles. »
+
+========== PAGE 4 ==========
+Task Flow — Présentation 4 / 8
+Fonctionnalités principales
+• Création de tâches — Nom, description, catégorie, priorité, date et moment de la journée
+• Liste temporaire — Préparez plusieurs tâches avant de les enregistrer définitivement
+• Filtres intelligents — Toutes / Affaires / Terminées / Prioritaires
+• Tableau de bord — Statistiques de progression, compteurs et vue d'ensemble
+• Profil personnel — Photo ou initiales + historique des actions
+• Thème clair / sombre — Adaptation visuelle selon les préférences
+• Responsive — Fonctionne parfaitement sur téléphone et ordinateur
+• 100 % local — Stockage via localStorage — aucune donnée ne quitte l'appareil
+
+========== PAGE 5 ==========
+Task Flow — Présentation 5 / 8
+Les 5 pages de l'application
+Accueil Présentation de l'application et appel à l'action
+Mes tâches Créer, organiser et marquer les tâches comme terminées
+Dashboard Progression globale, statistiques et vue d'ensemble
+Mon espace Profil personnel + historique des actions
+Paramètres Modifier le profil ou réinitialiser toutes les données
+
+========== PAGE 6 ==========
+Task Flow — Présentation 6 / 8
+Architecture technique
+Application 100 % statique : HTML + CSS + JavaScript pur. Aucun backend, aucun framework lourd, aucune
+base de données distante.
+Frontend HTML5 sémantique, CSS moderne (variables, flex/grid), JavaScript vanilla
+Stockage localStorage (profil, tâches, historique, thème, liste temporaire)
+Hébergement Compatible GitHub Pages, Netlify, Vercel ou tout serveur de fichiers statiques
+Responsive Design adaptatif mobile-first avec menu hamburger et grilles fluides
+Idéal pour un prototype éducatif, un outil personnel ou une démonstration de frontend moderne sans backend.
+
+========== PAGE 7 ==========
+Task Flow — Présentation 7 / 8
+Pourquoi Task Flow ?
+3 Respect de la vie privée
+Aucune donnée personnelle n'est collectée ni transmise.
+3 Zéro friction
+Pas d'inscription, pas de mot de passe, on commence immédiatement.
+3 Transparence
+Code ouvert, fonctionnement 100 % visible et compréhensible.
+3 Léger & rapide
+Pas de dépendances lourdes, chargement quasi instantané.
+3 Contrôle total
+L'utilisateur peut tout effacer d'un clic dans les paramètres.
+3 Portable
+Fonctionne partout où un navigateur moderne est disponible.
+
+========== PAGE 8 ==========
+Task Flow — Présentation 8 / 8
+En résumé
+Task Flow est l'essence d'une application de productivité moderne :
+• Simple à utiliser et à comprendre
+• Respectueuse de la vie privée par conception
+• Entièrement autonome (pas de serveur ni de compte)
+• Orientée vers le progrès visible et la motivation
+Un outil personnel, clair et libre — conçu pour organiser ses tâches
+sans jamais perdre le contrôle de ses données.
+Merci

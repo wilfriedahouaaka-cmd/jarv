@@ -9,6 +9,16 @@
 
 ## 2026-10-22
 
+### JiaKo : étape 0, les 7 documents lus et le dossier de cadrage débloqué
+- Wilfried a lancé le travail sur JiaKo avec une méthode en 6 phases (compréhension, plan du MVP, stack, direction artistique, architecture, développement), avec son accord entre chaque phase
+- **Blocage technique levé** : l'assistant ne lit pas les PDF. J'ai installé `pdfjs-dist` dans un dossier temporaire et écrit un script d'extraction (`extract.mjs`) qui convertit les PDF en texte en préservant les positions. Les 4 PDF de `context/import/` (CV, SIKA, Task Flow, JiaKo) et le dossier de cadrage JiaKo ont été convertis
+- **Le dossier de cadrage JiaKo du 16 octobre a été lu pour la première fois.** Il n'avait jamais été extrait dans ce workspace. C'est le document qui contient l'étymologie du nom, les 5 rôles, l'architecture ouverte et le tableau des risques
+- Compte rendu de lecture produit : `livrables/documents/jiako/etape-0-comprehension.md`, avec 8 contradictions et 6 points flous
+- **Contradictions majeures** : périmètre du MVP (cadrage 16 : 5 types de questions, camemberts, Excel + PDF ; rapport 20 : 4 types, barres, CSV seul), cible (6 ou 7 segments, aucun retenu dans les deux), modèle économique (4 offres par abonnement contre la réserve du rapport 20 sur un besoin ponctuel), nom (« validé » dans le cadrage contre « provisoire » dans le rapport), rôles (5 contre 2), cadre légal (RGPD seul contre RGPD + loi 2013-450)
+- **Point le plus important** : le brief de Wilfried du 22 octobre décrit le périmètre du cadrage du 16 octobre (export Excel/CSV, rapport PDF, 6 segments, 4 offres), pas celui du rapport du 20 octobre. Et il demande d'enchaîner directement sur le plan du MVP, la stack et les maquettes, alors que le rapport du 20 et le CONTEXT.md disent tous les deux No-Go pour le développement avant 10 à 15 interviews
+- Position retenue : l'étape 0 est faite, les étapes 1 à 4 (plan, stack, direction artistique, architecture) sont de la planification et ne violent pas le No-Go, qui porte sur le code de production. La landing page et les maquettes sont explicitement prévues par le cadrage du 16 avant le développement
+- Documents rangés : `livrables/documents/jiako/` (2 PDF + 2 versions texte + le compte rendu), `livrables/documents/` (CV, SIKA, Task Flow en texte)
+
 ### Skill de design d'interface créée
 - Demande de Wilfried : une skill à appliquer automatiquement dès qu'il demande de concevoir ou d'améliorer l'interface d'un site ou d'une application, pour que le résultat ne ressemble pas à un site généré par IA
 - Fichier canonique : `.opencode/skills/design-interface/SKILL.md`. Miroir Claude Code : `.claude/skills/design-interface/SKILL.md` (empreinte MD5 identique). Version globale : `~/.config/opencode/skills/design-interface/SKILL.md`, pointeur qui renvoie au canonique, pour que la skill s'applique aussi dans les dossiers projet (Kofira, JiaKo, site client) et pas seulement dans le workspace

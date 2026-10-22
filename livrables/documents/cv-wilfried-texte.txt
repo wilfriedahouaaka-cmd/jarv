@@ -1,0 +1,87 @@
+
+========== PAGE 1 ==========
+Projet Personnel
+Projet Personnel
+Projet Personnel
+2024 - 2026
+WILFRIED
+AHOUA AKA
+DÉVELOPPEUR FULL STACK
+JUNIOR
+COORDONNÉES
+EMAIL
+wilfriedahouaaka@gmail.com
+TÉLÉPHONE
++225 07 15 38 30 96
+LOCALISATION
+Koumassi Sicogi, Abidjan, Côte d'Ivoire
+PROFIL
+22 ans • Nationalité Ivoirienne
+COMPÉTENCES
+HTML5 CSS3 JavaScript
+PHP MySQL C
+Visual Basic MS Access
+VS Code GitHub Netlify
+LANGUES
+FRANÇAIS :
+Courant / Maternelle
+ANGLAIS :
+Niveau technique / Intermédiaire
+CENTRES D'INTÉRÊT
+• Veille technologique : Nouveautés du
+développement web et programmation.
+• Football : Suivi des championnats et
+analyses tactiques de matchs.
+• Animation & Mangas : Culture
+numérique et univers créatifs.
+SYNTHÈSE PROFESSIONNELLE
+Étudiant en 2e année de Développement d'Applications à Pigier Abidjan, passionné par
+la création de projets web dynamiques. Rigoureux et motivé, je conçois et déploie des
+applications complètes en autonomie en utilisant HTML, CSS, JavaScript, PHP et
+MySQL. À la recherche d'une première opportunité professionnelle ou d'un stage pour
+mettre mes compétences techniques au service de projets ambitieux.
+PROJETS & RÉALISATIONS WEB
+Application E-Commerce & Catalogue Dynamique
+Développement Web Full Stack
+Conception et déploiement d'une plateforme web d'e-commerce complète.
+Gestion dynamique du catalogue produits, panier d'achat et commandes.
+Intégration d'un système d'envoi automatique de commandes via WhatsApp.
+Gestion de la base de données relationnelle et mise à jour des stocks.
+HTML5 • CSS3 • PHP • MySQL • WhatsApp API
+Gestionnaire de Dépenses (Expense Manager)
+Application Web Responsive
+Application interactive de suivi des finances personnelles et gestion de budget.
+Calcul en temps réel des revenus, dépenses et du solde disponible.
+Historique horodaté des transactions et formatage automatique en FCFA.
+Sauvegarde locale et persistance des données utilisateur.
+HTML5 • CSS3 • JavaScript (DOM) • LocalStorage
+Gestionnaire de Tâches (Task Manager)
+Application Web Interactive
+Outil de productivité pour la gestion et l'organisation quotidienne des activités.
+Ajout, filtrage, suivi de statut et suppression dynamique de tâches.
+Interface réactive adaptée aux mobiles et ordinateurs.
+HTML5 • CSS3 • JavaScript • LocalStorage
+FORMATION ACADÉMIQUE
+Informatique Développement d'Applications (IDA)
+Pigier Côte d'Ivoire — Abidjan
+Formation approfondie en algorithmique, programmation structurée et orientée objet.
+Conception et administration de bases de données relationnelles (MySQL, Access).
+Développement d'applications web et réseaux.
+ATOUTS & QUALITÉS
+Autonomie & Curiosité : Capacité à concevoir, coder et déployer des projets de A à Z.
+Résolution de problèmes : Analyse logique et débogage rigoureux d'applications.
+Esprit d'équipe : Capacité d'adaptation et écoute active dans les projets collectifs.
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•

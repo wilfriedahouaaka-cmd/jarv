@@ -1,0 +1,141 @@
+
+========== PAGE 1 ==========
+JiaKo
+COMPTE RENDU DE CADRAGE & ÉTUDE DE FAISABILITÉ
+Date :
+16 octobre 2026
+Nom du projet :
+JiaKo
+Statut :
+Cadrage & Étude préalable
+1. IDENTITÉ & GENÈSE DU NOM « JIAKO »
+Le nom JiaKo a été conçu sur mesure pour allier l'identité culturelle ivoirienne (racines Agni / Akan), l'inspiration esthétique
+issue des fusions choisies (Jiahao et Aiko), et la nature technique d'une application web d'étude de marché moderne.
+JIA (Le Marché & La Valeur)
+Issu du concept de Dja/Jia (le marché, la valeur, la
+transaction) et conservant l'élégance de Jiahao. Il symbolise
+le marché terrain et l'activité économique.
+KO / KÔ (Interroger & Écouter)
+Inspiré du « Kô-kô » (frapper à la porte pour demander l'avis)
+et de la terminaison de Aiko. Il symbolise le fait d'interroger et
+de collecter la voix des répondants.
+💡 Signification globale : « JiaKo » signifie littéralement Interroger le marché pour en extraire la valeur.
+2. OBJET DU DOCUMENT & CONTEXTE
+Le présent compte rendu synthétise les échanges et décisions relatifs à la création d’une application web destinée à faciliter la
+réalisation d’études de marché. De nombreux entrepreneurs, étudiants, associations et PME souhaitent comprendre leur marché
+avant de lancer un produit ou un service, mais manquent de méthodologie et jonglent avec des outils hétérogènes non
+connectés (Google Forms, Excel, WhatsApp, Word).
+3. PROBLÈME IDENTIFIÉ
+Manque de connaissances méthodologiques pour réaliser une étude de marché.
+Utilisation de plusieurs outils séparés et non connectés entre eux.
+Difficulté à concevoir un questionnaire pertinent et à analyser les réponses.
+Absence de rapport clair et directement exploitable.
+Coût élevé et complexité des solutions professionnelles (Qualtrics, SurveyMonkey).
+JiaKo — Application Web d'Étude de Marché Page 1 sur 5
+
+========== PAGE 2 ==========
+4. SOLUTION PROPOSÉE
+Créer une application web permettant de réaliser une étude de marché de manière guidée, simple et structurée : création de
+projet, choix de modèles adaptés, création et diffusion du questionnaire, collecte, visualisation graphique, export Excel/CSV et
+génération d’un rapport PDF simplifié.
+5. NATURE DU PRODUIT : SITE WEB VS APPLICATION WEB
+Critère Site web Application web (JiaKo)
+Objectif principal Présenter une activité Permettre aux utilisateurs d'agir
+Comptes utilisateurs Non obligatoires Nécessaires
+Création de questionnaires Non Oui
+Collecte de réponses Non Oui
+Tableaux de bord & Analyse Non Oui
+Export de rapports Rare Oui (PDF, Excel, CSV)
+6. PUBLIC CIBLE
+Entrepreneurs et porteurs de projets.
+Étudiants en marketing, gestion, commerce ou entrepreneuriat.
+Petites et moyennes entreprises (PME), associations et OBNL.
+Freelances, consultants, petites agences marketing, enseignants et chercheurs.
+7. UTILISATEURS ET RÔLES IDENTIFIÉS
+Rôle Description
+Utilisateur créateur Crée et gère ses études de marché et questionnaires.
+Répondant Répond aux questionnaires diffusés via le lien public.
+Administrateur Gère les comptes, les abonnements et la plateforme globale.
+Support Accompagne les utilisateurs et traite les demandes d'assistance.
+Analyste Consulte et interprète les résultats avancés.
+JiaKo — Application Web d'Étude de Marché Page 2 sur 5
+
+========== PAGE 3 ==========
+8. FONCTIONNALITÉS PRÉVUES
+8.1 Fonctionnalités du MVP
+Inscription, connexion sécurisée et récupération de mot de passe.
+Création de compte, de projet d'étude et de questionnaires.
+Types de questions : texte court, texte long, choix unique/multiple, échelle de satisfaction, date.
+Modèles d'études prêts à l'emploi et lien public de diffusion.
+Collecte des réponses, tableau de bord, graphiques (camembert, histogramme, évolution).
+Export des réponses en Excel/CSV et export PDF basique du rapport.
+8.2 Fonctionnalités Futures
+Panel de répondants ciblés et analyse automatique par intelligence artificielle.
+Rapports professionnels personnalisés et collaboration en équipe.
+Comparaison entre études, intégration WhatsApp/Email/Sociaux, version mobile native.
+9. PROPOSITION DE VALEUR & DIFFÉRENCIATION
+« Contrairement à un simple formulaire en ligne, notre application accompagne l’utilisateur étape par étape afin de concevoir
+une véritable étude de marché, collecter des réponses et obtenir un rapport clair et exploitable. »
+10. ANALYSE DU MARCHÉ & CONCURRENTS
+Secteur : Outils d'étude de marché, sondages en ligne, feedback client et recherche utilisateur.
+Concurrents directs : Google Forms, Typeform, SurveyMonkey, QuestionPro, Zoho Survey, Tally, Qualtrics.
+Concurrents indirects : Excel, WhatsApp, interviews téléphoniques, groupes sociaux, agences d'études.
+Opportunité : Combler l'écart entre les outils trop simples et les plateformes trop coûteuses ou complexes.
+11. MODÈLE ÉCONOMIQUE (FREEMIUM)
+Offre Contenu envisagé
+Gratuit Une étude, un questionnaire, nombre limité de réponses.
+Starter Plusieurs études, exports Excel, graphiques avancés.
+Pro Rapports PDF, modèles premium, analyses avancées.
+Business Comptes multiples, collaboration, support prioritaire.
+JiaKo — Application Web d'Étude de Marché Page 3 sur 5
+
+========== PAGE 4 ==========
+12. ÉTUDE DE FAISABILITÉ (TECHNIQUE, FINANCIÈRE, JURIDIQUE)
+Projet techniquement réalisable avec des technologies web standards. Respect obligatoire des réglementations sur les données
+personnelles (politique de confidentialité, CGU, consentement, RGPD).
+13. ARCHITECTURE TECHNIQUE ENVISAGÉE
+Élément Choix possible
+Frontend React ou Next.js
+Backend Node.js, Django ou Laravel
+Base de données PostgreSQL
+Authentification JWT ou sessions sécurisées
+Graphiques Chart.js ou Recharts
+Export de données Excel, CSV, PDF
+Hébergement Vercel, Render, Railway ou AWS
+E-mails Resend, SendGrid ou Mailgun
+Monitoring Sentry, UptimeRobot ou Grafana
+14. MODÈLE DE DONNÉES INITIAL
+Entités : Utilisateur, Étude, Questionnaire, Question, Réponse, Réponse_Question, Rapport, Abonnement.
+Relations clés : Un utilisateur crée N études ; une étude contient N questionnaires ; un questionnaire reçoit N réponses et génère
+N rapports.
+15. GESTION APRÈS LE DÉPLOIEMENT
+Gestion utilisateurs : Recherche, statut, suspension, réinitialisation, rôles, suppression RGPD.
+Support client : E-mail, formulaire, chat, centre d'aide, FAQ, tutoriels.
+Abonnements : Essais gratuits, paiements, relances, facturation, annulations.
+Surveillance & Incidents : Monitoring de disponibilité, sauvegarde, sécurité, procédure corrective en 7 étapes.
+JiaKo — Application Web d'Étude de Marché Page 4 sur 5
+
+========== PAGE 5 ==========
+16. RISQUES IDENTIFIÉS & MESURES DE PRÉVENTION
+Risque Impact Mesure de prévention
+Concurrence établie Élevé Différenciation par l'accompagnement et la simplicité
+Manque de demande Élevé Étude utilisateur et validation préalable
+Utilisateurs non payants Moyen Offre gratuite limitée et valeur claire de la version payante
+Complexité technique Moyen Démarrage avec un MVP simple
+Problèmes de sécurité & RGPD Élevé HTTPS, chiffrement, gestion du consentement
+17. INDICATEURS DE SUCCÈS (KPIS)
+Inscriptions, études créées, questionnaires publiés, réponses collectées, taux de complétion, rapports générés, utilisateurs
+actifs mensuels (MAU), taux de conversion payant, MRR, churn et tickets de support.
+18. PROCHAINES ÉTAPES
+Étape Action Responsable
+1 Finaliser le nom du projet (Validé : JiaKo) Porteur du projet
+2 Réaliser les interviews utilisateurs Porteur du projet
+3 Analyser les concurrents & créer les personas Porteur du projet
+4 Créer la landing page & réaliser les maquettes Designer / Porteur
+5 Rédiger le cahier des charges & Définir l'architecture Développeur / Porteur
+6 Développer le MVP, tester la version pilote & déployer Développeur / Équipe
+19. DÉCISIONS RETENUES & CONCLUSION
+Le projet sera développé sous forme d'application web guidée, axée sur le modèle freemium et la cible des étudiants,
+entrepreneurs et PME. Le nom officiel retenu est JiaKo. La prochaine étape consiste à mener la phase de validation utilisateur et
+de maquettage avant le développement du MVP.
+JiaKo — Application Web d'Étude de Marché Page 5 sur 5
