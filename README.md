@@ -111,6 +111,38 @@ Le standard de sécurité, en un seul document. Les niveaux junior, intermédiai
 
 ---
 
+## Sauvegarde GitHub
+
+Le workspace est versionné et sauvegardé sur GitHub.
+
+| | |
+|---|---|
+| Dépôt | `https://github.com/wilfriedahouaaka-cmd/jarv.git` |
+| Branche | `main` |
+| Authentification | Git Credential Manager, via le navigateur au premier push |
+
+### Sauvegarder après une session de travail
+
+```bash
+git add -A
+git status --porcelain    # VÉRIFIER que .env n'apparaît pas
+git commit -m "description claire du travail fait"
+git push
+```
+
+Si `git status --porcelain` affiche `.env`, **ne commit pas**. C'est le seul contrôle à faire, et il prend deux secondes.
+
+### Ce qui n'est jamais sauvegardé
+
+| Élément | Pourquoi |
+|---|---|
+| `.env` | Tes clés d'API. C'est le but du `.gitignore` |
+| `context/import/` | Tes documents personnels (CV, rapports importés) |
+
+Si tu ajoutes un jour un fichier sensible, ajoute son pattern au `.gitignore` **avant** de commiter, pas après.
+
+---
+
 ## Bon à savoir
 
 ### Changer le nom de l'assistant

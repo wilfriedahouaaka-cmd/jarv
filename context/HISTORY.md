@@ -9,6 +9,16 @@
 
 ## 2026-10-22
 
+### Sauvegarde GitHub activée
+- Décision : le workspace est maintenant versionné et sauvegardé sur GitHub, dépôt `https://github.com/wilfriedahouaaka-cmd/jarv.git` (compte `wilfriedahouaaka-cmd`), branche `main`
+- Premier commit : `9d5e962` « Sauvegarde initiale du workspace Jarvis », 43 fichiers
+- Contenu versionné : `AGENTS.md`, `CLAUDE.md`, `GUIDE-TRAVAIL.md`, `opencode.jsonc`, `context/` (hors `import/`), `livrables/` (les 5 README), `.env.example`, `.gitignore`
+- Non versionné, volontairement : `.env` (secrets), `context/import/` (CV, rapports et documents personnels fournis par Wilfried)
+- Authentification : Git Credential Manager (installe avec Git for Windows) est configuré comme `credential.helper`, le push s'authentifie via le navigateur. Pas de token en clair sur le disque
+- Vérifications faites avant push : `.env` absent de l'index, `context/import/` absent, `.env.example` sans aucune valeur, aucun `*.key`/`*.pem`/`credentials.json` dans l'index, et relecture de la liste des fichiers distants via l'API GitHub
+- **Point de vigilance** : le dépôt est **public** (`"visibility":"public"`). `context/CONTEXT.md` contient le téléphone et l'email de Wilfried, donc ces informations sont visibles par quiconque. Si le dépôt doit rester confidentiel, il faut le passer en privé sur GitHub (Settings > General > Danger Zone > Change visibility) ou retirer ces données du fichier
+- Procédure de sauvegarde documentée dans `README.md` : `git add -A`, vérifier `git status --porcelain` que `.env` n'apparaît pas, `git commit`, `git push`
+
 ### Dossier `livrables/` + gestion des secrets
 - Décision : deux dispositifs mis en place à la racine du workspace, le 22 octobre 2026
 - **1. `livrables/`** : dossier pour tout ce que l'IA produit. 4 sous-dossiers : `sites-web/` (sites internet de contenu, sans comptes ni fonctionnalités métier), `applications/` (apps avec comptes, base de données, formulaires de commande, paiement, calculs, tableaux de bord, plateformes qui vendent un service, outils métier), `automatisations-ia/` (scripts et agents IA pour entreprises, sans interface pour l'utilisateur final), `documents/` (cahiers des charges, fiches projet, rapports, propositions commerciales, supports)
