@@ -11,6 +11,21 @@
 | `cadrage-et-identite-texte.txt` | 16 octobre 2026 | Version texte du dossier de cadrage, extraite automatiquement |
 | `rapport-de-planification-texte.txt` | 20 octobre 2026 | Version texte du rapport, extraite automatiquement |
 | `etape-0-comprehension.md` | 22 octobre 2026 | Le compte rendu de lecture, les 8 contradictions et les 6 points flous |
+| `etape-1-plan-mvp.md` | 22 octobre 2026 | **Le plan du MVP** : 5 indispensables, 11 reportés, ordre de construction en 11 étapes, cas limites, données de répondants et loi ivoirienne |
+| `etape-2-stack.md` | 22 octobre 2026 | Le comparatif de stack, les tarifs vérifiés, et la décision d'hébergement qui lève un blocage |
+| `etape-3-direction-artistique.md` | 22 octobre 2026 | La direction artistique en 5 lignes, en attente d'accord |
+
+## Décisions validées le 22 octobre 2026
+
+| Décision | Choix retenu |
+|---|---|
+| Périmètre | Celui du rapport du 20 octobre : 5 must-have, CSV seul, pas de PDF ni d'Excel |
+| Cible | **Petits entrepreneurs** (et non étudiants). Hypothèse posée à partir de la recommandation, à confirmer avec les interviews |
+| Modèle | Freemium 4 offres, mais le MVP n'a aucun paiement |
+| Nom | **JiaKo** confirmé |
+| Stack | React + TypeScript + Vite + Tailwind + Supabase + Recharts + shadcn/ui, sans changement |
+| Hébergement | **Cloudflare Pages** (gratuit, autorise le commercial) + Supabase Free pendant le dev, Supabase Pro à 25 $/mois au premier client |
+| Direction artistique | Proposée, **en attente de l'accord de Wilfried** |
 
 ## Versions texte
 

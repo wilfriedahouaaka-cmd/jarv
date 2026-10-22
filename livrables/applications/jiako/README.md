@@ -7,13 +7,16 @@
 
 | | |
 |---|---|
-| **Phase actuelle** | Phase 1, validation sans code |
+| **Phase actuelle** | Phase 1, validation sans code. Les étapes de planification sont en cours |
 | **Décision du 20 octobre 2026** | Go pour la validation, No-Go pour le développement |
-| **Prochaine action** | Choisir le segment cible unique, puis lancer les interviews |
-| **Blocage principal** | Décision n°1 : étudiants ou petits entrepreneurs ? |
+| **Décisions validées le 22 octobre 2026** | Périmètre (rapport du 20), cible (petits entrepreneurs), modèle (freemium), nom (JiaKo), stack, hébergement |
+| **Prochaine action** | Valider la direction artistique, puis lancer les interviews |
+| **Blocage principal** | Accord sur la direction artistique (étape 3). Le blocage n°1 (segment cible) est tranché par hypothèse |
 | **Objectif de la phase** | Atteindre les seuils de la section 5 du rapport de planification, ou pivoter |
 
 **Aucune ligne de code avant le bilan de la phase 1.** Ce n'est pas une posture théorique : JiaKo manipule des comptes et des données de tiers, donc le coût de construire correctement est élevé. Valider d'abord évite de payer ce coût pour un produit que personne ne veut.
+
+**Précision sur ce qui a été produit le 22 octobre** : les documents de planification (étapes 1 à 3) ne sont **pas** du code. Ils préparent la phase 4 pour qu'elle soit rapide quand elle sera autorisée. C'est cohérent avec le No-Go, qui porte sur la production.
 
 ## Documents de référence
 
@@ -59,7 +62,9 @@ Un étudiant ou petit entrepreneur crée une étude guidée à partir d'un modè
 
 **Peut attendre :** rapport PDF, export Excel, abonnements, rôles et collaboration, panel de répondants, intégrations, application mobile.
 
-**Stack :** React, TypeScript, Vite, Tailwind, Supabase (auth, PostgreSQL, RLS), Vercel Pro, Recharts. Rien de nouveau à apprendre, pas de serveur Node séparé à sécuriser. Next.js n'est pas nécessaire.
+**Stack :** React, TypeScript, Vite, Tailwind, Supabase (auth, PostgreSQL, RLS), Recharts, shadcn/ui. Rien de nouveau à apprendre, pas de serveur Node séparé à sécuriser. Next.js n'est pas nécessaire, le SEO ne sert à rien derrière un compte.
+
+**Hébergement :** Cloudflare Pages plutôt que Vercel. Vérifié le 22 octobre : le plan Hobby de Vercel interdit explicitement l'usage commercial (« advertising the sale of a product or service »), et peut mettre un déploiement en pause sans préavis. Cloudflare Pages n'interdit pas le commercial et offre une bande passante illimitée. Voir `livrables/documents/jiako/etape-2-stack.md`.
 
 ## Modèle de données du MVP
 
@@ -103,15 +108,29 @@ Ce n'est pas un avis juridique, c'est la liste des points à faire confirmer.
 
 ## Coûts fixes
 
-Environ 45 $ par mois, soit 25 000 à 29 000 FCFA au taux variable du jour, à recalculer. Supabase Pro 25 $ (requis dès la bêta, le plan gratuit met en pause après 7 jours d'inactivité), Vercel Pro environ 20 $ (requis dès qu'un abonnement existe).
+**0 $ par mois pendant le développement.** Décision du 22 octobre, après vérification des tarifs et des conditions d'usage : Cloudflare Pages est gratuit et n'interdit pas le commercial, Supabase Free suffit tant que tu touches à la base régulièrement.
 
-| Prix par utilisateur | Utilisateurs payants pour couvrir les coûts fixes |
+| Moment | Coût | Quand payer |
+|---|---|---|
+| Développement et bêta | **0 $** | — |
+| Premier client payant | **25 $/mois** (Supabase Pro) | Quand un utilisateur dépend de la disponibilité |
+| Nom de domaine | ~12 $/an | Une fois, avant de publier le lien |
+
+**Pourquoi Supabase Pro à ce moment-là et pas avant** : le plan gratuit met le projet en pause après une semaine d'inactivité. Tant que tu développes, tu touches à la base, donc rien ne se passe. Dès qu'un client a partagé un lien à ses propres clients, un downtime te coûte de la crédibilité irrécupérable. C'est là que les 25 $/mois se justifient.
+
+**Comparaison avec l'estimation initiale** : le rapport du 20 octobre prévoyait ~45 $/mois (Supabase Pro + Vercel Pro) et en faisait un blocage : il fallait attendre de facturer. Avec Cloudflare Pages, ce blocage n'existe plus.
+
+### Couverture par prix de vente
+
+À 25 $/mois de coûts fixes, hors frais de paiement mobile, e-mails transactionnels, domaine et IA :
+
+| Prix par étude | Études pour couvrir les coûts |
 |---|---|
-| 2 000 FCFA | 13 à 15 |
-| 5 000 FCFA | 5 à 6 |
+| 2 000 FCFA | 13 |
+| 5 000 FCFA | 5 |
 | 10 000 FCFA | 3 |
 
-Hors frais de paiement mobile, e-mails transactionnels, domaine et coût de l'IA. Le coût de l'IA est variable, il faut l'estimer avant de promettre une analyse IA dans le plan gratuit.
+Le coût de l'IA est variable : il faut l'estimer avant de promettre une analyse IA dans le plan gratuit.
 
 ## Le nom
 
@@ -133,10 +152,10 @@ Décide du nom définitif avant d'acheter un domaine ou de publier une page. Fai
 
 ```
 jiako/
-├── README.md              # ce fichier
-├── plan-de-travail.md     # le plan d'action détaillé, phase par phase
-├── parcours-technique.md  # le chemin de construction, étape par étape
-├── direction-design.md    # le design 2026, et les références à m'envoyer
+├── README.md                    # ce fichier
+├── plan-de-travail.md           # le plan d'action détaillé, phase par phase
+├── parcours-technique.md        # le chemin de construction, étape par étape
+├── direction-design.md          # le design 2026, et les références à m'envoyer
 └── (le code, plus tard)
 ```
 
@@ -146,4 +165,13 @@ jiako/
 | `parcours-technique.md` | Le chemin jusqu'à l'application en production : la page d'attente, la décision sur le guidage, le socle technique, les 5 must-have, la bêta. Chaque étape a un livrable et une condition de passage |
 | `direction-design.md` | L'état réel du design web 2026, vérifié avec les chiffres. Le budget de mouvement par surface, la checklist de fin de chantier, et la liste des références à m'envoyer |
 
-Les documents du projet sont dans `livrables/documents/jiako/`. Le rapport de suivi interne est dans `context/rapports/JiaKo.md`.
+**Les documents produits le 22 octobre 2026** sont dans `livrables/documents/jiako/` :
+
+| Document | Ce qu'il contient |
+|---|---|
+| `etape-0-comprehension.md` | Le compte rendu de lecture des deux PDF, 8 contradictions, 6 points flous |
+| `etape-1-plan-mvp.md` | **Le plan du MVP** : 5 indispensables, 11 reportés, ordre de construction en 11 étapes estimé à 16-22 jours, cas limites par fonctionnalité, et les précautions légales sur les données de répondants |
+| `etape-2-stack.md` | Le comparatif de stack, les tarifs vérifiés le 22 octobre, et la décision d'hébergement qui lève le blocage budgétaire |
+| `etape-3-direction-artistique.md` | **La direction artistique en 5 lignes**, en attente de l'accord de Wilfried |
+
+Le rapport de suivi interne est dans `context/rapports/JiaKo.md`.

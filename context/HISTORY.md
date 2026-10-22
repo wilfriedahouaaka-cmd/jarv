@@ -9,6 +9,18 @@
 
 ## 2026-10-22
 
+### JiaKo : les étapes 1 à 3 de planification produites
+- **Décisions validées par Wilfried** : périmètre = celui du rapport du 20 octobre (5 must-have, CSV seul, pas de PDF ni d'Excel), cible = **petits entrepreneurs**, modèle = freemium 4 offres, nom = **JiaKo** confirmé
+- Hypothèse posée sur la cible : Wilfried a dit « la cible est bonne » sans préciser laquelle entre étudiants et entrepreneurs. L'interprétation retenue est la recommandation déjà formulée (petits entrepreneurs). À confirmer avec les interviews
+- **3 documents produits** dans `livrables/documents/jiako/` :
+  - `etape-1-plan-mvp.md` : 5 indispensables, 11 reportés avec leur raison, ordre de construction en 11 étapes estimé à 16-22 jours, cas limites par fonctionnalité, et une section sur les données de répondants et la loi ivoirienne (loi 2013-450, ARTCI, consentement, minimisation, durée de conservation)
+  - `etape-2-stack.md` : comparatif de stack (aucun changement par rapport au rapport du 20) et surtout **vérification en ligne des tarifs et conditions d'usage**
+  - `etape-3-direction-artistique.md` : direction en 5 lignes (vert bouteille #124A3D + ambre marigold #E8A33D, Fraunces + Public Sans, animations quasi nulles dans l'app et ouvertes sur la page d'attente), **en attente d'accord**
+- **Découverte importante sur Vercel** : le plan Hobby interdit explicitement l'usage commercial (« advertising the sale of a product or service », « receiving payment to create, update or host the site »), et Vercel peut mettre un déploiement en pause sans préavis (erreur 503). **Kofira est déjà dans cette situation** : `kofira.vercel.app` vend des sites-cadeaux à 6 000-35 000 FCFA sur un plan Hobby. Signalé, à corriger avant que Kofira ne prenne de la traction
+- **Décision d'hébergement** : **Cloudflare Pages** (gratuit, aucune restriction commercial dans ses conditions, bande passante illimitée) à la place de Vercel Pro. Supabase Free pendant le développement, Supabase Pro (25 $/mois) dès le premier vrai client
+- **Effet principal** : le blocage budgétaire du rapport du 20 octobre (« ~45 $/mois, attendre les premiers clients payants ») est levé. Budget passé de 45 $/mois à **0 $/mois** pendant le développement
+- Point technique relevé : Supabase facture maintenant **par organisation**, pas par projet. Le compute Micro est couvert par les crédits inclus du Pro
+
 ### JiaKo : étape 0, les 7 documents lus et le dossier de cadrage débloqué
 - Wilfried a lancé le travail sur JiaKo avec une méthode en 6 phases (compréhension, plan du MVP, stack, direction artistique, architecture, développement), avec son accord entre chaque phase
 - **Blocage technique levé** : l'assistant ne lit pas les PDF. J'ai installé `pdfjs-dist` dans un dossier temporaire et écrit un script d'extraction (`extract.mjs`) qui convertit les PDF en texte en préservant les positions. Les 4 PDF de `context/import/` (CV, SIKA, Task Flow, JiaKo) et le dossier de cadrage JiaKo ont été convertis
